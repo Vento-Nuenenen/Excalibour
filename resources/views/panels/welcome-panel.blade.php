@@ -1,14 +1,10 @@
 @php
-
     $levelAmount = 'level';
 
     if (Auth::User()->level() >= 2) {
         $levelAmount = 'levels';
-
     }
-
 @endphp
-
 
 <div class="panel panel-primary @role('admin', true) panel-info  @endrole">
     <div class="panel-heading">

@@ -20,8 +20,6 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 
     return [
         'name'                           => $faker->unique()->userName,
-        'first_name'                     => $faker->firstName,
-        'last_name'                      => $faker->lastName,
         'email'                          => $faker->unique()->safeEmail,
         'password'                       => $password ?: $password = bcrypt('secret'),
         'token'                          => str_random(64),
@@ -38,7 +36,5 @@ $factory->define(App\Models\Profile::class, function (Faker\Generator $faker) {
         'theme_id'         => 1,
         'location'         => $faker->streetAddress,
         'bio'              => $faker->paragraph(2, true),
-        'twitter_username' => $faker->userName,
-        'github_username'  => $faker->userName,
     ];
 });

@@ -25,30 +25,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                            <label for="first_name" class="col-sm-4 control-label">First Name</label>
-                            <div class="col-sm-6">
-                                {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'First Name', 'id' => 'first_name']) !!}
-                                @if ($errors->has('first_name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
-                            <label for="last_name" class="col-sm-4 control-label">Last Name</label>
-                            <div class="col-sm-6">
-                                {!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Last Name', 'id' => 'last_name']) !!}
-                                @if ($errors->has('last_name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-sm-4 control-label">E-Mail Address</label>
                             <div class="col-sm-6">
@@ -93,12 +69,6 @@
                                 </button>
                             </div>
                         </div>
-
-                        <p class="text-center margin-bottom-2">
-                            Or Use Social Logins to Register
-                        </p>
-
-                        @include('partials.socials')
 
                     {!! Form::close() !!}
 

@@ -5,7 +5,5 @@
 @endsection
 
 @section('content')
-
     <users-count :registered={{ $users }} ></users-count>
-
 @endsection
