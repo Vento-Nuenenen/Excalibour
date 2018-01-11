@@ -20,7 +20,7 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
-        "rap2hpoutre/laravel-log-viewer": "^0.10.4",
+        "rap2hpoutre/laravel-log-viewer": "^0.11.0",
         "socialiteproviders/37signals": "^3.0",
         "socialiteproviders/generators": "^2.0",
         "socialiteproviders/instagram": "^3.0",
