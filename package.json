@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "chart.js": "^2.7.1",
-    "dropzone": "^4.3.0",
+    "dropzone": "^5.2.0",
     "hideshowpassword": "^2.0.4",
     "laravel-echo": "^1.3.2",
     "moment": "^2.20.1",
