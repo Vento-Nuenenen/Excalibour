@@ -29,13 +29,13 @@ composer.lock
 
 ### ASSET EXCLUSIONS ###
 /node_modules
-/public/storage
+/public/storage/*
 /storage/*.key
 /vendor
 Homestead.yaml
 Homestead.json
-/storage/debugbar
-/storage/framework
-/storage/logs
-/storage/users
+/storage/debugbar/*
+/storage/framework/*
+/storage/logs/*
+/storage/users/*
 packages/
