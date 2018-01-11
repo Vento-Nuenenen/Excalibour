@@ -18,10 +18,9 @@ class UsersTableSeeder extends Seeder
         $profile = new Profile();
         $adminRole = Role::whereName('Admin')->first();
         $userRole = Role::whereName('User')->first();
-	    $tnRole = Role::whereName('TN')->first();
+        $tnRole = Role::whereName('TN')->first();
 
-
-	    // Seed test admin
+        // Seed test admin
         $seededAdminEmail = 'admin@admin.com';
         $user = User::where('email', '=', $seededAdminEmail)->first();
         if ($user === null) {
@@ -58,25 +57,25 @@ class UsersTableSeeder extends Seeder
             $user->save();
         }
 
-	    // Seed test user
-	    $user = User::where('email', '=', 'tn@tn.com')->first();
-	    if ($user === null) {
-		    $user = User::create([
-			    'name'                           => $faker->userName,
-			    'first_name'                     => $faker->firstName,
-			    'last_name'                      => $faker->lastName,
-			    'email'                          => 'tn@tn.com',
-			    'password'                       => Hash::make('password'),
-			    'token'                          => str_random(64),
-			    'loginable'                      => false,
-			    'activated'                      => true,
-			    'signup_ip_address'              => $faker->ipv4,
-			    'signup_confirmation_ip_address' => $faker->ipv4,
-		    ]);
+        // Seed test user
+        $user = User::where('email', '=', 'tn@tn.com')->first();
+        if ($user === null) {
+            $user = User::create([
+                'name'                           => $faker->userName,
+                'first_name'                     => $faker->firstName,
+                'last_name'                      => $faker->lastName,
+                'email'                          => 'tn@tn.com',
+                'password'                       => Hash::make('password'),
+                'token'                          => str_random(64),
+                'loginable'                      => false,
+                'activated'                      => true,
+                'signup_ip_address'              => $faker->ipv4,
+                'signup_confirmation_ip_address' => $faker->ipv4,
+            ]);
 
-		    $user->profile()->save(new Profile());
-		    $user->attachRole($userRole);
-		    $user->save();
-	    }
+            $user->profile()->save(new Profile());
+            $user->attachRole($userRole);
+            $user->save();
+        }
     }
 }
