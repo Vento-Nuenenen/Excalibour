@@ -13,11 +13,12 @@ return [
     |
     */
 
-    'failed'   => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed'   => 'Diese Login-Informationen stimmen nicht mit unseren Infos überein.',
+    'throttle' => 'Zu viele Login-Versuche erkannt. Probiere es in :seconds Sekunden noch einmal.',
 
     // Activation items
-    'sentEmail'        => 'We have sent an email to :email.',
+    'sentEmail'        => 'Wir haben eine Mail an :email gesendet.',
+
     'clickInEmail'     => 'Please click the link in it to activate your account.',
     'anEmailWasSent'   => 'An email was sent to :email on :date.',
     'clickHereResend'  => 'Click here to resend the email.',
