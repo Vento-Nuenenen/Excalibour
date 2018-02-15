@@ -1,18 +1,21 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
-    "license": "MIT",
+    "name": "Chronyms/Excalibour",
+    "description": "An Exer-Management App",
+    "keywords": ["Project", "Excalibour", "Exer", "Scout"],
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "appstract/laravel-opcache": "^2.0",
         "barryvdh/laravel-debugbar": "^3.0",
+        "carlos-meneses/laravel-mpdf": "^1.1",
         "creativeorange/gravatar": "~1.0",
         "doctrine/dbal": "^2.5",
         "fideloper/proxy": "~3.3",
         "google/recaptcha": "^1.1",
         "intervention/image": "^2.4",
+        "jaybizzle/laravel-crawler-detect": "1.*",
         "jeremykenedy/laravel-exception-notifier": "^1.1",
+        "jeremykenedy/laravel-https": "^1.1",
         "jeremykenedy/laravel-logger": "^1.0.0",
         "jeremykenedy/laravel-roles": "^1.1",
         "jeremykenedy/uuid": "^3.1",
@@ -20,10 +23,8 @@
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
-        "rap2hpoutre/laravel-log-viewer": "^0.11.0",
-        "jaybizzle/laravel-crawler-detect": "1.*",
-        "jeremykenedy/laravel-https": "^1.1",
-        "pusher/pusher-php-server": "^3.0"
+        "pusher/pusher-php-server": "^3.0",
+        "rap2hpoutre/laravel-log-viewer": "^0.11.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
