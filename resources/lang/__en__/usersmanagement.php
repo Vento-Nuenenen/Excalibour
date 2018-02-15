@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     // Flash Messages
     'createSuccess'   => 'Successfully created user! ',
     'updateSuccess'   => 'Successfully updated user! ',
