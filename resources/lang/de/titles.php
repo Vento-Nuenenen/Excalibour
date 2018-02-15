@@ -2,34 +2,29 @@
 
 return [
 
-    'app'           => 'Laravel',
-    'app2'          => 'Laravel Auth 2.0',
+    'app'           => 'Excalibour',
+    'app2'          => 'Excalibour Exer Manager',
     'home'          => 'Home',
     'login'         => 'Login',
     'logout'        => 'Logout',
-    'register'      => 'Register',
-    'resetPword'    => 'Reset Password',
-    'toggleNav'     => 'Toggle Navigation',
-    'profile'       => 'Profile',
-    'editProfile'   => 'Edit Profile',
-    'createProfile' => 'Create Profile',
+    'register'      => 'Registrieren',
+    'resetPword'    => 'Passwort zurücksetzen',
+    'toggleNav'     => 'Menü ausblenden',
+    'profile'       => 'Profil',
+    'editProfile'   => 'Profil bearbeiten',
+    'createProfile' => 'Profil erstellen',
 
-    'activation' => 'Registration Started  | Activation Required',
-    'exceeded'   => 'Activation Error',
+    'activation' => 'Registrierung starten | Aktivierung notwendig',
+    'exceeded'   => 'Aktivierung fehlgeschlagen',
 
-    'editProfile'    => 'Edit Profile',
-    'createProfile'  => 'Create Profile',
-    'adminUserList'  => 'Users Administration',
-    'adminEditUsers' => 'Edit Users',
-    'adminNewUser'   => 'Create New User',
+    'editProfile'    => 'Profil bearbeiten',
+    'createProfile'  => 'Profil erstellen',
+    'adminUserList'  => 'Benutzer verwalten',
+    'adminEditUsers' => 'Benutzer bearbeiten',
+    'adminNewUser'   => 'Neuen Benutzer erstellen',
 
-    'adminThemesList' => 'Themes',
-    'adminThemesAdd'  => 'Add New Theme',
+    'adminRoutes' => 'Routing-Informationen',
 
-    'adminLogs'   => 'Log Files',
-    'adminPHP'    => 'PHP Information',
-    'adminRoutes' => 'Routing Details',
-
-    'activeUsers' => 'Active Users',
+    'activeUsers' => 'Aktive Benutzer',
 
 ];

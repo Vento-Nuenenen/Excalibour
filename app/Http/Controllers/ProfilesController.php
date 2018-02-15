@@ -43,10 +43,6 @@ class ProfilesController extends Controller
     {
         return Validator::make($data, [
             'theme_id'         => '',
-            'location'         => '',
-            'bio'              => 'max:500',
-            'twitter_username' => 'max:50',
-            'github_username'  => 'max:50',
             'avatar'           => '',
             'avatar_status'    => '',
         ]);
@@ -136,7 +132,7 @@ class ProfilesController extends Controller
     {
         $user = $this->getUserByUsername($username);
 
-        $input = Input::only('theme_id', 'location', 'bio', 'twitter_username', 'github_username', 'avatar_status');
+        $input = Input::only('theme_id', 'avatar_status');
 
         $ipAddress = new CaptureIpTrait();
 

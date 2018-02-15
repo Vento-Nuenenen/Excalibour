@@ -36,47 +36,23 @@ return [
     'create_user_ph_pw_confirmation'	   => 'Passwort bestätigen',
     'create_user_icon_pw_confirmation'	 => 'fa-lock',
 
-    'create_user_label_location'		=> 'User Location',
-    'create_user_ph_location'			  => 'User Location',
-    'create_user_icon_location'			=> 'fa-map-marker',
-
-    'create_user_label_bio'				=> 'User Bio',
-    'create_user_ph_bio'				   => 'User Bio',
-    'create_user_icon_bio'				 => 'fa-pencil',
-
-    'create_user_label_twitter_username'=> 'User Twitter Username',
-    'create_user_ph_twitter_username'	  => 'User Twitter Username',
-    'create_user_icon_twitter_username'	=> 'fa-twitter',
-
-    'create_user_label_github_username'	=> 'User GitHub Username',
-    'create_user_ph_github_username'	   => 'User GitHub Username',
-    'create_user_icon_github_username'	 => 'fa-github',
-
-    'create_user_label_career_title'	=> 'User Occupation',
-    'create_user_ph_career_title'		  => 'User Occupation',
-    'create_user_icon_career_title'		=> 'fa-briefcase',
-
-    'create_user_label_education'		=> 'User Education',
-    'create_user_ph_education'			  => 'User Education',
-    'create_user_icon_education'		 => 'fa-graduation-cap',
-
-    'create_user_button_text'			=> 'Create New User',
+    'create_user_button_text'			=> 'Neuen Benutzer erstellen',
 
     // EDIT USER AS ADMINISTRATOR FORM
-    'edit-user-admin-title'				=> 'Edit User Information',
+    'edit-user-admin-title'				=> 'Benutzer-Information bearbeiten',
 
-    'label-username'					=> 'Username',
-    'ph-username'						  => 'Username',
+    'label-username'					=> 'Pfadiname',
+    'ph-username'						  => 'Pfadiname',
 
-    'label-useremail'					=> 'User Email',
-    'ph-useremail'						  => 'User Email',
+    'label-useremail'					=> 'Benutzer Email',
+    'ph-useremail'						  => 'Benutzer Email',
 
-    'label-userrole_id'					=> 'User Access Level',
-    'option-label'						    => 'Select a Level',
-    'option-user'						     => 'User',
+    'label-userrole_id'					=> 'Benutzer Zugriffs-Level',
+    'option-label'						    => 'Level auswählen',
+    'option-user'						     => 'Benutzer',
     'option-editor'						   => 'Editor',
     'option-admin'						    => 'Administrator',
-    'submit-btn-text'					  => 'Edit the User!',
+    'submit-btn-text'					  => 'Bearbeite den Benutzer!',
 
     'submit-btn-icon'					=> 'fa-save',
     'username-icon'						 => 'fa-user',

@@ -105,15 +105,6 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
         ],
     ]);
 
-    Route::resource('themes', 'ThemesManagementController', [
-        'names' => [
-            'index'   => 'themes',
-            'destroy' => 'themes.destroy',
-        ],
-    ]);
-
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-    Route::get('php', 'AdminDetailsController@listPHPInfo');
     Route::get('routes', 'AdminDetailsController@listRoutes');
     Route::get('active-users', 'AdminDetailsController@activeUsers');
 });

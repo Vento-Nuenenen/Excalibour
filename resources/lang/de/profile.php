@@ -12,77 +12,68 @@ return [
     |
     */
 
-    'templateTitle' => 'Edit your profile',
+	'templateTitle' => 'Bearbeite dein Profil',
 
-    // profile erros
-    'notYourProfile'      => 'This isn\'t the profile you\'re looking for.',
-    'notYourProfileTitle' => 'Hmmm, something went wrong...',
-    'noProfileYet'        => 'No profile yet.',
+	// profile erros
+	'notYourProfile'      => 'Dies ist\sind das Profil welches du Suchst.',
+	'notYourProfileTitle' => 'Hmmm, da ist etwas schief gelaufen...',
+	'noProfileYet'        => 'Noch kein Profil vorhanden.',
 
-    // USER profile title
-    'showProfileUsername'        => 'Username',
-    'showProfileFirstName'       => 'First Name',
-    'showProfileLastName'        => 'Last Name',
-    'showProfileEmail'           => 'E-mail Address',
-    'showProfileLocation'        => 'Location',
-    'showProfileBio'             => 'Bio',
-    'showProfileTheme'           => 'Theme',
-    'showProfileTwitterUsername' => 'Twitter Username',
-    'showProfileGitHubUsername'  => 'Github Username',
+	// USER profile title
+	'showProfileUsername'        => 'Benutzername',
+	'showProfileFirstName'       => 'Vorname',
+	'showProfileLastName'        => 'Nachname',
+	'showProfileEmail'           => 'E-Mail Addresse',
+	'showProfileLocation'        => 'Standort',
+	'showProfileBio'             => 'Biographie',
+	'showProfileTheme'           => 'Thema',
 
-    // USER profile page
-    'showProfileTitle' => ':username\'s Profile',
+	// USER profile page
+	'showProfileTitle' => ':username\'s Profil',
 
-    // USER EDIT profile page
-    'editProfileTitle' => 'Profile Settings',
+	// USER EDIT profile page
+	'editProfileTitle' => 'Profil Einstellungen',
 
-    // User edit profile form
-    'label-theme' => 'Your theme:',
-    'ph-theme'    => 'Select your theme',
+	// User edit profile form
+	'label-theme' => 'Dein Thema:',
+	'ph-theme'    => 'Wähle dein Thema',
 
-    'label-location' => 'Your location:',
-    'ph-location'    => 'Enter your location',
+	'label-location' => 'Dein Standort:',
+	'ph-location'    => 'Wähle deinen Standort',
 
-    'label-bio' => 'Your bio:',
-    'ph-bio'    => 'Enter your bio',
+	'label-bio' => 'Deine Bio:',
+	'ph-bio'    => 'Wähle deine Bio',
 
-    'label-github_username' => 'Your GitHub username:',
-    'ph-github_username'    => 'Enter your GitHub username',
+	// User Account Settings Tab
+	'editTriggerAlt'        => 'Benutzer-Menü Ausblenden',
+	'editAccountTitle'      => 'Konto Einstellungen',
+	'editAccountAdminTitle' => 'Konto Administrieren',
+	'updateAccountSuccess'  => 'Dein Konto wurde erfolgreich aktualisiert',
+	'submitProfileButton'   => 'Änderungen Speichern',
 
-    'label-twitter_username' => 'Your Twitter username:',
-    'ph-twitter_username'    => 'Enter your Twitter username',
+	// User Account Admin Tab
+	'submitPWButton'    => 'Passwort aktualisieren',
+	'changePwTitle'     => 'Passwort ändern',
+	'changePwPill'      => 'Passwort ändern',
+	'deleteAccountPill' => 'Konto löschen',
+	'updatePWSuccess'   => 'Dein Passwort wurde erfolgreich aktualisiert',
 
-    // User Account Settings Tab
-    'editTriggerAlt'        => 'Toggle User Menu',
-    'editAccountTitle'      => 'Account Settings',
-    'editAccountAdminTitle' => 'Account Administration',
-    'updateAccountSuccess'  => 'Your account has been successfully updated',
-    'submitProfileButton'   => 'Save Changes',
+	// Delete Account Tab
+	'deleteAccountTitle'        => 'Konto löschen',
+	'deleteAccountBtn'          => 'Mein Konto löschen',
+	'deleteAccountBtnConfirm'   => 'Mein Konto löschen',
+	'deleteAccountConfirmTitle' => 'Konto löschen bestätigen',
+	'deleteAccountConfirmMsg'   => 'Bist du sicher, dass du dein Konto löschen möchtest?',
+	'confirmDeleteRequired'     => 'Bestätigen, dass dieses Konto gelöscht werden soll',
 
-    // User Account Admin Tab
-    'submitPWButton'    => 'Update Password',
-    'changePwTitle'     => 'Change Password',
-    'changePwPill'      => 'Change Password',
-    'deleteAccountPill' => 'Delete Account',
-    'updatePWSuccess'   => 'Your password has been successfully updated',
+	'errorDeleteNotYour'        => 'Du kannst nur dein eigenes Konto löschen',
+	'successUserAccountDeleted' => 'Dein Konto wurde gelöscht',
 
-    // Delete Account Tab
-    'deleteAccountTitle'        => 'Delete Account',
-    'deleteAccountBtn'          => 'Delete My Account',
-    'deleteAccountBtnConfirm'   => 'Delete My Account',
-    'deleteAccountConfirmTitle' => 'Confirm Account Deletion',
-    'deleteAccountConfirmMsg'   => 'Are you sure you want to delete your account?',
-    'confirmDeleteRequired'     => 'Confirm Account Deletion is required',
+	// Messages
+	'updateSuccess' => 'Dein Konto wurde erfolgreich gelöscht',
+	'submitButton'  => 'Änderungen speichern',
 
-    'errorDeleteNotYour'        => 'You can only delete your own profile',
-    'successUserAccountDeleted' => 'Your account has been deleted',
-
-    // Messages
-    'updateSuccess' => 'Your profile has been successfully updated',
-    'submitButton'  => 'Save Changes',
-
-    // Restore User Account
-    'errorRestoreUserTime' => 'Sorry, account cannot be restored',
-    'successUserRestore'   => 'Welcome back :username! Account Successfully Restored',
-
+	// Restore User Account
+	'errorRestoreUserTime' => 'Tut uns leid, dein Konto kann nicht wiederhergestellt werden',
+	'successUserRestore'   => 'Wilkommen zurück :username! Dein Konto wurde erfolgreich wiederhergestellt',
 ];

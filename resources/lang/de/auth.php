@@ -15,5 +15,4 @@ return [
 
     'failed'   => 'Diese Daten stimmen nicht mit unseren überein.',
     'throttle' => 'Zu viele Versuche. Bitte Probiere es in :seconds Sekunden noch einmal.',
-
 ];
