@@ -34,7 +34,5 @@ $factory->define(App\Models\Profile::class, function (Faker\Generator $faker) {
     return [
         'user_id'          => factory(App\Models\User::class)->create()->id,
         'theme_id'         => 1,
-        'location'         => $faker->streetAddress,
-        'bio'              => $faker->paragraph(2, true),
     ];
 });

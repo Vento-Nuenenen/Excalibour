@@ -27,7 +27,11 @@ class CheckCurrentUser
         return $next($request);
     }
 
-    public function terminate($request, $response)
+	/**
+	 * @param $request
+	 * @param $response
+	 */
+	public function terminate($request,$response)
     {
         $user = Auth::user();
         $currentRoute = Route::currentRouteName();

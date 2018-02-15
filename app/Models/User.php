@@ -65,21 +65,12 @@ class User extends Authenticatable
         'deleted_at',
     ];
 
-    /**
-     * Build Social Relationships.
-     *
-     * @var array
-     */
-    public function social()
-    {
-        return $this->hasMany('App\Models\Social');
-    }
-
-    /**
-     * User Profile Relationships.
-     *
-     * @var array
-     */
+	/**
+	 * User Profile Relationships.
+	 *
+	 * @var array
+	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
+	 */
     public function profile()
     {
         return $this->hasOne('App\Models\Profile');
