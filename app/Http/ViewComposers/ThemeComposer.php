@@ -25,7 +25,7 @@ class ThemeComposer
      */
     public function compose(View $view)
     {
-	    $theme = Theme::find(1);
+        $theme = Theme::find(1);
         $view->with('theme', $theme);
     }
 }

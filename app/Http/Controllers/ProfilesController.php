@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
-use App\Models\Theme;
 use App\Models\User;
 use App\Notifications\SendGoodbyeEmail;
 use App\Traits\CaptureIpTrait;
@@ -247,11 +246,11 @@ class ProfilesController extends Controller
         return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updatePWSuccess'));
     }
 
-	/**
-	 * Upload and Update user avatar.
-	 *
-	 * @return mixed
-	 */
+    /**
+     * Upload and Update user avatar.
+     *
+     * @return mixed
+     */
     public function upload()
     {
         if (Input::hasFile('file')) {
@@ -291,15 +290,16 @@ class ProfilesController extends Controller
         return Image::make(storage_path().'/users/id/'.$id.'/uploads/images/avatar/'.$image)->response();
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param int $id
-	 *
-	 * @return \Illuminate\Http\Response
-	 * @throws \Exception
-	 */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
+     * @throws \Exception
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function deleteUserAccount(Request $request, $id)
     {
         $currentUser = \Auth::user();
@@ -352,14 +352,14 @@ class ProfilesController extends Controller
         return redirect('/login/')->with('success', trans('profile.successUserAccountDeleted'));
     }
 
-	/**
-	 * Send GoodBye Email Function via Notify.
-	 *
-	 * @param User $user
-	 * @param string $token
-	 *
-	 * @return void
-	 */
+    /**
+     * Send GoodBye Email Function via Notify.
+     *
+     * @param User   $user
+     * @param string $token
+     *
+     * @return void
+     */
     public static function sendGoodbyEmail(User $user, $token)
     {
         $user->notify(new SendGoodbyeEmail($token));
