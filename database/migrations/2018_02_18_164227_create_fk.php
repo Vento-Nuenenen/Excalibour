@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateFk extends Migration
 {
@@ -13,10 +13,10 @@ class CreateFk extends Migration
      */
     public function up()
     {
-	    Schema::table('p2u', function (Blueprint $table) {
-		    $table->foreign('fk_users')->references('id')->on('users')->onDelete('cascade');
-		    $table->foreign('fk_posten')->references('id')->on('posten')->onDelete('cascade');
-	    });
+        Schema::table('p2u', function (Blueprint $table) {
+            $table->foreign('fk_users')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('fk_posten')->references('id')->on('posten')->onDelete('cascade');
+        });
     }
 
     /**
