@@ -30,19 +30,19 @@ class LoginController extends Controller
      */
     protected $redirectAfterLogout = '/';
 
-	/**
-	 * Create a new controller instance.
-	 */
+    /**
+     * Create a new controller instance.
+     */
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
 
-	/**
-	 * Logout, Clear Session, and Return.
-	 *
-	 * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-	 */
+    /**
+     * Logout, Clear Session, and Return.
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function logout()
     {
         $user = Auth::user();

@@ -7,19 +7,19 @@ use Illuminate\Support\Facades\Route;
 
 class AdminDetailsController extends Controller
 {
-	/**
-	 * Create a new controller instance.
-	 */
+    /**
+     * Create a new controller instance.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function listRoutes()
     {
         $routes = Route::getRoutes();
@@ -30,11 +30,11 @@ class AdminDetailsController extends Controller
         return view('pages.admin.route-details', $data);
     }
 
-	/**
-	 * Display active users page.
-	 *
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
+    /**
+     * Display active users page.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function activeUsers()
     {
         $users = User::count();

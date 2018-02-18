@@ -23,9 +23,9 @@ class ActivateController extends Controller
     private static $activationView = 'auth.activation';
     private static $activationRoute = 'activation-required';
 
-	/**
-	 * Create a new controller instance.
-	 */
+    /**
+     * Create a new controller instance.
+     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -89,12 +89,12 @@ class ActivateController extends Controller
         return view($this->getActivationView())->with($data);
     }
 
-	/**
-	 * Creates a required Activation for new Users
-	 *
-	 * @return $this|bool|\Illuminate\Http\RedirectResponse
-	 */
-	public function activationRequired()
+    /**
+     * Creates a required Activation for new Users.
+     *
+     * @return $this|bool|\Illuminate\Http\RedirectResponse
+     */
+    public function activationRequired()
     {
         $user = Auth::user();
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
@@ -132,13 +132,14 @@ class ActivateController extends Controller
         return view($this->getActivationView())->with($data);
     }
 
-	/**
-	 * Activates a new User
-	 *
-	 * @param $token
-	 * @return bool|\Illuminate\Http\RedirectResponse
-	 */
-	public function activate($token)
+    /**
+     * Activates a new User.
+     *
+     * @param $token
+     *
+     * @return bool|\Illuminate\Http\RedirectResponse
+     */
+    public function activate($token)
     {
         $user = Auth::user();
         $currentRoute = Route::currentRouteName();
@@ -188,12 +189,12 @@ class ActivateController extends Controller
             ->with('message', trans('auth.successActivated'));
     }
 
-	/**
-	 * Resends a Activation-Code
-	 *
-	 * @return $this|\Illuminate\Http\RedirectResponse
-	 */
-	public function resend()
+    /**
+     * Resends a Activation-Code.
+     *
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function resend()
     {
         $user = Auth::user();
         $lastActivation = Activation::where('user_id', $user->id)->get()->last();
@@ -231,12 +232,12 @@ class ActivateController extends Controller
             ->with('message', trans('auth.alreadyActivated'));
     }
 
-	/**
-	 * Kills exceeded Activations
-	 *
-	 * @return $this|\Illuminate\Http\RedirectResponse
-	 */
-	public function exceeded()
+    /**
+     * Kills exceeded Activations.
+     *
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function exceeded()
     {
         $user = Auth::user();
         $currentRoute = Route::currentRouteName();
