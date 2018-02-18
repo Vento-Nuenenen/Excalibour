@@ -20,11 +20,12 @@
 
 namespace App;
 
+class converter
+{
+    public static function to_array($obj)
+    {
+        $array = json_decode(json_encode($obj), true);
 
-class converter{
-	public static function to_array($obj){
-		$array = json_decode(json_encode($obj), true);
-
-		return $array;
-	}
+        return $array;
+    }
 }
