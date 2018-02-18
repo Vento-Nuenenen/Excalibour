@@ -158,7 +158,6 @@ class UsersManagementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $currentUser = Auth::user();
         $user = User::find($id);
         $emailCheck = ($request->input('email') != '') && ($request->input('email') != $user->email);
         $ipAddress = new CaptureIpTrait();

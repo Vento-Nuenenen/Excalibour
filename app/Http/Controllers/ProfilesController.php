@@ -21,11 +21,9 @@ class ProfilesController extends Controller
     protected $idMultiKey = '618423'; //int
     protected $seperationKey = '****';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+	/**
+	 * Create a new controller instance.
+	 */
     public function __construct()
     {
         $this->middleware('auth');
@@ -59,13 +57,13 @@ class ProfilesController extends Controller
         return User::with('profile')->wherename($username)->firstOrFail();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param string $username
-     *
-     * @return Response
-     */
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param string $username
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function show($username)
     {
         try {
@@ -81,13 +79,13 @@ class ProfilesController extends Controller
         return view('profiles.show')->with($data);
     }
 
-    /**
-     * /profiles/username/edit.
-     *
-     * @param $username
-     *
-     * @return mixed
-     */
+	/**
+	 * /profiles/username/edit.
+	 *
+	 * @param $username
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function edit($username)
     {
         try {
@@ -109,8 +107,6 @@ class ProfilesController extends Controller
      * Update a user's profile.
      *
      * @param $username
-     *
-     * @throws Laracasts\Validation\FormValidationException
      *
      * @return mixed
      */

@@ -54,14 +54,14 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Exception               $exception
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Render an exception into an HTTP response.
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param \Exception $exception
+	 *
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
     public function render($request, Exception $exception)
     {
         $userLevelCheck = $exception instanceof \jeremykenedy\LaravelRoles\Exceptions\RoleDeniedException ||
@@ -83,14 +83,14 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 
-    /**
-     * Convert an authentication exception into an unauthenticated response.
-     *
-     * @param \Illuminate\Http\Request                 $request
-     * @param \Illuminate\Auth\AuthenticationException $exception
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Convert an authentication exception into an unauthenticated response.
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param \Illuminate\Auth\AuthenticationException $exception
+	 *
+	 * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+	 */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
