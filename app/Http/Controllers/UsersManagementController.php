@@ -22,11 +22,11 @@ class UsersManagementController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function index()
     {
         $users = User::paginate(env('USER_LIST_PAGINATION_SIZE'));
@@ -35,11 +35,11 @@ class UsersManagementController extends Controller
         return View('usersmanagement.show-users', compact('users', 'roles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function create()
     {
         $roles = Role::all();
@@ -51,13 +51,13 @@ class UsersManagementController extends Controller
         return view('usersmanagement.create-user')->with($data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),
@@ -109,13 +109,13 @@ class UsersManagementController extends Controller
         return redirect('users')->with('success', trans('usersmanagement.createSuccess'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param int $id
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function show($id)
     {
         $user = User::find($id);
@@ -123,13 +123,13 @@ class UsersManagementController extends Controller
         return view('usersmanagement.show-user')->withUser($user);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param int $id
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
     public function edit($id)
     {
         $user = User::findOrFail($id);
@@ -148,14 +148,14 @@ class UsersManagementController extends Controller
         return view('usersmanagement.edit-user')->with($data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param int $id
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
     public function update(Request $request, $id)
     {
         $currentUser = Auth::user();
@@ -200,13 +200,13 @@ class UsersManagementController extends Controller
         return back()->with('success', trans('usersmanagement.updateSuccess'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param int $id
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
     public function destroy($id)
     {
         $currentUser = Auth::user();

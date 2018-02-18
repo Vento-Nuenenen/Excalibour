@@ -40,10 +40,6 @@
             ]) !!};
         </script>
 
-        @if (Auth::User() && (Auth::User()->profile) && $theme->link != null && $theme->link != 'null')
-            <link rel="stylesheet" type="text/css" href="{{ $theme->link }}">
-        @endif
-
         @yield('head')
 
     </head>
