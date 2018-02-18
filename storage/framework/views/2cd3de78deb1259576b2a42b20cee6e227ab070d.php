@@ -28,13 +28,9 @@
         </style>
     </head>
     <body>
-        <div id="app">
-            <?php echo $__env->make('partials.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
-            <div class="container">
-                <div class="content">
-                    <div class="title"><h1>Not found.</h1></div>
-                </div>
+        <div class="container">
+            <div class="content">
+                <div class="title"><h1>Not found.</h1></div>
             </div>
         </div>
     </body>

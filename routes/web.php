@@ -83,13 +83,16 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity']],
         'uses' => 'ProfilesController@userProfileAvatar',
     ]);
 
+	Route::get('/tn/points', ['as' => 'user.points',   'uses' => 'PointsControler@index']);
+	Route::get('/print/certificate', ['as' => 'user.certificate',   'uses' => 'PrintControler@certificate']);
+
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
 });
 
 // Registered, activated, and is admin routes.
 Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], function () {
-    Route::resource('/users/deleted', 'SoftDeletesController', [
+	Route::resource('/users/deleted', 'SoftDeletesController', [
         'only' => [
             'index', 'show', 'update', 'destroy',
         ],
@@ -103,8 +106,22 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
         'except' => [
             'deleted',
         ],
+	    'import' => [
+	    	''
+	    ]
     ]);
 
-    Route::get('routes', 'AdminDetailsController@listRoutes');
-    Route::get('active-users', 'AdminDetailsController@activeUsers');
+	Route::get('routes', 'AdminDetailsController@listRoutes');
+
+	Route::get('active-users', 'AdminDetailsController@activeUsers');
+
+	Route::get('tn/points', 'PointsController@index');
+
+	Route::get('print/certificate', 'PrintController@certificate');
+
+	Route::get('groups', 'GroupController@manage');
+	Route::post('groups/add', 'GroupController@add')->name('add_groups');
+
+	Route::get('import/users', 'UserController@import');
+	Route::get('import/users/do', 'UserController@import_do')->name('import_do');
 });

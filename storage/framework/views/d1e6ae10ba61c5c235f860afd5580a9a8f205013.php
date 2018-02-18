@@ -27,7 +27,8 @@
                         <ul class="dropdown-menu" role="menu">
                             <li <?php echo e(Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null); ?>><?php echo HTML::link(url('/users'), Lang::get('titles.adminUserList')); ?></li>
                             <li <?php echo e(Request::is('users/create') ? 'class=active' : null); ?>><?php echo HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')); ?></li>
-                            <li <?php echo e(Request::is('users/import') ? 'class=active' : null); ?>><?php echo HTML::link(url('/users/import'), 'Benutzer importieren'); ?></li>
+                            <li <?php echo e(Request::is('import/user') ? 'class=active' : null); ?>><?php echo HTML::link(url('/import/user'), 'Benutzer importieren'); ?></li>
+                            <li <?php echo e(Request::is('groups') ? 'class=active' : null); ?>><?php echo HTML::link(url('/groups/'), 'Gruppen verwalten'); ?></li>
                             <li <?php echo e(Request::is('routes') ? 'class=active' : null); ?>><?php echo HTML::link(url('/routes'), Lang::get('titles.adminRoutes')); ?></li>
                             <li <?php echo e(Request::is('active-users') ? 'class=active' : null); ?>><?php echo HTML::link(url('/active-users'), Lang::get('titles.activeUsers')); ?></li>
                         </ul>
@@ -40,10 +41,8 @@
                             Management <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li <?php echo e(Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null); ?>><?php echo HTML::link(url('/users'), Lang::get('titles.adminUserList')); ?></li>
-                            <li <?php echo e(Request::is('users/create') ? 'class=active' : null); ?>><?php echo HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')); ?></li>
-                            <li <?php echo e(Request::is('routes') ? 'class=active' : null); ?>><?php echo HTML::link(url('/routes'), Lang::get('titles.adminRoutes')); ?></li>
-                            <li <?php echo e(Request::is('active-users') ? 'class=active' : null); ?>><?php echo HTML::link(url('/active-users'), Lang::get('titles.activeUsers')); ?></li>
+                            <li <?php echo e(Request::is('tn/points') ? 'class=active' : null); ?>><?php echo HTML::link(url('/tn/points'), 'Punkte vergeben'); ?></li>
+                            <li <?php echo e(Request::is('print/certificate') ? 'class=active' : null); ?>><?php echo HTML::link(url('/print/certificate'), 'Exer Gratulation export'); ?></li>
                         </ul>
                     </li>
                 <?php endif; ?>

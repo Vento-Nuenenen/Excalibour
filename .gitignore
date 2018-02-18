@@ -8,7 +8,7 @@
 ### ASSET EXCLUSIONS ###
 /node_modules
 /vendor
-#/storage/debugbar/*
-#/storage/framework/*
-#/storage/logs/*
-#/storage/users/*
+/storage/debugbar/*
+/storage/framework/*
+/storage/logs/*
+/storage/users/*

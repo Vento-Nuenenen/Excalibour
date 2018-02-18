@@ -29,4 +29,11 @@ class UserController extends Controller
 
         return view('pages.user.home');
     }
+
+	/**
+	 *
+	 */
+	public function import(){
+		return view('usersmanagement.import');
+    }
 }
