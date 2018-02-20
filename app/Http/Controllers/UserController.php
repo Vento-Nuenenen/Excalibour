@@ -25,9 +25,9 @@ class UserController extends Controller
         $user = Auth::user();
 
         if ($user->isAdmin()) {
-        	$points = DB::select("SELECT * FROM users LEFT JOIN p2u ON users.id = p2u.fk_users LEFT JOIN posten ON posten.id = p2u.fk_posten;");
+            $points = DB::select('SELECT * FROM users LEFT JOIN p2u ON users.id = p2u.fk_users LEFT JOIN posten ON posten.id = p2u.fk_posten;');
 
-        	print_r($points);
+            print_r($points);
 
             //return view('pages.admin.home');
         }
