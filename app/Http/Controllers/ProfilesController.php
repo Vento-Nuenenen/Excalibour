@@ -44,17 +44,16 @@ class ProfilesController extends Controller
         ]);
     }
 
-    /**
-     * Fetch user
-     * (You can extract this to repository method).
-     *
-     * @param $username
-     *
-     * @return mixed
-     */
-    public function getUserByUsername($username)
+	/**
+	 * Fetch user
+	 * (You can extract this to repository method).
+	 *
+	 * @param $id
+	 * @return mixed
+	 */
+    public function getUserByUsername($id)
     {
-        return User::with('profile')->wherename($username)->firstOrFail();
+        return User::with('profile')->where('users.id',$id)->firstOrFail();
     }
 
     /**
@@ -136,7 +135,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateSuccess'));
+        return redirect('profile/'.$user->id.'/edit')->with('success', trans('profile.updateSuccess'));
     }
 
     /**
@@ -149,7 +148,7 @@ class ProfilesController extends Controller
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'scoutname' => 'max:255',
         ]);
     }
 
@@ -169,7 +168,7 @@ class ProfilesController extends Controller
         $ipAddress = new CaptureIpTrait();
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
+            'scoutname' => 'max:255',
         ]);
 
         $rules = [];
@@ -186,7 +185,7 @@ class ProfilesController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        $user->name = $request->input('name');
+        $user->scoutname = $request->input('scoutname');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
 
@@ -198,7 +197,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updateAccountSuccess'));
+        return redirect('profile/'.$user->id.'/edit')->with('success', trans('profile.updateAccountSuccess'));
     }
 
     /**
@@ -239,7 +238,7 @@ class ProfilesController extends Controller
 
         $user->save();
 
-        return redirect('profile/'.$user->name.'/edit')->with('success', trans('profile.updatePWSuccess'));
+        return redirect('profile/'.$user->id.'/edit')->with('success', trans('profile.updatePWSuccess'));
     }
 
     /**
@@ -312,7 +311,7 @@ class ProfilesController extends Controller
         );
 
         if ($user->id != $currentUser->id) {
-            return redirect('profile/'.$user->name.'/edit')->with('error', trans('profile.errorDeleteNotYour'));
+            return redirect('profile/'.$user->id.'/edit')->with('error', trans('profile.errorDeleteNotYour'));
         }
 
         if ($validator->fails()) {

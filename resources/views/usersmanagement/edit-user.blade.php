@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Editing User {{ $user->name }}
+  Editing User {{ Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name }}
 @endsection
 
 @section('template_linked_css')
@@ -21,7 +21,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
 
-            <strong>Editing User:</strong> {{ $user->name }}
+            <strong>Editing User:</strong> {{ Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name }}
 
             <a href="/users/{{$user->id}}" class="btn btn-primary btn-xs pull-right" style="margin-left: 1em;">
               <i class="fa fa-fw fa-mail-reply" aria-hidden="true"></i>

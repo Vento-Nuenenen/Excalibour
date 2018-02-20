@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing User {{ $user->name }}
+  Showing User {{ Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name }}
 @endsection
 
 @php

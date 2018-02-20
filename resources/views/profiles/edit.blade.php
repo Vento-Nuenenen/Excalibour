@@ -48,9 +48,7 @@
 					<div class="panel-body">
 
 						@if ($user->profile)
-
 							@if (Auth::user()->id == $user->id)
-
 								<div class="tab-content">
 
 									<div class="tab-pane fade in active edit_profile">
@@ -60,7 +58,7 @@
 												<div id="avatar_container">
 													<div class="collapseOne panel-collapse collapse @if($user->profile->avatar_status == 0) in @endif">
 														<div class="panel-body">
-															<img src="{{  Gravatar::get($user->email) }}" alt="{{ $user->name }}" class="user-avatar">
+															<img src="{{  Gravatar::get($user->email) }}" alt="{{ $user->scoutname }}" class="user-avatar">
 														</div>
 													</div>
 													<div class="collapseTwo panel-collapse collapse @if($user->profile->avatar_status == 1) in @endif">
@@ -70,7 +68,7 @@
 
 															{!! Form::open(array('route' => 'avatar.upload', 'method' => 'POST', 'name' => 'avatarDropzone','id' => 'avatarDropzone', 'class' => 'form single-dropzone dropzone single', 'files' => true)) !!}
 
-																<img id="user_selected_avatar" class="user-avatar" src="@if ($user->profile->avatar != NULL) {{ $user->profile->avatar }} @endif" alt="{{ $user->name }}">
+																<img id="user_selected_avatar" class="user-avatar" src="@if ($user->profile->avatar != NULL) {{ $user->profile->avatar }} @endif" alt="{{ $user->scoutname }}">
 
 															{!! Form::close() !!}
 
@@ -80,8 +78,7 @@
 											</div>
 										</div>
 
-										{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data'  ]) !!}
-
+										{!! Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->id],  'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data'  ]) !!}
 											{{ csrf_field() }}
 
 											<div class="row">
@@ -127,12 +124,12 @@
 
 										{!! csrf_field() !!}
 
-										<div class="form-group has-feedback row {{ $errors->has('name') ? ' has-error ' : '' }}">
-											{!! Form::label('name', 'Username' , array('class' => 'col-md-3 control-label')); !!}
+										<div class="form-group has-feedback row {{ $errors->has('scoutname') ? ' has-error ' : '' }}">
+											{!! Form::label('scoutname', 'Pfadiname' , array('class' => 'col-md-3 control-label')); !!}
 											<div class="col-md-9">
 												<div class="input-group">
-													{!! Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))) !!}
-													<label class="input-group-addon" for="name"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
+													{!! Form::text('scoutname', old('scoutname'), array('id' => 'scoutname', 'class' => 'form-control', 'placeholder' => 'Pfadiname')) !!}
+													<label class="input-group-addon" for="scoutname"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
 												</div>
 											</div>
 										</div>

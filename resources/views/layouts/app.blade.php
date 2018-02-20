@@ -9,8 +9,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@if (trim($__env->yieldContent('template_title')))@yield('template_title') | @endif {{ config('app.name', Lang::get('titles.app')) }}</title>
-        <meta name="description" content="">
-        <meta name="author" content="Chronyms">
+        <meta name="author" content="Vento">
         <link rel="shortcut icon" href="/favicon.ico">
 
         {{-- Fonts --}}

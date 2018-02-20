@@ -106,9 +106,6 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
         'except' => [
             'deleted',
         ],
-        'import' => [
-            '',
-        ],
     ]);
 
     Route::get('routes', 'AdminDetailsController@listRoutes');
@@ -116,8 +113,10 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
     Route::get('active-users', 'AdminDetailsController@activeUsers');
 
     Route::get('tn/points', 'PointsController@index');
+    Route::post('tn/points/add', 'PointsController@add')->name('add_points');
 
-    Route::get('print/certificate', 'PrintController@certificate');
+    Route::get('print/certificate', 'PrintController@index');
+    Route::post('print/certificate/do','PrintController@certificate')->name('print');
 
     Route::get('groups', 'GroupController@manage');
     Route::post('groups/add', 'GroupController@add')->name('add_groups');

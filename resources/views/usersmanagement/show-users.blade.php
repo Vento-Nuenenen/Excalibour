@@ -30,35 +30,29 @@
             <div class="col-sm-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        Showing users
+                        <div class="btn-group pull-right btn-group-xs">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
+                                <span class="sr-only">
+                                    Show Users Management Menu
+                                </span>
+                            </button>
 
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            Showing users
-
-                            <div class="btn-group pull-right btn-group-xs">
-
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-ellipsis-v fa-fw" aria-hidden="true"></i>
-                                    <span class="sr-only">
-                                        Show Users Management Menu
-                                    </span>
-                                </button>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="/users/create">
-                                            <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
-                                            Create New User
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/users/deleted">
-                                            <i class="fa fa-fw fa-group" aria-hidden="true"></i>
-                                            Show Deleted User
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/users/create">
+                                        <i class="fa fa-fw fa-user-plus" aria-hidden="true"></i>
+                                        Create New User
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/users/deleted">
+                                        <i class="fa fa-fw fa-group" aria-hidden="true"></i>
+                                        Show Deleted User
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
@@ -69,13 +63,11 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Username</th>
+                                        <th>Pfadiname</th>
+                                        <th class="hidden-xs">Vorname</th>
+                                        <th class="hidden-xs">Nachname</th>
                                         <th class="hidden-xs">Email</th>
-                                        <th class="hidden-xs">First Name</th>
-                                        <th class="hidden-xs">Last Name</th>
-                                        <th>Role</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">Created</th>
-                                        <th class="hidden-sm hidden-xs hidden-md">Updated</th>
+                                        <th>Rolle</th>
                                         <th>Actions</th>
                                         <th></th>
                                         <th></th>
@@ -85,13 +77,12 @@
                                     @foreach($users as $user)
                                         <tr>
                                             <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td class="hidden-xs"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
+                                            <td>{{$user->scoutname}}</td>
                                             <td class="hidden-xs">{{$user->first_name}}</td>
                                             <td class="hidden-xs">{{$user->last_name}}</td>
+                                            <td class="hidden-xs"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
                                             <td>
                                                 @foreach ($user->roles as $user_role)
-
                                                     @if ($user_role->name == 'User')
                                                         @php $labelClass = 'primary' @endphp
 
@@ -107,11 +98,8 @@
                                                     @endif
 
                                                     <span class="label label-{{$labelClass}}">{{ $user_role->name }}</span>
-
                                                 @endforeach
                                             </td>
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->created_at}}</td>
-                                            <td class="hidden-sm hidden-xs hidden-md">{{$user->updated_at}}</td>
                                             <td>
                                                 {!! Form::open(array('url' => 'users/' . $user->id, 'class' => '', 'data-toggle' => 'tooltip', 'title' => 'Delete')) !!}
                                                     {!! Form::hidden('_method', 'DELETE') !!}

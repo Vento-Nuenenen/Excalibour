@@ -16,7 +16,7 @@ class P2u extends Migration
         Schema::create('p2u', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('fk_users')->unsigned();
-            $table->integer('fk_posten')->unsigned()->unique();
+            $table->integer('fk_posten')->unsigned();
             $table->integer('reached_points');
             $table->timestamps();
 

@@ -9,8 +9,7 @@
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
         <title><?php if(trim($__env->yieldContent('template_title'))): ?><?php echo $__env->yieldContent('template_title'); ?> | <?php endif; ?> <?php echo e(config('app.name', Lang::get('titles.app'))); ?></title>
-        <meta name="description" content="">
-        <meta name="author" content="Chronyms">
+        <meta name="author" content="Vento">
         <link rel="shortcut icon" href="/favicon.ico">
 
         

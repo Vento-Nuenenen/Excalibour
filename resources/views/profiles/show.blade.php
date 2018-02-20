@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-	{{ $user->name }}'s Profile
+	{{ Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name }}'s Profile
 @endsection
 
 @section('template_fastload_css')
@@ -19,12 +19,12 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 
-						{{ trans('profile.showProfileTitle',['username' => $user->name]) }}
+						{{ trans('profile.showProfileTitle',['username' => Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name]) }}
 
 					</div>
 					<div class="panel-body">
 
-    					<img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}" class="user-avatar">
+    					<img src="@if ($user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->scoutname }}" class="user-avatar">
 
 						<dl class="user-info">
 
@@ -32,7 +32,7 @@
 								{{ trans('profile.showProfileUsername') }}
 							</dt>
 							<dd>
-								{{ $user->name }}
+								{{ $user->scoutname }}
 							</dd>
 
 							<dt>
@@ -61,17 +61,12 @@
 
 						@if ($user->profile)
 							@if (Auth::user()->id == $user->id)
-
-								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-
+								{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
 							@endif
 						@else
-
 							<p>{{ trans('profile.noProfileYet') }}</p>
-							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
-
+							{!! HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')) !!}
 						@endif
-
 					</div>
 				</div>
 			</div>

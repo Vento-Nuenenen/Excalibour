@@ -58,16 +58,16 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 
                             <?php if((Auth::User()->profile) && Auth::user()->profile->avatar_status == 1): ?>
-                                <img src="<?php echo e(Auth::user()->profile->avatar); ?>" alt="<?php echo e(Auth::user()->name); ?>" class="user-avatar-nav">
+                                <img src="<?php echo e(Auth::user()->profile->avatar); ?>" alt="<?php echo e(Auth::user()->scoutname); ?>" class="user-avatar-nav">
                             <?php else: ?>
                                 <div class="user-avatar-nav"></div>
                             <?php endif; ?>
 
-                            <?php echo e(Auth::user()->name); ?> <span class="caret"></span>
+                            <?php echo e(Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name); ?> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li <?php echo e(Request::is('profile/'.Auth::user()->name, 'profile/'.Auth::user()->name . '/edit') ? 'class=active' : null); ?>>
-                                <?php echo HTML::link(url('/profile/'.Auth::user()->name), trans('titles.profile')); ?>
+                            <li <?php echo e(Request::is('profile/'.Auth::user()->id, 'profile/'.Auth::user()->id . '/edit') ? 'class=active' : null); ?>>
+                                <?php echo HTML::link(url('/profile/'.Auth::user()->id), trans('titles.profile')); ?>
 
                             </li>
                             <li>

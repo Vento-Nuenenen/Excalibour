@@ -1,5 +1,5 @@
 <?php $__env->startSection('template_title'); ?>
-	<?php echo e($user->name); ?>'s Profile
+	<?php echo e(Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name); ?>'s Profile
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('template_fastload_css'); ?>
@@ -17,13 +17,13 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 
-						<?php echo e(trans('profile.showProfileTitle',['username' => $user->name])); ?>
+						<?php echo e(trans('profile.showProfileTitle',['username' => Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name])); ?>
 
 
 					</div>
 					<div class="panel-body">
 
-    					<img src="<?php if($user->profile->avatar_status == 1): ?> <?php echo e($user->profile->avatar); ?> <?php else: ?> <?php echo e(Gravatar::get($user->email)); ?> <?php endif; ?>" alt="<?php echo e($user->name); ?>" class="user-avatar">
+    					<img src="<?php if($user->profile->avatar_status == 1): ?> <?php echo e($user->profile->avatar); ?> <?php else: ?> <?php echo e(Gravatar::get($user->email)); ?> <?php endif; ?>" alt="<?php echo e($user->scoutname); ?>" class="user-avatar">
 
 						<dl class="user-info">
 
@@ -32,7 +32,7 @@
 
 							</dt>
 							<dd>
-								<?php echo e($user->name); ?>
+								<?php echo e($user->scoutname); ?>
 
 							</dd>
 
@@ -69,7 +69,7 @@
 						<?php if($user->profile): ?>
 							<?php if(Auth::user()->id == $user->id): ?>
 
-								<?php echo HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')); ?>
+								<?php echo HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')); ?>
 
 
 							<?php endif; ?>

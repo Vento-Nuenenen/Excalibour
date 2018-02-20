@@ -26,18 +26,18 @@
             <?php echo Form::open(array('action' => 'UsersManagementController@store')); ?>
 
 
-              <div class="form-group has-feedback row <?php echo e($errors->has('name') ? ' has-error ' : ''); ?>">
+              <div class="form-group has-feedback row <?php echo e($errors->has('scoutname') ? ' has-error ' : ''); ?>">
                 <?php echo Form::label('name', trans('forms.create_user_label_username'), array('class' => 'col-md-3 control-label'));; ?>
 
                 <div class="col-md-9">
                   <div class="input-group">
-                    <?php echo Form::text('name', NULL, array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_username'))); ?>
+                    <?php echo Form::text('scoutname', NULL, array('id' => 'scoutname', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_username'))); ?>
 
-                    <label class="input-group-addon" for="name"><i class="fa fa-fw <?php echo e(trans('forms.create_user_icon_username')); ?>" aria-hidden="true"></i></label>
+                    <label class="input-group-addon" for="scoutname"><i class="fa fa-fw <?php echo e(trans('forms.create_user_icon_username')); ?>" aria-hidden="true"></i></label>
                   </div>
-                  <?php if($errors->has('name')): ?>
+                  <?php if($errors->has('scoutname')): ?>
                     <span class="help-block">
-                        <strong><?php echo e($errors->first('name')); ?></strong>
+                        <strong><?php echo e($errors->first('scoutname')); ?></strong>
                     </span>
                   <?php endif; ?>
                 </div>

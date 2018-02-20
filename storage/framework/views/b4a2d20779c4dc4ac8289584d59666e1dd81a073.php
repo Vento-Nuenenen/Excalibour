@@ -52,9 +52,7 @@
 					<div class="panel-body">
 
 						<?php if($user->profile): ?>
-
 							<?php if(Auth::user()->id == $user->id): ?>
-
 								<div class="tab-content">
 
 									<div class="tab-pane fade in active edit_profile">
@@ -64,7 +62,7 @@
 												<div id="avatar_container">
 													<div class="collapseOne panel-collapse collapse <?php if($user->profile->avatar_status == 0): ?> in <?php endif; ?>">
 														<div class="panel-body">
-															<img src="<?php echo e(Gravatar::get($user->email)); ?>" alt="<?php echo e($user->name); ?>" class="user-avatar">
+															<img src="<?php echo e(Gravatar::get($user->email)); ?>" alt="<?php echo e($user->scoutname); ?>" class="user-avatar">
 														</div>
 													</div>
 													<div class="collapseTwo panel-collapse collapse <?php if($user->profile->avatar_status == 1): ?> in <?php endif; ?>">
@@ -75,7 +73,7 @@
 															<?php echo Form::open(array('route' => 'avatar.upload', 'method' => 'POST', 'name' => 'avatarDropzone','id' => 'avatarDropzone', 'class' => 'form single-dropzone dropzone single', 'files' => true)); ?>
 
 
-																<img id="user_selected_avatar" class="user-avatar" src="<?php if($user->profile->avatar != NULL): ?> <?php echo e($user->profile->avatar); ?> <?php endif; ?>" alt="<?php echo e($user->name); ?>">
+																<img id="user_selected_avatar" class="user-avatar" src="<?php if($user->profile->avatar != NULL): ?> <?php echo e($user->profile->avatar); ?> <?php endif; ?>" alt="<?php echo e($user->scoutname); ?>">
 
 															<?php echo Form::close(); ?>
 
@@ -86,8 +84,7 @@
 											</div>
 										</div>
 
-										<?php echo Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->name],  'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data'  ]); ?>
-
+										<?php echo Form::model($user->profile, ['method' => 'PATCH', 'route' => ['profile.update', $user->id],  'class' => 'form-horizontal', 'role' => 'form', 'enctype' => 'multipart/form-data'  ]); ?>
 
 											<?php echo e(csrf_field()); ?>
 
@@ -139,14 +136,14 @@
 										<?php echo csrf_field(); ?>
 
 
-										<div class="form-group has-feedback row <?php echo e($errors->has('name') ? ' has-error ' : ''); ?>">
-											<?php echo Form::label('name', 'Username' , array('class' => 'col-md-3 control-label'));; ?>
+										<div class="form-group has-feedback row <?php echo e($errors->has('scoutname') ? ' has-error ' : ''); ?>">
+											<?php echo Form::label('scoutname', 'Pfadiname' , array('class' => 'col-md-3 control-label'));; ?>
 
 											<div class="col-md-9">
 												<div class="input-group">
-													<?php echo Form::text('name', old('name'), array('id' => 'name', 'class' => 'form-control', 'placeholder' => trans('forms.ph-username'))); ?>
+													<?php echo Form::text('scoutname', old('scoutname'), array('id' => 'scoutname', 'class' => 'form-control', 'placeholder' => 'Pfadiname')); ?>
 
-													<label class="input-group-addon" for="name"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
+													<label class="input-group-addon" for="scoutname"><i class="fa fa-fw fa-user }}" aria-hidden="true"></i></label>
 												</div>
 											</div>
 										</div>
