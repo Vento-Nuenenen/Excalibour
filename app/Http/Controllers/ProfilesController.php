@@ -44,16 +44,17 @@ class ProfilesController extends Controller
         ]);
     }
 
-	/**
-	 * Fetch user
-	 * (You can extract this to repository method).
-	 *
-	 * @param $id
-	 * @return mixed
-	 */
+    /**
+     * Fetch user
+     * (You can extract this to repository method).
+     *
+     * @param $id
+     *
+     * @return mixed
+     */
     public function getUserByUsername($id)
     {
-        return User::with('profile')->where('users.id',$id)->firstOrFail();
+        return User::with('profile')->where('users.id', $id)->firstOrFail();
     }
 
     /**
