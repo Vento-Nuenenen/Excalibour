@@ -99,7 +99,12 @@
                                         <td>{{ $point->first_name." ".$point->scoutname." ".$point->last_name }}</td>
                                         <td>{{ $point->posten_name }}</td>
                                         <td>{{ $point->reached_points }}</td>
-                                        <td><i class="fa fa-close"></i></td>
+                                        <td>
+                                            {{ Form::open([ 'method'  => 'post', 'action' => 'PointsController@delete']) }}
+                                                <input type="text" class="hidden" name="point_id" value="{{ $point->p2u_id }}">
+                                                <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-close"></i></button>
+                                            {{ Form::close() }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </table>

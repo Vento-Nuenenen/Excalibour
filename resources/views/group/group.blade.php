@@ -69,9 +69,10 @@
                                         <td>{{ $group['max_points'] }}</td>
                                         <td>
                                             {{ Form::open([ 'method'  => 'post', 'action' => 'GroupController@delete']) }}
-                                            <input type="text" class="hidden" name="group_id" value="{{ $group['id'] }}">
-                                            <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-close"></i></button></td>
-                                        {{ Form::close() }}
+                                                <input type="text" class="hidden" name="group_id" value="{{ $group['id'] }}">
+                                                <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-close"></i></button>
+                                            {{ Form::close() }}
+                                        </td>
                                     </tr>
                                 @endforeach
                             </table>

@@ -114,6 +114,7 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
 
     Route::get('tn/points', 'PointsController@index');
     Route::post('tn/points/add', 'PointsController@add')->name('add_points');
+    Route::post('tn/points/delete', 'PointsController@delete');
 
     Route::get('print/certificate', 'PrintController@index');
     Route::post('print/certificate/do', 'PrintController@certificate')->name('print');
