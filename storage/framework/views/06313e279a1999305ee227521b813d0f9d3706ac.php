@@ -36,7 +36,7 @@
 
                 <div class="col-sm-6">
                   <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                    <?php echo e($user->name); ?>
+                    <?php echo e($user->scoutname); ?>
 
                   </h4>
                   <p class="text-center text-left-tablet">
@@ -52,7 +52,7 @@
                   <?php if($user->profile): ?>
                     <div class="text-center text-left-tablet margin-bottom-1">
 
-                      <a href="<?php echo e(url('/profile/'.$user->name)); ?>" class="btn btn-sm btn-info">
+                      <a href="<?php echo e(url('/profile/'.$user->id)); ?>" class="btn btn-sm btn-info">
                         <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm hidden-md"> <?php echo e(trans('usersmanagement.viewProfile')); ?></span>
                       </a>
 
@@ -79,7 +79,7 @@
             <div class="clearfix"></div>
             <div class="border-bottom"></div>
 
-            <?php if($user->name): ?>
+            <?php if($user->scoutname): ?>
 
               <div class="col-sm-5 col-xs-6 text-larger">
                 <strong>
@@ -89,7 +89,7 @@
               </div>
 
               <div class="col-sm-7">
-                <?php echo e($user->name); ?>
+                <?php echo e($user->scoutname); ?>
 
               </div>
 

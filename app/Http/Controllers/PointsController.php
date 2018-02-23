@@ -20,9 +20,9 @@ class PointsController extends Controller
 	public function index(){
 		$setPoints = DB::select('SELECT * FROM users LEFT  JOIN p2u ON users.id = p2u.fk_users LEFT JOIN posten ON p2u.fk_posten = posten.id WHERE reached_points;');
 
-		$groups = DB::select('SELECT * FROM posten;');
+		$groups = DB::select("SELECT * FROM posten;");
 
-		$users = DB::select("SELECT * FROM users;");
+		$users = DB::select("SELECT * FROM users LEFT JOIN role_user ON users.id = role_user.user_id LEFT JOIN roles ON role_user.role_id = roles.id WHERE name != \"admin\" AND name != \"User\";");
 
 		return view('user.points')->with(['setPoints' => $setPoints,'groups' => $groups,'users' => $users]);
 	}

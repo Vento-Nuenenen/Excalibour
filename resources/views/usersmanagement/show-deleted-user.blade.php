@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing User {{ $user->name }}
+  Showing User {{ Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name }}
 @endsection
 
 @php
@@ -38,7 +38,7 @@
 
                 <div class="col-sm-6">
                   <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                    {{ $user->name }}
+                    {{ $user->scoutname }}
                   </h4>
                   <p class="text-center text-left-tablet">
                     <strong>
@@ -105,7 +105,7 @@
             @endif
 
 
-            @if ($user->name)
+            @if ($user->scoutname)
 
               <div class="col-sm-5 col-xs-6 text-larger">
                 <strong>
@@ -114,7 +114,7 @@
               </div>
 
               <div class="col-sm-7">
-                {{ $user->name }}
+                {{ $user->scoutname }}
               </div>
 
               <div class="clearfix"></div>

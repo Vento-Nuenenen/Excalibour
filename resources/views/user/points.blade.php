@@ -24,7 +24,7 @@
                                             <option value="">TN wählen</option>
                                             @if(count($users))
                                                 @foreach($users as $user)
-                                                    <option value="{{ $user->id }}">{{ $user->first_name." ". $user->name." ".$user->last_name }}</option>
+                                                    <option value="{{ $user->id }}">{{ $user->first_name." ". $user->scoutname." ".$user->last_name }}</option>
                                                 @endforeach
                                             @endif
                                         </select>
@@ -96,7 +96,7 @@
                                 </tr>
                                 @foreach($setPoints as $point)
                                     <tr>
-                                        <td>{{ $point->first_name." ".$point->name." ".$point->last_name }}</td>
+                                        <td>{{ $point->first_name." ".$point->scoutname." ".$point->last_name }}</td>
                                         <td>{{ $point->posten_name }}</td>
                                         <td>{{ $point->reached_points }}</td>
                                         <td><i class="fa fa-close"></i></td>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
     <head>
-        <title>404 | Not Found.</title>
+        <title>404 | Nicht Gefunden.</title>
 
         <style>
             html, body {
@@ -30,7 +30,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title"><h1>Not found.</h1></div>
+                <div class="title"><h1>Nicht Gefunden.</h1></div>
             </div>
         </div>
     </body>

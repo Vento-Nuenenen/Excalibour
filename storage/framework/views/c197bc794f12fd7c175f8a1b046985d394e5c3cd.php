@@ -1,5 +1,5 @@
 <?php $__env->startSection('template_title'); ?>
-    Welcome <?php echo e(Auth::user()->name); ?>
+    Welcome <?php echo e(Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name); ?>
 
 <?php $__env->stopSection(); ?>
 

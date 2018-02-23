@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-	See Message
+	Siehe Nachricht
 @endsection
 
 @section('head')

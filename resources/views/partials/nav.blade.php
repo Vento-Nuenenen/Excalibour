@@ -28,8 +28,6 @@
                             <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
                             <li {{ Request::is('import/user') ? 'class=active' : null }}>{!! HTML::link(url('/import/user'), 'Benutzer importieren') !!}</li>
                             <li {{ Request::is('groups') ? 'class=active' : null }}>{!! HTML::link(url('/groups/'), 'Gruppen verwalten') !!}</li>
-                            <li {{ Request::is('routes') ? 'class=active' : null }}>{!! HTML::link(url('/routes'), Lang::get('titles.adminRoutes')) !!}</li>
-                            <li {{ Request::is('active-users') ? 'class=active' : null }}>{!! HTML::link(url('/active-users'), Lang::get('titles.activeUsers')) !!}</li>
                         </ul>
                     </li>
                 @endrole

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>403 | Forbidden.</title>
+        <title>403 | Verboten.</title>
 
         <style>
             html, body {
@@ -37,7 +37,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Forbidden.</div>
+                <div class="title">Verboten.</div>
             </div>
         </div>
     </body>

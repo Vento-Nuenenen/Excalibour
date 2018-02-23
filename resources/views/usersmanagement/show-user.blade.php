@@ -36,7 +36,7 @@
 
                 <div class="col-sm-6">
                   <h4 class="text-muted margin-top-sm-1 text-center text-left-tablet">
-                    {{ $user->name }}
+                    {{ $user->scoutname }}
                   </h4>
                   <p class="text-center text-left-tablet">
                     <strong>
@@ -49,7 +49,7 @@
                   @if ($user->profile)
                     <div class="text-center text-left-tablet margin-bottom-1">
 
-                      <a href="{{ url('/profile/'.$user->name) }}" class="btn btn-sm btn-info">
+                      <a href="{{ url('/profile/'.$user->id) }}" class="btn btn-sm btn-info">
                         <i class="fa fa-eye fa-fw" aria-hidden="true"></i> <span class="hidden-xs hidden-sm hidden-md"> {{ trans('usersmanagement.viewProfile') }}</span>
                       </a>
 
@@ -72,7 +72,7 @@
             <div class="clearfix"></div>
             <div class="border-bottom"></div>
 
-            @if ($user->name)
+            @if ($user->scoutname)
 
               <div class="col-sm-5 col-xs-6 text-larger">
                 <strong>
@@ -81,7 +81,7 @@
               </div>
 
               <div class="col-sm-7">
-                {{ $user->name }}
+                {{ $user->scoutname }}
               </div>
 
               <div class="clearfix"></div>

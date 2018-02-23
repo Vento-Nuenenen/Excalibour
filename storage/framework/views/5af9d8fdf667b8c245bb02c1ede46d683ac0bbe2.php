@@ -1,6 +1,6 @@
 <?php if(session('message')): ?>
   <div class="alert alert-<?php echo e(Session::get('status')); ?> status-box alert-dismissable fade in">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;<span class="sr-only">Close</span></a>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;<span class="sr-only">Schliessen</span></a>
     <?php echo e(session('message')); ?>
 
   </div>
@@ -9,7 +9,7 @@
 <?php if(session('success')): ?>
   <div class="alert alert-success alert-dismissable fade in">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <h4><i class="icon fa fa-check fa-fw" aria-hidden="true"></i> Success</h4>
+    <h4><i class="icon fa fa-check fa-fw" aria-hidden="true"></i> Erolgreich</h4>
     <?php echo e(session('success')); ?>
 
   </div>
@@ -18,7 +18,7 @@
 <?php if(session()->has('status')): ?>
     <?php if(session()->get('status') == 'wrong'): ?>
         <div class="alert alert-danger status-box alert-dismissable fade in">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;<span class="sr-only">Close</span></a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;<span class="sr-only">Schliessen</span></a>
             <?php echo e(session('message')); ?>
 
         </div>
@@ -30,7 +30,7 @@
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <h4>
       <i class="icon fa fa-warning fa-fw" aria-hidden="true"></i>
-      Error
+      Fehler
     </h4>
     <?php echo e(session('error')); ?>
 

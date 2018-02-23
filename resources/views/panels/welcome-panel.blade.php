@@ -17,10 +17,12 @@
                     <th>Name</th>
                     <th>Bestandene Posten</th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
+                @foreach($bestanden as $best)
+                    <tr>
+                        <td>{{ $best->first_name ." ". $best->scoutname ." ". $best->last_name }}</td>
+                        <td>{{ $best->posten_name }}</td>
+                    </tr>
+                @endforeach
             </table>
         </div>
     </div>
@@ -30,7 +32,18 @@
             <b>Teilnehmer <u>nicht</u> Bestanden</b>
         </div>
         <div class="panel-body">
-            Test
+            <table class="table table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Bestandene Posten</th>
+                </tr>
+                @foreach($nicht_bestanden as $nbest)
+                    <tr>
+                        <td>{{ $nbest->first_name ." ". $nbest->scoutname ." ". $nbest->last_name }}</td>
+                        <td>{{ $nbest->posten_name }}</td>
+                    </tr>
+                @endforeach
+            </table>
         </div>
     </div>
 @endrole

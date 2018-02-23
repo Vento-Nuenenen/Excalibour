@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Create New User
+  Neuen Benutzer erstellen
 @endsection
 
 @section('template_fastload_css')

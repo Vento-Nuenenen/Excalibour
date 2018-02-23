@@ -57,11 +57,6 @@
         
         <script src="<?php echo e(mix('/js/app.js')); ?>"></script>
 
-        <?php if(config('settings.googleMapsAPIStatus')): ?>
-            <?php echo HTML::script('//maps.googleapis.com/maps/api/js?key='.env("GOOGLEMAPS_API_KEY").'&libraries=places&dummy=.js', array('type' => 'text/javascript')); ?>
-
-        <?php endif; ?>
-
         <?php echo $__env->yieldContent('footer_scripts'); ?>
 
     </body>

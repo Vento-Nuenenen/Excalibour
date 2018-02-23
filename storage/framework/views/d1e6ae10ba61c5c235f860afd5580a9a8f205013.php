@@ -29,8 +29,6 @@
                             <li <?php echo e(Request::is('users/create') ? 'class=active' : null); ?>><?php echo HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')); ?></li>
                             <li <?php echo e(Request::is('import/user') ? 'class=active' : null); ?>><?php echo HTML::link(url('/import/user'), 'Benutzer importieren'); ?></li>
                             <li <?php echo e(Request::is('groups') ? 'class=active' : null); ?>><?php echo HTML::link(url('/groups/'), 'Gruppen verwalten'); ?></li>
-                            <li <?php echo e(Request::is('routes') ? 'class=active' : null); ?>><?php echo HTML::link(url('/routes'), Lang::get('titles.adminRoutes')); ?></li>
-                            <li <?php echo e(Request::is('active-users') ? 'class=active' : null); ?>><?php echo HTML::link(url('/active-users'), Lang::get('titles.activeUsers')); ?></li>
                         </ul>
                     </li>
                 <?php endif; ?>

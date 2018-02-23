@@ -1,5 +1,5 @@
 <?php $__env->startSection('template_title'); ?>
-    <?php echo e(Auth::user()->name); ?>'s' Homepage
+    <?php echo e(Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name); ?>'s' Homepage
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('template_fastload_css'); ?>

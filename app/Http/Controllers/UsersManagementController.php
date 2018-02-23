@@ -62,17 +62,15 @@ class UsersManagementController extends Controller
     {
         $validator = Validator::make($request->all(),
             [
-                'name'                  => 'required|max:255|unique:users',
-                'first_name'            => '',
-                'last_name'             => '',
+                'scoutname'             => 'max:255',
+                'first_name'            => 'required|max:255',
+                'last_name'             => 'required|max:255',
                 'email'                 => 'required|email|max:255|unique:users',
                 'password'              => 'required|min:6|max:20|confirmed',
                 'password_confirmation' => 'required|same:password',
                 'role'                  => 'required',
             ],
             [
-                'name.unique'         => trans('auth.userNameTaken'),
-                'name.required'       => trans('auth.userNameRequired'),
                 'first_name.required' => trans('auth.fNameRequired'),
                 'last_name.required'  => trans('auth.lNameRequired'),
                 'email.required'      => trans('auth.emailRequired'),
@@ -92,7 +90,7 @@ class UsersManagementController extends Controller
         $profile = new Profile();
 
         $user = User::create([
-            'name'             => $request->input('name'),
+            'scoutname'        => $request->input('scoutname'),
             'first_name'       => $request->input('first_name'),
             'last_name'        => $request->input('last_name'),
             'email'            => $request->input('email'),
@@ -164,13 +162,13 @@ class UsersManagementController extends Controller
 
         if ($emailCheck) {
             $validator = Validator::make($request->all(), [
-                'name'     => 'required|max:255',
+                'scoutname'     => 'max:255',
                 'email'    => 'email|max:255|unique:users',
                 'password' => 'present|confirmed|min:6',
             ]);
         } else {
             $validator = Validator::make($request->all(), [
-                'name'     => 'required|max:255',
+                'scoutname'     => 'max:255',
                 'password' => 'nullable|confirmed|min:6',
             ]);
         }
@@ -179,7 +177,7 @@ class UsersManagementController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        $user->name = $request->input('name');
+        $user->scoutname = $request->input('scoutname');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
 

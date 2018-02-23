@@ -17,10 +17,12 @@
                     <th>Name</th>
                     <th>Bestandene Posten</th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <?php $__currentLoopData = $bestanden; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $best): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <tr>
+                        <td><?php echo e($best->first_name ." ". $best->scoutname ." ". $best->last_name); ?></td>
+                        <td><?php echo e($best->posten_name); ?></td>
+                    </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </table>
         </div>
     </div>
@@ -30,7 +32,18 @@
             <b>Teilnehmer <u>nicht</u> Bestanden</b>
         </div>
         <div class="panel-body">
-            Test
+            <table class="table table-hover">
+                <tr>
+                    <th>Name</th>
+                    <th>Bestandene Posten</th>
+                </tr>
+                <?php $__currentLoopData = $nicht_bestanden; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nbest): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <tr>
+                        <td><?php echo e($nbest->first_name ." ". $nbest->scoutname ." ". $nbest->last_name); ?></td>
+                        <td><?php echo e($nbest->posten_name); ?></td>
+                    </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </table>
         </div>
     </div>
 <?php endif; ?>

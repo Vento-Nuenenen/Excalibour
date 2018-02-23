@@ -1,5 +1,5 @@
 <?php $__env->startSection('template_title'); ?>
-  Create New User
+  Neuen Benutzer erstellen
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('template_fastload_css'); ?>
@@ -43,23 +43,6 @@
                 </div>
               </div>
 
-              <div class="form-group has-feedback row <?php echo e($errors->has('email') ? ' has-error ' : ''); ?>">
-                <?php echo Form::label('email', trans('forms.create_user_label_email'), array('class' => 'col-md-3 control-label'));; ?>
-
-                <div class="col-md-9">
-                  <div class="input-group">
-                    <?php echo Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_email'))); ?>
-
-                    <label class="input-group-addon" for="email"><i class="fa fa-fw <?php echo e(trans('forms.create_user_icon_email')); ?>" aria-hidden="true"></i></label>
-                  </div>
-                  <?php if($errors->has('email')): ?>
-                    <span class="help-block">
-                        <strong><?php echo e($errors->first('email')); ?></strong>
-                    </span>
-                  <?php endif; ?>
-                </div>
-              </div>
-
               <div class="form-group has-feedback row <?php echo e($errors->has('first_name') ? ' has-error ' : ''); ?>">
                 <?php echo Form::label('first_name', trans('forms.create_user_label_firstname'), array('class' => 'col-md-3 control-label'));; ?>
 
@@ -92,6 +75,23 @@
                     </span>
                   <?php endif; ?>
                 </div>
+              </div>
+
+              <div class="form-group has-feedback row <?php echo e($errors->has('email') ? ' has-error ' : ''); ?>">
+                  <?php echo Form::label('email', trans('forms.create_user_label_email'), array('class' => 'col-md-3 control-label'));; ?>
+
+                  <div class="col-md-9">
+                      <div class="input-group">
+                          <?php echo Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => trans('forms.create_user_ph_email'))); ?>
+
+                          <label class="input-group-addon" for="email"><i class="fa fa-fw <?php echo e(trans('forms.create_user_icon_email')); ?>" aria-hidden="true"></i></label>
+                      </div>
+                      <?php if($errors->has('email')): ?>
+                          <span class="help-block">
+                        <strong><?php echo e($errors->first('email')); ?></strong>
+                    </span>
+                      <?php endif; ?>
+                  </div>
               </div>
 
               <div class="form-group has-feedback row <?php echo e($errors->has('role') ? ' has-error ' : ''); ?>">

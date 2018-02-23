@@ -59,9 +59,9 @@
                                         <tr>
                                             <th class="hidden-xxs">ID</th>
                                             <th>Username</th>
-                                            <th class="hidden-xs hidden-sm">Email</th>
                                             <th class="hidden-xs hidden-sm hidden-md">First Name</th>
                                             <th class="hidden-xs hidden-sm hidden-md">Last Name</th>
+                                            <th class="hidden-xs hidden-sm">Email</th>
                                             <th class="hidden-xs hidden-sm">Role</th>
                                             <th class="hidden-xs">Deleted</th>
                                             <th class="hidden-xs">Deleted IP</th>
@@ -75,10 +75,10 @@
                                         @foreach($users as $user)
                                             <tr>
                                                 <td class="hidden-xxs">{{$user->id}}</td>
-                                                <td>{{$user->name}}</td>
-                                                <td class="hidden-xs hidden-sm"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
+                                                <td>{{$user->scoutname}}</td>
                                                 <td class="hidden-xs hidden-sm hidden-md">{{$user->first_name}}</td>
                                                 <td class="hidden-xs hidden-sm hidden-md">{{$user->last_name}}</td>
+                                                <td class="hidden-xs hidden-sm"><a href="mailto:{{ $user->email }}" title="email {{ $user->email }}">{{ $user->email }}</a></td>
                                                 <td class="hidden-xs hidden-sm">
                                                     @foreach ($user->roles as $user_role)
 

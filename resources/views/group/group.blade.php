@@ -5,37 +5,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Bestehende Posten</div>
-                    <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        @if(isset($groups[0]))
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <tr>
-                                        <th>Posten Name</th>
-                                        <th>Maximale Punkte</th>
-                                    </tr>
-                                    @foreach($groups as $group)
-                                        <tr>
-                                            <td>{{ $group['posten_name'] }}</td>
-                                            <td>{{ $group['max_points'] }}</td>
-                                        </tr>
-                                    @endforeach
-                                </table>
-                            </div>
-                        @else
-                            <h4 class="text-center">Keine Gruppe gefunden</h4>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="panel panel-default">
                     <div class="panel-heading">Posten hinzufügen</div>
                     <div class="panel-body">
                         @if (session('status'))
@@ -75,6 +44,44 @@
                     </div>
                 </div>
             </div>
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Bestehende Posten</div>
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    @if(isset($groups[0]))
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Posten Name</th>
+                                    <th>Maximale Punkte</th>
+                                    <th>Optionen</th>
+                                </tr>
+                                @foreach($groups as $group)
+                                    <tr>
+                                        <td>{{ $group['posten_name'] }}</td>
+                                        <td>{{ $group['max_points'] }}</td>
+                                        <td>
+                                            {{ Form::open([ 'method'  => 'post', 'action' => 'GroupController@delete']) }}
+                                            <input type="text" class="hidden" name="group_id" value="{{ $group['id'] }}">
+                                            <button type="submit" class="btn btn-danger"><i class="fa fa-fw fa-close"></i></button></td>
+                                        {{ Form::close() }}
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
+                    @else
+                        <h4 class="text-center">Keine Gruppe gefunden</h4>
+                    @endif
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 @endsection

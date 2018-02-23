@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>500 | Internal Server Error</title>
+        <title>500 | Interner Server-Fehler</title>
 
         <style>
             html, body {
@@ -37,7 +37,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Internal Server Error 500</div>
+                <div class="title">Interner Server-Fehler</div>
             </div>
         </div>
     </body>
