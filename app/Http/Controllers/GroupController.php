@@ -35,9 +35,10 @@ class GroupController extends Controller
         return redirect()->back()->with('success', 'Eine Gruppe wurde hinzufügen!');
     }
 
-    public function delete(Request $request){
-    	DB::delete("DELETE FROM posten WHERE posten.id = $request->group_id");
+    public function delete(Request $request)
+    {
+        DB::delete("DELETE FROM posten WHERE posten.id = $request->group_id");
 
-    	return redirect()->back()->with('success', 'Eine Gruppe wurde gelöscht!');
+        return redirect()->back()->with('success', 'Eine Gruppe wurde gelöscht!');
     }
 }
