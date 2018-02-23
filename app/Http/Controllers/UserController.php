@@ -25,27 +25,27 @@ class UserController extends Controller
         $user = Auth::user();
 
         if ($user->isAdmin()) {
-        	$points = DB::select("SELECT * FROM users INNER JOIN p2u ON users.id = p2u.fk_users INNER JOIN posten ON posten.id = p2u.fk_posten ORDER BY last_name;");
-        	$posten = DB::select("SELECT * FROM posten;");
+            $points = DB::select('SELECT * FROM users INNER JOIN p2u ON users.id = p2u.fk_users INNER JOIN posten ON posten.id = p2u.fk_posten ORDER BY last_name;');
+            $posten = DB::select('SELECT * FROM posten;');
 
-        	$tn_bestanden = array();
-        	$tn_nicht_bestanden = array();
+            $tn_bestanden = [];
+            $tn_nicht_bestanden = [];
 
-        	foreach($points as $point){
-        		$bestanden = 0;
+            foreach ($points as $point) {
+                $bestanden = 0;
 
-        		if(isset($point->reached_points)){
-					if($point->reached_points > ($point->max_points % 2)){
-						$bestanden++;
-					}
+                if (isset($point->reached_points)) {
+                    if ($point->reached_points > ($point->max_points % 2)) {
+                        $bestanden++;
+                    }
 
-			        if($bestanden > (count($posten) % 2)){
-				        $tn_bestanden[] = $point;
-			        }else{
-				        $tn_nicht_bestanden[] = $point;
-			        }
-		        }
-	        }
+                    if ($bestanden > (count($posten) % 2)) {
+                        $tn_bestanden[] = $point;
+                    } else {
+                        $tn_nicht_bestanden[] = $point;
+                    }
+                }
+            }
 
             return view('pages.admin.home')->with(['bestanden' => $tn_bestanden, 'nicht_bestanden' => $tn_nicht_bestanden]);
         }
