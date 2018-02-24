@@ -34,9 +34,10 @@ class PointsController extends Controller
         return redirect()->back()->with('success', 'Punkte wurden hinzugefügt!');
     }
 
-    public function delete(Request $request){
-		DB::delete("DELETE FROM p2u WHERE id = $request->point_id;");
+    public function delete(Request $request)
+    {
+        DB::delete("DELETE FROM p2u WHERE id = $request->point_id;");
 
-	    return redirect()->back()->with('success', 'Punkte wurden Gelöscht!');
+        return redirect()->back()->with('success', 'Punkte wurden Gelöscht!');
     }
 }
