@@ -26,8 +26,8 @@ class UsersTableSeeder extends Seeder
         if ($user === null) {
             $user = User::create([
                 'scoutname'                      => $faker->userName,
-	            'first_name'                     => $faker->firstName,
-	            'last_name'                      => $faker->lastName,
+                'first_name'                     => $faker->firstName,
+                'last_name'                      => $faker->lastName,
                 'email'                          => $seededAdminEmail,
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
@@ -46,8 +46,8 @@ class UsersTableSeeder extends Seeder
         if ($user === null) {
             $user = User::create([
                 'scoutname'                      => $faker->userName,
-	            'first_name'                     => $faker->firstName,
-	            'last_name'                      => $faker->lastName,
+                'first_name'                     => $faker->firstName,
+                'last_name'                      => $faker->lastName,
                 'email'                          => 'user@user.com',
                 'password'                       => Hash::make('password'),
                 'token'                          => str_random(64),
