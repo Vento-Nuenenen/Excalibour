@@ -1,39 +1,38 @@
-#### Laravel-Auth is a Complete Build of Laravel 5.5 with Email Registration Verification, Social Authentication, User Roles and Permissions, User Profiles, and Admin restricted user management system.
+#### Excalibour is a Build of Laravel 5.5 Exer-Management-Tool for Scouts.
 [![Build Status](https://travis-ci.org/Chronyms/Excalibour.svg?branch=master)](https://travis-ci.org/Chronyms/Excalibour)
 [![StyleCI](https://styleci.io/repos/116980577/shield?branch=master)](https://styleci.io/repos/116980577)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Chronyms/Excalibour/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Chronyms/Excalibour/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/Chronyms/Excalibour/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Chronyms/Excalibour/build-status/master)
 
 ### Installation Instructions
-1. Run `sudo git clone https://github.com/jeremykenedy/laravel-auth.git laravel-auth`
-2. Create a MySQL database for the project
-    * ```mysql -u root -p```, if using Vagrant: ```mysql -u homestead -psecret```
-    * ```create database laravelAuth;```
+1. `git clone https://github.com/Chronyms/Excalibour.git` ausführen
+2. MySQL-Datenbank für das Projekt erstellen
+    * ```mysql -u root -p```, auf Vagrant: ```mysql -u homestead -psecret```
+    * ```create database excalibour;```
     * ```\q```
 3. From the projects root run `cp .env.example .env`
-4. Configure your `.env` file // NOTE: Google API Key will prevent maps error
-5. Run `sudo composer update` from the projects root folder
+4. Configure your `.env` file
+5. Run `composer update` from the projects root folder
 6. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=config`
 7. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=migrations`
 8. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=seeds`
-9. From the projects root folder run `sudo chmod -R 755 ../laravel-auth`
-10. From the projects root folder run `php artisan key:generate`
-11. From the projects root folder run `php artisan migrate`
-12. From the projects root folder run `composer dump-autoload`
-13. From the projects root folder run `php artisan db:seed`
+9. From the projects root folder run `php artisan key:generate`
+10. From the projects root folder run `php artisan migrate`
+11. From the projects root folder run `composer dump-autoload`
+12. From the projects root folder run `php artisan db:seed`
 
 ** Note ** In order for [Dropzone.js](http://www.dropzonejs.com/#configuration) to work you will need to run
 ```
-npm install
+yarn
 ```
 
 #### Rebuild Front End Assets with Mix
 
 ###### Rebuilding the front end of that project is OPTIONAL and can be done using Laravel [Mix](https://laravel.com/docs/5.5/mix) which is Elixers replacement.
 
-1. From the projects root folder run `npm install`
-2. From the projects root folder run `npm run dev` or `npm run production`
-  * You can watch assets with `npm run watch`
+1. From the projects root folder run `yarn`
+2. From the projects root folder run `yarn dev` or `yarn production`
+  * You can watch assets with `yarn run watch`
 
 
 ### Seeds
@@ -54,55 +53,6 @@ npm install
 |:------------|:------------|:------------|
 |user@user.com|password|User Access|
 |admin@admin.com|password|Admin Access|
-
-
-###### **Steps**:
-  2. From the projects root folder in terminal run composer command to get the needed package.
-     * Example:
-
-      ```
-         composer require socialiteproviders/twitch
-      ```
-
-  3. From the projects root folder run ```composer update```
-  4. Add the service provider to ```/app/services.php```
-     * Example:
-
-     ```
-        'twitch' => [
-            'client_id'   => env('TWITCH_KEY'),
-            'client_secret' => env('TWITCH_SECRET'),
-            'redirect'    => env('TWITCH_REDIRECT_URI'),
-        ],
-     ```
-
-  5. Add the API credentials to ``` /.env  ```
-     * Example:
-
-      ```
-         TWITCH_KEY=YOURKEYHERE
-         TWITCH_SECRET=YOURSECRETHERE
-         TWITCH_REDIRECT_URI=http://YOURWEBSITEURL.COM/social/handle/twitch
-      ```
-
-  6. Add the social media login link:
-      * Example:
-      In file ```/resources/views/auth/login.blade.php``` add ONE of the following:
-         * Conventional HTML:
-
-      ```
-         <a href="{{ route('social.redirect', ['provider' => 'twitch']) }}" class="btn btn-lg btn-primary btn-block twitch">Twitch</a>
-      ```
-
-         * Use Laravel HTML Facade with [Laravel Collective](https://laravelcollective.com/) (recommended)
-
-      ```
-         {!! HTML::link(route('social.redirect', ['provider' => 'twitch']), 'Twitch', array('class' => 'btn btn-lg btn-primary btn-block twitch')) !!}
-      ```
-
-### Other API keys
-* [Google Maps API v3 Key](https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key)
-
 
 
 ### Laravel Auth License
