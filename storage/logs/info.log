@@ -126,3 +126,7 @@ Log Entry Details:
 Log Entry Details:
 ["[object] (App\\Models\\User: {\"id\":1,\"scoutname\":\"paxton46\",\"first_name\":null,\"last_name\":null,\"email\":\"admin@admin.com\",\"loginable\":1,\"signup_ip_address\":null,\"signup_confirmation_ip_address\":\"161.219.91.43\",\"signup_sm_ip_address\":null,\"admin_ip_address\":\"246.70.58.189\",\"updated_ip_address\":\"0.0.0.0\",\"deleted_ip_address\":null,\"created_at\":\"2018-02-15 06:25:28\",\"updated_at\":\"2018-02-20 11:52:47\",\"deleted_at\":null})"]
 []
+[2018-02-24 09:59:42] local.INFO: Activated user attempted to visit logout.  
+Log Entry Details:
+["[object] (App\\Models\\User: {\"id\":1,\"scoutname\":\"paxton46\",\"first_name\":null,\"last_name\":null,\"email\":\"admin@admin.com\",\"loginable\":1,\"signup_ip_address\":null,\"signup_confirmation_ip_address\":\"161.219.91.43\",\"signup_sm_ip_address\":null,\"admin_ip_address\":\"246.70.58.189\",\"updated_ip_address\":\"0.0.0.0\",\"deleted_ip_address\":null,\"created_at\":\"2018-02-15 06:25:28\",\"updated_at\":\"2018-02-20 11:52:47\",\"deleted_at\":null})"]
+[]

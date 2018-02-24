@@ -54,8 +54,8 @@
                     <tr>
                         <td>{{ $nbest->first_name." ".$nbest->scoutname." ".$nbest->last_name }}</td>
                         <td>
-                            @foreach($nbest->post_name as $postn)
-                                {{ $postn . " | " }}
+                            @foreach($posten_bestanden as $post_best)
+                                {{ $post_best . " | " }}
                             @endforeach
                         </td>
                         <td>

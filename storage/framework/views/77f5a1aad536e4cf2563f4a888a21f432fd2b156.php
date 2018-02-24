@@ -56,8 +56,8 @@
                     <tr>
                         <td><?php echo e($nbest->first_name." ".$nbest->scoutname." ".$nbest->last_name); ?></td>
                         <td>
-                            <?php $__currentLoopData = $nbest->post_name; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $postn): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <?php echo e($postn . " | "); ?>
+                            <?php $__currentLoopData = $posten_bestanden; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post_best): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php echo e($post_best . " | "); ?>
 
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </td>
