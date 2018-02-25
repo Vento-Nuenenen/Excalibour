@@ -13,13 +13,10 @@
 3. From the projects root run `cp .env.example .env`
 4. Configure your `.env` file
 5. Run `composer update` from the projects root folder
-6. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=config`
-7. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=migrations`
-8. Run `php artisan vendor:publish --provider="jeremykenedy\LaravelRoles\RolesServiceProvider" --tag=seeds`
-9. From the projects root folder run `php artisan key:generate`
-10. From the projects root folder run `php artisan migrate`
-11. From the projects root folder run `composer dump-autoload`
-12. From the projects root folder run `php artisan db:seed`
+6. From the projects root folder run `php artisan key:generate`
+7. From the projects root folder run `php artisan migrate`
+8. From the projects root folder run `composer dump-autoload`
+9. From the projects root folder run `php artisan db:seed`
 
 ** Note ** In order for [Dropzone.js](http://www.dropzonejs.com/#configuration) to work you will need to run
 ```
