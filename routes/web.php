@@ -108,8 +108,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
         ],
     ]);
 
-    Route::get('import/user','ImportController@index');
-    Route::post('import/user/do','ImportController@import')->name('import_user_do');
+    Route::get('import/user', 'ImportController@index');
+    Route::post('import/user/do', 'ImportController@import')->name('import_user_do');
 
     Route::get('routes', 'AdminDetailsController@listRoutes');
 
