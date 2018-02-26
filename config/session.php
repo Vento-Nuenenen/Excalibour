@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'cookie' => 'laravel_session',
+    'cookie' => 'excalibour_exer',
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +174,6 @@ return [
     |
     */
 
-    'http_only' => true,
+    'http_only' => false,
 
 ];

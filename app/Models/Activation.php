@@ -28,7 +28,10 @@ class Activation extends Model
         'ip_address',
     ];
 
-    public function user()
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function user()
     {
         return $this->belongsTo(User::class);
     }

@@ -108,6 +108,9 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
         ],
     ]);
 
+    Route::get('import/user','ImportController@index');
+    Route::post('import/user/do','ImportController@import')->name('import_user_do');
+
     Route::get('routes', 'AdminDetailsController@listRoutes');
 
     Route::get('active-users', 'AdminDetailsController@activeUsers');
@@ -122,7 +125,4 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
     Route::get('groups', 'GroupController@manage');
     Route::post('groups/add', 'GroupController@add')->name('add_groups');
     Route::post('groups/delete', 'GroupController@delete');
-
-    Route::get('import/users', 'UserController@import');
-    Route::get('import/users/do', 'UserController@import_do')->name('import_do');
 });

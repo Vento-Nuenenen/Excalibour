@@ -237,7 +237,6 @@ return [
         'View'         => Illuminate\Support\Facades\View::class,
         'Form'         => \Collective\Html\FormFacade::class,
         'HTML'         => \Collective\Html\HtmlFacade::class,
-        'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
         'Input'        => Illuminate\Support\Facades\Input::class,
         'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,

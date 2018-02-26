@@ -13,15 +13,11 @@
                             </div>
                         @endif
 
-                        <div class="alert alert-info">
-                            <b>Anleitung</b><br />
-                            Mehrere Benutzer können hier mittels einer Datei Importiert werden. Dies funktioniert folgendermassen:
-                        </div>
-
-                        @role('admin')
-                            {!! Form::open(['url' => route('import_do'), 'class' => 'dropzone', 'files'=>true, 'id'=>'real-dropzone']) !!}
-                            {!! Form::close() !!}
-                        @endrole
+                        <form action="{{ route('import_user_do') }}" method="POST">
+                            {{ Form::token() }}
+                            <input type="file" id="user_file" name="user_file" />
+                            <button type="submit" id="upload_user_file">Datei hochladen</button>
+                        </form>
                     </div>
                 </div>
             </div>
