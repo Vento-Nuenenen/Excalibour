@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use DB;
 
 class UserController extends Controller
 {
