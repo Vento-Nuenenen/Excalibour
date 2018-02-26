@@ -128,16 +128,16 @@
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.1.2",
+            "version": "v3.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "59a7a08d84111a5b2407fb58b9d74af3ebe430e7"
+                "reference": "664fa434e26febf04d60df0368303cf0fe14f63a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/59a7a08d84111a5b2407fb58b9d74af3ebe430e7",
-                "reference": "59a7a08d84111a5b2407fb58b9d74af3ebe430e7",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/664fa434e26febf04d60df0368303cf0fe14f63a",
+                "reference": "664fa434e26febf04d60df0368303cf0fe14f63a",
                 "shasum": ""
             },
             "require": {
@@ -192,7 +192,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2018-02-07T19:51:45+00:00"
+            "time": "2018-02-25T13:31:58+00:00"
         },
         {
             "name": "carlos-meneses/laravel-mpdf",
@@ -1466,20 +1466,20 @@
         },
         {
             "name": "jeremykenedy/laravel-roles",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-roles.git",
-                "reference": "eb9b4396de9b0fe96686656b714da65f1d0055f1"
+                "reference": "eaf5443d45f8844f6054d503bab8088ed37b6cdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/eb9b4396de9b0fe96686656b714da65f1d0055f1",
-                "reference": "eb9b4396de9b0fe96686656b714da65f1d0055f1",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-roles/zipball/eaf5443d45f8844f6054d503bab8088ed37b6cdb",
+                "reference": "eaf5443d45f8844f6054d503bab8088ed37b6cdb",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "5.3.*|5.4.*|5.5.*",
+                "laravel/framework": "5.3.*|5.4.*|5.5.*|5.6.*",
                 "php": ">=5.6.4"
             },
             "type": "library",
@@ -1520,7 +1520,7 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2017-09-03T08:58:15+00:00"
+            "time": "2018-02-25T18:37:47+00:00"
         },
         {
             "name": "jeremykenedy/uuid",
@@ -2713,23 +2713,23 @@
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
-            "version": "v0.11.0",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
-                "reference": "2a557969a8a23d6b5320f1716748d9577f27f303"
+                "reference": "9176a9721c37dd794c7ec49a72cdb5985f0ea0e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/2a557969a8a23d6b5320f1716748d9577f27f303",
-                "reference": "2a557969a8a23d6b5320f1716748d9577f27f303",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/9176a9721c37dd794c7ec49a72cdb5985f0ea0e3",
+                "reference": "9176a9721c37dd794c7ec49a72cdb5985f0ea0e3",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "4.2.*|5.*",
                 "php": ">=5.4.0"
             },
-            "type": "library",
+            "type": "laravel-package",
             "extra": {
                 "laravel": {
                     "providers": [
@@ -2764,7 +2764,7 @@
                 "logging",
                 "lumen"
             ],
-            "time": "2017-11-17T10:21:53+00:00"
+            "time": "2018-02-23T12:52:11+00:00"
         },
         {
             "name": "setasign/fpdi",
