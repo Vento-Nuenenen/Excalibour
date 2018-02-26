@@ -48,13 +48,14 @@ class Theme extends Model
         'deleted_at',
     ];
 
-	/**
-	 * Get a validator for an incoming registration request.
-	 *
-	 * @param int $id
-	 * @param array $merge
-	 * @return array
-	 */
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param int   $id
+     * @param array $merge
+     *
+     * @return array
+     */
     public static function rules($id = 0, $merge = [])
     {
         return array_merge(
