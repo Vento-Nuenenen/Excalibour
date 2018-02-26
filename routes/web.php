@@ -14,7 +14,7 @@
 */
 
 // Homepage Route
-Route::get('/', ['as' => 'public.home',   'uses' => 'UserController@index']);
+Route::get('/', ['as' => 'public.home',   'uses' => 'AuswertungController@index']);
 
 // Authentication Routes
 Auth::routes();
@@ -107,6 +107,9 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
             'deleted',
         ],
     ]);
+
+    Route::get('auswertung/exer1', 'AuswertungController@e1');
+    Route::get('auswertung/exer2', 'AuswertungController@e2');
 
     Route::get('import/user', 'ImportController@index');
     Route::post('import/user/do', 'ImportController@import')->name('import_user_do');

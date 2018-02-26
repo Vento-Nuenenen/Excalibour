@@ -24,6 +24,8 @@
                             Administration <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
+                            <li {{ Request::is('auswertung/exer1') ? 'class=active' : null }}>{!! HTML::link(url('/auswertung/exer1'), 'Auswertung 1. Exer') !!}</li>
+                            <li {{ Request::is('auswertung/exer2') ? 'class=active' : null }}>{!! HTML::link(url('/auswertung/exer2'), 'Auswertung 2. Exer') !!}</li>
                             <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
                             <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
                             <li {{ Request::is('import/user') ? 'class=active' : null }}>{!! HTML::link(url('/import/user'), 'Benutzer importieren') !!}</li>
