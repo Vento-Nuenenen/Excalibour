@@ -2713,16 +2713,16 @@
         },
         {
             "name": "rap2hpoutre/laravel-log-viewer",
-            "version": "v0.11.1",
+            "version": "v0.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
-                "reference": "9176a9721c37dd794c7ec49a72cdb5985f0ea0e3"
+                "reference": "025952259036a17a813763491e6a1a0a1dbf918e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/9176a9721c37dd794c7ec49a72cdb5985f0ea0e3",
-                "reference": "9176a9721c37dd794c7ec49a72cdb5985f0ea0e3",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/025952259036a17a813763491e6a1a0a1dbf918e",
+                "reference": "025952259036a17a813763491e6a1a0a1dbf918e",
                 "shasum": ""
             },
             "require": {
@@ -2764,7 +2764,7 @@
                 "logging",
                 "lumen"
             ],
-            "time": "2018-02-23T12:52:11+00:00"
+            "time": "2018-02-27T08:11:14+00:00"
         },
         {
             "name": "setasign/fpdi",
