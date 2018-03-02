@@ -24,7 +24,7 @@ class PointsController extends Controller
 
         $users = DB::select('SELECT users.id, users.first_name, users.scoutname, users.last_name FROM users LEFT JOIN role_user ON users.id = role_user.user_id LEFT JOIN roles ON role_user.role_id = roles.id WHERE slug = "tn1e";');
 
-        return view('user.points')->with(['setPoints' => $setPoints, 'groups' => $groups, 'users' => $users]);
+        return view('exer1.points')->with(['setPoints' => $setPoints, 'groups' => $groups, 'users' => $users]);
     }
 
     public function e2()
@@ -35,7 +35,7 @@ class PointsController extends Controller
 
         $users = DB::select('SELECT users.id, users.first_name, users.scoutname, users.last_name FROM users LEFT JOIN role_user ON users.id = role_user.user_id LEFT JOIN roles ON role_user.role_id = roles.id WHERE slug = "tn2e";');
 
-        return view('user.points')->with(['setPoints' => $setPoints, 'groups' => $groups, 'users' => $users]);
+        return view('exer2.points')->with(['setPoints' => $setPoints, 'groups' => $groups, 'users' => $users]);
     }
 
     public function add(Request $request)
