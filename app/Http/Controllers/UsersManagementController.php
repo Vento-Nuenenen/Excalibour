@@ -65,17 +65,15 @@ class UsersManagementController extends Controller
                 'scoutname'             => 'max:255',
                 'first_name'            => 'required|max:255',
                 'last_name'             => 'required|max:255',
-                'email'                 => 'required|email|max:255|unique:users',
-                'password'              => 'required|min:6|max:20|confirmed',
-                'password_confirmation' => 'required|same:password',
+                'email'                 => 'max:255|unique:users',
+                'password'              => 'confirmed',
+                'password_confirmation' => 'same:password',
                 'role'                  => 'required',
             ],
             [
                 'first_name.required' => trans('auth.fNameRequired'),
                 'last_name.required'  => trans('auth.lNameRequired'),
-                'email.required'      => trans('auth.emailRequired'),
                 'email.email'         => trans('auth.emailInvalid'),
-                'password.required'   => trans('auth.passwordRequired'),
                 'password.min'        => trans('auth.PasswordMin'),
                 'password.max'        => trans('auth.PasswordMax'),
                 'role.required'       => trans('auth.roleRequired'),
@@ -89,11 +87,17 @@ class UsersManagementController extends Controller
         $ipAddress = new CaptureIpTrait();
         $profile = new Profile();
 
+        if (null != $request->input('email')){
+            $email = $request->input('scoutname')."@".$request->input('first_name').".".$request->input('last_name');
+        }else{
+            $email = $request->input('email');
+        }
+
         $user = User::create([
             'scoutname'        => $request->input('scoutname'),
             'first_name'       => $request->input('first_name'),
             'last_name'        => $request->input('last_name'),
-            'email'            => $request->input('email'),
+            'email'            => $email,
             'password'         => bcrypt($request->input('password')),
             'token'            => str_random(64),
             'admin_ip_address' => $ipAddress->getClientIp(),

@@ -68,19 +68,14 @@
 
 						<?php if($user->profile): ?>
 							<?php if(Auth::user()->id == $user->id): ?>
-
 								<?php echo HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-cog', trans('titles.editProfile'), array('class' => 'btn btn-small btn-info btn-block')); ?>
-
 
 							<?php endif; ?>
 						<?php else: ?>
-
 							<p><?php echo e(trans('profile.noProfileYet')); ?></p>
-							<?php echo HTML::icon_link(URL::to('/profile/'.Auth::user()->name.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')); ?>
-
+							<?php echo HTML::icon_link(URL::to('/profile/'.Auth::user()->id.'/edit'), 'fa fa-fw fa-plus ', trans('titles.createProfile'), array('class' => 'btn btn-small btn-info btn-block')); ?>
 
 						<?php endif; ?>
-
 					</div>
 				</div>
 			</div>

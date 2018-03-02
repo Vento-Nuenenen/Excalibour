@@ -26,18 +26,18 @@ class RolesTableSeeder extends Seeder
             ]);
         }
 
-        if (Role::where('slug', '=', 'user')->first() === null) {
+        if (Role::where('slug', '=', 'Leiter')->first() === null) {
             $userRole = Role::create([
-                'name'        => 'User',
-                'slug'        => 'user',
-                'description' => 'User Role',
+                'name'        => 'Leiter',
+                'slug'        => 'leiter',
+                'description' => 'Leiter Role',
                 'level'       => 1,
             ]);
         }
 
         if (Role::where('slug', '=', 'tn1e')->first() === null) {
             $userRole = Role::create([
-                'name'        => 'TN Exer 1',
+                'name'        => '1. Exer',
                 'slug'        => 'tn1e',
                 'description' => 'TN Exer 1 Role',
                 'level'       => 0,
@@ -46,7 +46,7 @@ class RolesTableSeeder extends Seeder
 
         if (Role::where('slug', '=', 'tn2e')->first() === null) {
             $userRole = Role::create([
-                'name'        => 'TN Exer 2',
+                'name'        => '2. Exer',
                 'slug'        => 'tn2e',
                 'description' => 'TN Exer 2 Role',
                 'level'       => 0,

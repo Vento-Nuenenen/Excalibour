@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-  Showing User {{ Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name }}
+  Zeige Benutzer {{ Auth::user()->scoutname ? Auth::user()->scoutname : Auth::user()->first_name }}
 @endsection
 
 @php
@@ -31,7 +31,7 @@
             <div class="well">
               <div class="row">
                 <div class="col-sm-6">
-                  <img src="@if ($user->profile && $user->profile->avatar_status == 1) {{ $user->profile->avatar }} @else {{ Gravatar::get($user->email) }} @endif" alt="{{ $user->name }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
+                  <img src="@if($user->profile && $user->profile->avatar_status == 1) {{ $user->profile->avatar }} @elseif($user->email){{ Gravatar::get($user->email) }} @else{{ Gravatar::get('tn@tn.com') }} @endif" alt="{{ $user->name }}" id="" class="img-circle center-block margin-bottom-2 margin-top-1 user-image">
                 </div>
 
                 <div class="col-sm-6">

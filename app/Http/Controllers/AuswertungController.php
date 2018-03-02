@@ -37,7 +37,7 @@ class AuswertungController extends Controller
             }
 
             if (isset($point->post_points)) {
-                if (count($bestanden) > floor(count($posten) / 2)) {
+                if (count($bestanden) >= count($posten)) {
                     $tn_bestanden[] = $point;
                 } else {
                     $tn_nicht_bestanden[] = $point;
@@ -71,7 +71,7 @@ class AuswertungController extends Controller
             }
 
             if (isset($point->post_points)) {
-                if (count($bestanden) > floor(count($posten) / 2)) {
+                if (count($bestanden) >= count($posten)) {
                     $tn_bestanden[] = $point;
                 } else {
                     $tn_nicht_bestanden[] = $point;
@@ -79,7 +79,7 @@ class AuswertungController extends Controller
             }
         }
 
-        return view('pages.admin.home')->with(['bestanden' => $tn_bestanden, 'nicht_bestanden' => $tn_nicht_bestanden, 'posten_bestanden' => $bestanden]);
+        return view('exer1.auswertung')->with(['bestanden' => $tn_bestanden, 'nicht_bestanden' => $tn_nicht_bestanden, 'posten_bestanden' => $bestanden]);
     }
 
     public function e2()
@@ -105,7 +105,7 @@ class AuswertungController extends Controller
             }
 
             if (isset($point->post_points)) {
-                if (count($bestanden) > floor(count($posten) / 2)) {
+                if (count($bestanden) >= count($posten)) {
                     $tn_bestanden[] = $point;
                 } else {
                     $tn_nicht_bestanden[] = $point;
@@ -113,6 +113,6 @@ class AuswertungController extends Controller
             }
         }
 
-        return view('pages.admin.home')->with(['bestanden' => $tn_bestanden, 'nicht_bestanden' => $tn_nicht_bestanden, 'posten_bestanden' => $bestanden]);
+        return view('exer2.auswertung')->with(['bestanden' => $tn_bestanden, 'nicht_bestanden' => $tn_nicht_bestanden, 'posten_bestanden' => $bestanden]);
     }
 }

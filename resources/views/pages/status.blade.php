@@ -4,9 +4,6 @@
 	Siehe Nachricht
 @endsection
 
-@section('head')
-@endsection
-
 @section('content')
 
  <div class="container">

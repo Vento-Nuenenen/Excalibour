@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth', 'activated', 'activity']], function () {
     Route::get('/logout', ['uses' => 'Auth\LoginController@logout'])->name('logout');
 
     //  Homepage Route - Redirect based on user role is in controller.
-    Route::get('/home', ['as' => 'public.home',   'uses' => 'UserController@index']);
+    Route::get('/home', ['as' => 'public.home',   'uses' => 'AuswertungController@index']);
 
     // Show users profile - viewable by other users.
     Route::get('profile/{username}', [
@@ -108,8 +108,8 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
         ],
     ]);
 
-    Route::get('auswertung/exer1', 'AuswertungController@e1');
-    Route::get('auswertung/exer2', 'AuswertungController@e2');
+    Route::get('exer1/auswertung', 'AuswertungController@e1');
+    Route::get('exer2/auswertung', 'AuswertungController@e2');
 
     Route::get('import/user', 'ImportController@index');
     Route::post('import/user/do', 'ImportController@import')->name('import_user_do');
@@ -118,12 +118,13 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
 
     Route::get('active-users', 'AdminDetailsController@activeUsers');
 
-    Route::get('tn/points', 'PointsController@index');
+    Route::get('exer1/points', 'PointsController@e1');
+	Route::get('exer2/points', 'PointsController@e2');
     Route::post('tn/points/add', 'PointsController@add')->name('add_points');
     Route::post('tn/points/delete', 'PointsController@delete');
 
     Route::get('print/certificate', 'PrintController@index');
-    Route::post('print/certificate/do', 'PrintController@certificate')->name('print');
+    Route::match(array('GET','POST'), 'print/certificate/do', 'PrintController@certificate')->name('print');
 
     Route::get('groups', 'GroupController@manage');
     Route::post('groups/add', 'GroupController@add')->name('add_groups');

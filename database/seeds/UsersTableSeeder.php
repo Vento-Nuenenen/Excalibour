@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
         $profile = new Profile();
         $adminRole = Role::whereName('Admin')->first();
         $userRole = Role::whereName('User')->first();
-        $tnRole = Role::whereName('TN')->first();
+        $tnRole = Role::whereName('tn1e')->first();
 
         // Seed test admin
         $seededAdminEmail = 'admin@admin.com';
@@ -78,7 +78,7 @@ class UsersTableSeeder extends Seeder
             ]);
 
             $user->profile()->save(new Profile());
-            $user->attachRole($userRole);
+            $user->attachRole($tnRole);
             $user->save();
         }
     }

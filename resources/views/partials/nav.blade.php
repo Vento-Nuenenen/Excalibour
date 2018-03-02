@@ -24,26 +24,37 @@
                             Administration <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li {{ Request::is('auswertung/exer1') ? 'class=active' : null }}>{!! HTML::link(url('/auswertung/exer1'), 'Auswertung 1. Exer') !!}</li>
-                            <li {{ Request::is('auswertung/exer2') ? 'class=active' : null }}>{!! HTML::link(url('/auswertung/exer2'), 'Auswertung 2. Exer') !!}</li>
                             <li {{ Request::is('users', 'users/' . Auth::user()->id, 'users/' . Auth::user()->id . '/edit') ? 'class=active' : null }}>{!! HTML::link(url('/users'), Lang::get('titles.adminUserList')) !!}</li>
                             <li {{ Request::is('users/create') ? 'class=active' : null }}>{!! HTML::link(url('/users/create'), Lang::get('titles.adminNewUser')) !!}</li>
                             <li {{ Request::is('import/user') ? 'class=active' : null }}>{!! HTML::link(url('/import/user'), 'Benutzer importieren') !!}</li>
                             <li {{ Request::is('groups') ? 'class=active' : null }}>{!! HTML::link(url('/groups/'), 'Gruppen verwalten') !!}</li>
+                            <li {{ Request::is('print/certificate') ? 'class=active' : null }}>{!! HTML::link(url('/print/certificate'), 'Exer Gratulation Export') !!}</li>
                         </ul>
                     </li>
                 @endrole
 
-                @role('admin|user')
+                @role('admin|leiter')
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Management <span class="caret"></span>
+                            1. Exer <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li {{ Request::is('tn/points') ? 'class=active' : null }}>{!! HTML::link(url('/tn/points'), 'Punkte vergeben') !!}</li>
-                            <li {{ Request::is('print/certificate') ? 'class=active' : null }}>{!! HTML::link(url('/print/certificate'), 'Exer Gratulation export') !!}</li>
+                            <li {{ Request::is('exer1/auswertung') ? 'class=active' : null }}>{!! HTML::link(url('/exer1/auswertung'), 'Auswertung 1. Exer') !!}</li>
+                            <li {{ Request::is('exer1/points') ? 'class=active' : null }}>{!! HTML::link(url('/exer1/points'), 'Punkte vergeben') !!}</li>
                         </ul>
                     </li>
+                @endrole
+
+                @role('admin|leiter')
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        2. Exer <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li {{ Request::is('exer2/auswertung') ? 'class=active' : null }}>{!! HTML::link(url('/exer2/auswertung'), 'Auswertung 2. Exer') !!}</li>
+                        <li {{ Request::is('exer2/points') ? 'class=active' : null }}>{!! HTML::link(url('/exer2/points'), 'Punkte vergeben') !!}</li>
+                    </ul>
+                </li>
                 @endrole
             </ul>
 
