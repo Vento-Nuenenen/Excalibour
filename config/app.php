@@ -242,7 +242,7 @@ return [
         'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF'          => Barryvdh\DomPDF\Facade::class,
 
     ],
 

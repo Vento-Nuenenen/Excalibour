@@ -27,16 +27,16 @@ class PointsController extends Controller
         return view('user.points')->with(['setPoints' => $setPoints, 'groups' => $groups, 'users' => $users]);
     }
 
-	public function e2()
-	{
-		$setPoints = DB::select('SELECT *, p2u.id as p2u_id FROM users LEFT  JOIN p2u ON users.id = p2u.fk_users LEFT JOIN posten ON p2u.fk_posten = posten.id WHERE reached_points;');
+    public function e2()
+    {
+        $setPoints = DB::select('SELECT *, p2u.id as p2u_id FROM users LEFT  JOIN p2u ON users.id = p2u.fk_users LEFT JOIN posten ON p2u.fk_posten = posten.id WHERE reached_points;');
 
-		$groups = DB::select('SELECT * FROM posten;');
+        $groups = DB::select('SELECT * FROM posten;');
 
-		$users = DB::select('SELECT users.id, users.first_name, users.scoutname, users.last_name FROM users LEFT JOIN role_user ON users.id = role_user.user_id LEFT JOIN roles ON role_user.role_id = roles.id WHERE slug = "tn2e";');
+        $users = DB::select('SELECT users.id, users.first_name, users.scoutname, users.last_name FROM users LEFT JOIN role_user ON users.id = role_user.user_id LEFT JOIN roles ON role_user.role_id = roles.id WHERE slug = "tn2e";');
 
-		return view('user.points')->with(['setPoints' => $setPoints, 'groups' => $groups, 'users' => $users]);
-	}
+        return view('user.points')->with(['setPoints' => $setPoints, 'groups' => $groups, 'users' => $users]);
+    }
 
     public function add(Request $request)
     {

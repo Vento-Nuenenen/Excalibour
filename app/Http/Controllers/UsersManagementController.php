@@ -87,9 +87,9 @@ class UsersManagementController extends Controller
         $ipAddress = new CaptureIpTrait();
         $profile = new Profile();
 
-        if (null != $request->input('email')){
-            $email = $request->input('scoutname')."@".$request->input('first_name').".".$request->input('last_name');
-        }else{
+        if (null != $request->input('email')) {
+            $email = $request->input('scoutname').'@'.$request->input('first_name').'.'.$request->input('last_name');
+        } else {
             $email = $request->input('email');
         }
 
