@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use PDF;
 use DB;
 use Illuminate\Http\Request;
+use PDF;
 
 class PrintController extends Controller
 {
@@ -28,11 +28,11 @@ class PrintController extends Controller
 
         $data = nl2br($data);
 
-        foreach($users as $user){
-        	$data = str_replace("@pfadiname", $user->scoutname,$data);
-	        $data = str_replace("@exer", $user->name,$data);
+        foreach ($users as $user) {
+            $data = str_replace('@pfadiname', $user->scoutname, $data);
+            $data = str_replace('@exer', $user->name, $data);
 
-            $pdf = PDF::loadView('print.template',['data' => $data]);
+            $pdf = PDF::loadView('print.template', ['data' => $data]);
         }
 
         return $pdf->stream('download.pdf');
