@@ -1,4 +1,6 @@
 #### Excalibour is a Build of Laravel 5.5 Exer-Management-Tool for Scouts.
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Chronyms/Excalibour.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/Chronyms/Excalibour.svg?branch=master)](https://travis-ci.org/Chronyms/Excalibour)
 [![StyleCI](https://styleci.io/repos/116980577/shield?branch=master)](https://styleci.io/repos/116980577)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Chronyms/Excalibour/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Chronyms/Excalibour/?branch=master)
