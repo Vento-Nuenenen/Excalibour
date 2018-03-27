@@ -3848,8 +3848,8 @@ laravel-echo@^1.3.5:
   resolved "https://registry.yarnpkg.com/laravel-echo/-/laravel-echo-1.3.5.tgz#6e92a7c380f9393918c162886a9ca1c4e5926159"
 
 laravel-mix@^2.1:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-2.1.2.tgz#2b1d2375aa761a94f86702b00b03b998a877ead7"
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-2.1.11.tgz#3741bde214586f8c171641990c9a487eece5367d"
   dependencies:
     autoprefixer "^7.2.6"
     babel-core "^6.24.1"
