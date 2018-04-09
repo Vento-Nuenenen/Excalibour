@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "69f4075ac3784cf4856d857aac0db594",
+    "content-hash": "3c43a522bcdafb045efcace2db5c1e6f",
     "packages": [
         {
             "name": "appstract/laravel-opcache",
@@ -1469,23 +1469,23 @@
         },
         {
             "name": "jeremykenedy/laravel-logger",
-            "version": "1.1.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-logger.git",
-                "reference": "ecf5489e519fed22e3ea24742ed7aff9b3cb8fca"
+                "reference": "cad9ce2741f2317ce6b49ccc679fdfac7cf1ef04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-logger/zipball/ecf5489e519fed22e3ea24742ed7aff9b3cb8fca",
-                "reference": "ecf5489e519fed22e3ea24742ed7aff9b3cb8fca",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-logger/zipball/cad9ce2741f2317ce6b49ccc679fdfac7cf1ef04",
+                "reference": "cad9ce2741f2317ce6b49ccc679fdfac7cf1ef04",
                 "shasum": ""
             },
             "require": {
                 "jaybizzle/laravel-crawler-detect": "1.*",
                 "php": ">=7.0.0"
             },
-            "type": "library",
+            "type": "package",
             "extra": {
                 "laravel": {
                     "providers": [
@@ -1512,7 +1512,14 @@
                 }
             ],
             "description": "Laravel Logger Package",
-            "time": "2018-03-26T05:32:29+00:00"
+            "keywords": [
+                "Laravel activity",
+                "Laravel activity log",
+                "Laravel activity logger",
+                "Laravel log",
+                "laravel logger"
+            ],
+            "time": "2018-04-08T22:37:23+00:00"
         },
         {
             "name": "jeremykenedy/laravel-roles",
@@ -4108,7 +4115,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pádraic Brady",
+                    "name": "Padraic Brady",
                     "email": "padraic.brady@gmail.com",
                     "homepage": "http://blog.astrumfutura.com"
                 },
