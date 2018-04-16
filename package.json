@@ -22,7 +22,7 @@
     "dropzone": "^5.4.0",
     "hideshowpassword": "^2.0.4",
     "laravel-echo": "^1.3.5",
-    "moment": "^2.22.0",
+    "moment": "^2.22.1",
     "password-strength-meter": "^1.2.1",
     "pusher-js": "^4.2.2"
   }
