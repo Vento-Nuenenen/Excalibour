@@ -1469,16 +1469,16 @@
         },
         {
             "name": "jeremykenedy/laravel-logger",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-logger.git",
-                "reference": "cad9ce2741f2317ce6b49ccc679fdfac7cf1ef04"
+                "reference": "dc87858eb37de22f4c554aa2c0ca41229efae205"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-logger/zipball/cad9ce2741f2317ce6b49ccc679fdfac7cf1ef04",
-                "reference": "cad9ce2741f2317ce6b49ccc679fdfac7cf1ef04",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-logger/zipball/dc87858eb37de22f4c554aa2c0ca41229efae205",
+                "reference": "dc87858eb37de22f4c554aa2c0ca41229efae205",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1519,7 @@
                 "Laravel log",
                 "laravel logger"
             ],
-            "time": "2018-04-08T22:37:23+00:00"
+            "time": "2018-04-13T07:17:47+00:00"
         },
         {
             "name": "jeremykenedy/laravel-roles",
