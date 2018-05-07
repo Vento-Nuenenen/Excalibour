@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "3c43a522bcdafb045efcace2db5c1e6f",
@@ -1469,16 +1469,16 @@
         },
         {
             "name": "jeremykenedy/laravel-logger",
-            "version": "v2.1.0",
+            "version": "v2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jeremykenedy/laravel-logger.git",
-                "reference": "dc87858eb37de22f4c554aa2c0ca41229efae205"
+                "reference": "72ff9e0ef022c272a64399ce1ec4beddbb2a8776"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jeremykenedy/laravel-logger/zipball/dc87858eb37de22f4c554aa2c0ca41229efae205",
-                "reference": "dc87858eb37de22f4c554aa2c0ca41229efae205",
+                "url": "https://api.github.com/repos/jeremykenedy/laravel-logger/zipball/72ff9e0ef022c272a64399ce1ec4beddbb2a8776",
+                "reference": "72ff9e0ef022c272a64399ce1ec4beddbb2a8776",
                 "shasum": ""
             },
             "require": {
@@ -1519,7 +1519,7 @@
                 "Laravel log",
                 "laravel logger"
             ],
-            "time": "2018-04-13T07:17:47+00:00"
+            "time": "2018-05-04T06:21:38+00:00"
         },
         {
             "name": "jeremykenedy/laravel-roles",
