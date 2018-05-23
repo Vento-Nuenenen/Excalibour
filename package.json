@@ -10,7 +10,7 @@
   "devDependencies": {
     "axios": "^0.18",
     "bootstrap-sass": "^3.3.7",
-    "cross-env": "^5.1.5",
+    "cross-env": "^5.1.6",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3",
     "laravel-mix": "^2.1",
