@@ -29,7 +29,7 @@ HTML::macro('icon_btn', function ($url = '', $icon = '', $link_name = '', $param
 });
 
 // SHOW USERNAME
-HTML::macro('show_username', function () {
+HTML::macro('show_username', function() {
     $the_username = (Auth::user()->scoutname === Auth::user()->email) ? ((is_null(Auth::user()->first_name)) ? (Auth::user()->scoutname) : (Auth::user()->first_name)) : (((is_null(Auth::user()->scoutname)) ? (Auth::user()->email) : (Auth::user()->scoutname)));
 
     return $the_username;
