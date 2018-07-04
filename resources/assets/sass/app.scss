@@ -8,11 +8,8 @@
 @import "node_modules/font-awesome/scss/font-awesome";
 
 // Dropzone
-@import "node_modules/dropzone/src/basic";
-@import "node_modules/dropzone/src/dropzone";
-
-// Bootstrap Social Media Buttons - https://github.com/lipis/bootstrap-social
-@import "node_modules/bootstrap-social/bootstrap-social.scss";
+@import "node_modules/dropzone/dist/basic";
+@import "node_modules/dropzone/dist/dropzone";
 
 // Mixins
 @import "mixins";
