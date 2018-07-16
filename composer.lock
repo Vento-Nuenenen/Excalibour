@@ -2669,16 +2669,16 @@
         },
         {
             "name": "pusher/pusher-php-server",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pusher/pusher-http-php.git",
-                "reference": "c13978f756ddd7871318e3a80559efc23218903b"
+                "reference": "d9260b2d11e4ad45a9f1c95269b18e16b2518447"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/c13978f756ddd7871318e3a80559efc23218903b",
-                "reference": "c13978f756ddd7871318e3a80559efc23218903b",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/d9260b2d11e4ad45a9f1c95269b18e16b2518447",
+                "reference": "d9260b2d11e4ad45a9f1c95269b18e16b2518447",
                 "shasum": ""
             },
             "require": {
@@ -2718,7 +2718,7 @@
                 "rest",
                 "trigger"
             ],
-            "time": "2018-07-04T14:07:28+00:00"
+            "time": "2018-07-13T13:24:54+00:00"
         },
         {
             "name": "ramsey/uuid",
