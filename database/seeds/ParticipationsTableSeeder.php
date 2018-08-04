@@ -11,11 +11,11 @@ class ParticipationsTableSeeder extends Seeder
      */
     public function run()
     {
-    	$faker = Faker\Factory::create();
+        $faker = Faker\Factory::create();
 
-	    DB::table('participations')->insert([
-		    ['scout_name' => $faker->userName,'first_name' => $faker->firstName,'last_name' => $faker->lastName,'FK_GRP' => 4,'FK_EXER' => 1],
-		    ['scout_name' => $faker->userName,'first_name' => $faker->firstName,'last_name' => $faker->lastName,'FK_GRP' => 4,'FK_EXER' => 2],
-	    ]);
+        DB::table('participations')->insert([
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'FK_GRP' => 4, 'FK_EXER' => 1],
+            ['scout_name' => $faker->userName, 'first_name' => $faker->firstName, 'last_name' => $faker->lastName, 'FK_GRP' => 4, 'FK_EXER' => 2],
+        ]);
     }
 }
