@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+<<<<<<< HEAD
         $faker = Faker\Factory::create();
         $profile = new Profile();
         $adminRole = Role::whereName('Admin')->first();
@@ -38,6 +39,20 @@ class UsersTableSeeder extends Seeder
 
             $user->profile()->save($profile);
             $user->attachRole($adminRole);
+=======
+        // Seed test admin
+        $seededAdminEmail = 'admin@exer.ch';
+        $user = User::where('email', '=', $seededAdminEmail)->first();
+        if ($user === null) {
+            $user = User::create([
+                'scout_name'                     => 'Admin',
+                'first_name'                     => 'Admin',
+                'last_name'                      => 'Admin',
+                'email'                          => $seededAdminEmail,
+                'password'                       => Hash::make('password'),
+            ]);
+
+>>>>>>> master
             $user->save();
         }
 
@@ -45,6 +60,7 @@ class UsersTableSeeder extends Seeder
         $user = User::where('email', '=', 'user@user.com')->first();
         if ($user === null) {
             $user = User::create([
+<<<<<<< HEAD
                 'scoutname'                      => $faker->userName,
                 'first_name'                     => $faker->firstName,
                 'last_name'                      => $faker->lastName,
@@ -79,6 +95,16 @@ class UsersTableSeeder extends Seeder
 
             $user->profile()->save(new Profile());
             $user->attachRole($tnRole);
+=======
+                'scout_name'                     => 'Vento',
+                'first_name'                     => 'Caspar',
+                'last_name'                      => 'Brenneisen',
+                'email'                          => 'caspar.brenneisen@protonmail.ch',
+                'password'                       => Hash::make('password'),
+                'FK_GRP'                         => 4,
+            ]);
+
+>>>>>>> master
             $user->save();
         }
     }

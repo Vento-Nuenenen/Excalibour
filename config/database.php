@@ -40,6 +40,7 @@ return [
         ],
 
         'mysql' => [
+<<<<<<< HEAD
             'driver'    => 'mysql',
             'host'      => env('DB_HOST', '127.0.0.1'),
             'port'      => env('DB_PORT', '3306'),
@@ -51,6 +52,20 @@ return [
             'prefix'    => '',
             'strict'    => false,
             'engine'    => null,
+=======
+            'driver'      => 'mysql',
+            'host'        => env('DB_HOST', '127.0.0.1'),
+            'port'        => env('DB_PORT', '3306'),
+            'database'    => env('DB_DATABASE', 'forge'),
+            'username'    => env('DB_USERNAME', 'forge'),
+            'password'    => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset'     => 'utf8mb4',
+            'collation'   => 'utf8mb4_unicode_ci',
+            'prefix'      => '',
+            'strict'      => true,
+            'engine'      => null,
+>>>>>>> master
         ],
 
         'pgsql' => [
@@ -69,6 +84,10 @@ return [
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
             'host'     => env('DB_HOST', 'localhost'),
+<<<<<<< HEAD
+=======
+            'port'     => env('DB_PORT', '1433'),
+>>>>>>> master
             'database' => env('DB_DATABASE', 'forge'),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),

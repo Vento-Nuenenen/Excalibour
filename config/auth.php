@@ -43,6 +43,7 @@ return [
 
         'api' => [
             'driver'   => 'token',
+<<<<<<< HEAD
             'provider' => 'users',
         ],
 
@@ -53,6 +54,8 @@ return [
 
         'administrator' => [
             'driver'   => 'session',
+=======
+>>>>>>> master
             'provider' => 'users',
         ],
     ],
@@ -77,7 +80,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+<<<<<<< HEAD
             'model'  => App\Models\User::class,
+=======
+            'model'  => App\User::class,
+>>>>>>> master
         ],
 
         // 'users' => [

@@ -19,6 +19,7 @@ Route::get('/', ['as' => 'public.home',   'uses' => 'AuswertungController@index'
 // Authentication Routes
 Auth::routes();
 
+<<<<<<< HEAD
 // Public Routes
 Route::group(['middleware' => ['web', 'activity']], function () {
 
@@ -129,4 +130,44 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
     Route::get('groups', 'GroupController@manage');
     Route::post('groups/add', 'GroupController@add')->name('add_groups');
     Route::post('groups/delete', 'GroupController@delete');
+=======
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'SuccessController@index')->name('home');
+    Route::get('/success', 'SuccessController@index')->name('home');
+
+    Route::any('/participations', 'ParticipationsController@index')->name('participations');
+    Route::get('/participations/add', 'ParticipationsController@create')->name('add-participations');
+    Route::post('/participations/store', 'ParticipationsController@store')->name('store-participations');
+    Route::get('/participations/edit/{uid}', 'ParticipationsController@edit')->name('edit-participations');
+    Route::post('/participations/update/{uid}', 'ParticipationsController@update')->name('update-participations');
+    Route::get('/participations/destroy/{uid}', 'ParticipationsController@destroy')->name('destroy-participations');
+
+    Route::get('/users', 'UsersController@index')->name('users');
+    Route::get('/users/add', 'UsersController@create')->name('add-users');
+    Route::post('/users/store', 'UsersController@store')->name('store-users');
+    Route::get('/users/edit', 'UsersController@edit')->name('edit-users');
+    Route::get('/users/destroy', 'UsersController@destroy')->name('destroy-users');
+
+    Route::get('/groups', 'GroupsController@index')->name('groups');
+    Route::get('/groups/add', 'GroupsController@create')->name('add-groups');
+    Route::post('/groups/store', 'GroupsController@store')->name('store-groups');
+    Route::get('/groups/edit/{gid}', 'GroupsController@edit')->name('edit-groups');
+    Route::post('/groups/update/{gid}', 'GroupsController@update')->name('update-groups');
+    Route::get('/groups/destroy/{gid}', 'GroupsController@destroy')->name('destroy-groups');
+
+    Route::get('/fields', 'FieldsController@index')->name('fields');
+    Route::get('/fields/add', 'FieldsController@create')->name('add-fields');
+    Route::post('/fields/store', 'FieldsController@store')->name('store-fields');
+    Route::get('/fields/edit/{fid}', 'FieldsController@edit')->name('edit-fields');
+    Route::post('/fields/update/{fid}', 'FieldsController@update')->name('update-fields');
+    Route::get('/fields/destroy/{gid}', 'FieldsController@destroy')->name('destroy-fields');
+
+    Route::get('/info', 'InfoController@index')->name('info');
+    Route::get('/info/add', 'InfoController@create')->name('add-info');
+    Route::get('/info/edit', 'InfoController@edit')->name('edit-info');
+    Route::get('/info/destroy', 'InfoController@destroy')->name('destroy-info');
+
+    Route::get('/gratulation', 'InfoController@index')->name('gratulation');
+    Route::get('/gratulation/create', 'InfoController@create')->name('create-gratulation');
+>>>>>>> master
 });
