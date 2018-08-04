@@ -1,7 +1,8 @@
 {
-    "name": "Chronyms/Excalibour",
-    "description": "An Exer-Management App",
-    "keywords": ["Project", "Excalibour", "Exer", "Scout"],
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
     "type": "project",
     "require": {
         "php": "^7.1.3",
@@ -57,5 +58,7 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
