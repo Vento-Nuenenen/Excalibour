@@ -11,12 +11,12 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-	    DB::table('group')->insert([
-	    	['id' => '1','name' => 'Ritter Berchtold','FK_FLD' => NULL],
-	    	['id' => '2','name' => 'Dracheburg','FK_FLD' => NULL],
-	    	['id' => '3','name' => 'Virus','FK_FLD' => NULL],
-	    	['id' => '4','name' => 'Nünenen','FK_FLD' => '3'],
-	    	['id' => '5','name' => 'Wendelsee','FK_FLD' => NULL],
-	    ]);
+        DB::table('group')->insert([
+            ['id' => '1', 'name' => 'Ritter Berchtold', 'FK_FLD' => null],
+            ['id' => '2', 'name' => 'Dracheburg', 'FK_FLD' => null],
+            ['id' => '3', 'name' => 'Virus', 'FK_FLD' => null],
+            ['id' => '4', 'name' => 'Nünenen', 'FK_FLD' => '3'],
+            ['id' => '5', 'name' => 'Wendelsee', 'FK_FLD' => null],
+        ]);
     }
 }
