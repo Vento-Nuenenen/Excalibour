@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Foundation\Auth\User;
 
-	class UsersTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,34 +12,34 @@ use Illuminate\Foundation\Auth\User;
      */
     public function run()
     {
-	    // Seed test admin
-	    $seededAdminEmail = 'admin@exer.ch';
-	    $user = User::where('email', '=', $seededAdminEmail)->first();
-	    if ($user === null) {
-		    $user = User::create([
-			    'scout_name'                     => 'Admin',
-			    'first_name'                     => 'Admin',
-			    'last_name'                      => 'Admin',
-			    'email'                          => $seededAdminEmail,
-			    'password'                       => Hash::make('password'),
-		    ]);
+        // Seed test admin
+        $seededAdminEmail = 'admin@exer.ch';
+        $user = User::where('email', '=', $seededAdminEmail)->first();
+        if ($user === null) {
+            $user = User::create([
+                'scout_name'                     => 'Admin',
+                'first_name'                     => 'Admin',
+                'last_name'                      => 'Admin',
+                'email'                          => $seededAdminEmail,
+                'password'                       => Hash::make('password'),
+            ]);
 
-		    $user->save();
-	    }
+            $user->save();
+        }
 
-	    // Seed test user
-	    $user = User::where('email', '=', 'user@user.com')->first();
-	    if ($user === null) {
-		    $user = User::create([
-			    'scout_name'                     => 'Vento',
-			    'first_name'                     => 'Caspar',
-			    'last_name'                      => 'Brenneisen',
-			    'email'                          => 'caspar.brenneisen@protonmail.ch',
-			    'password'                       => Hash::make('password'),
-			    'FK_GRP'                         => 4,
-		    ]);
+        // Seed test user
+        $user = User::where('email', '=', 'user@user.com')->first();
+        if ($user === null) {
+            $user = User::create([
+                'scout_name'                     => 'Vento',
+                'first_name'                     => 'Caspar',
+                'last_name'                      => 'Brenneisen',
+                'email'                          => 'caspar.brenneisen@protonmail.ch',
+                'password'                       => Hash::make('password'),
+                'FK_GRP'                         => 4,
+            ]);
 
-		    $user->save();
-	    }
+            $user->save();
+        }
     }
 }
