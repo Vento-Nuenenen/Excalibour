@@ -9,9 +9,9 @@ class AccessPaths extends TestCase
     public function accessTest()
     {
         $responseRoot = $this->get('/');
-	    $responseRoot->assertStatus(302);
+        $responseRoot->assertStatus(302);
 
-	    $responseLogin = $this->get('/login');
-	    $responseLogin->assertStatus(200);
+        $responseLogin = $this->get('/login');
+        $responseLogin->assertStatus(200);
     }
 }
