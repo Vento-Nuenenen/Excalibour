@@ -11,7 +11,7 @@ before_script:
 - cp .env.travis .env
 - mysql -u root -e 'create database excalibour;'
 - composer self-update
-- composer install --dev --prefer-source --no-interaction
+- composer install --prefer-source --no-interaction
 - yarn
 - yarn production
 - php artisan key:generate
