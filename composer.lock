@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33f4f9b8a82a1f8ecd4c61b276a1ee65",
+    "content-hash": "3e9e2d723a54ea237c9c302ea13f5bc9",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -4912,16 +4912,16 @@
         },
         {
             "name": "sven/artisan-view",
-            "version": "v3.0.1",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/svenluijten/artisan-view.git",
-                "reference": "a4eae2ea4cbc45bbec1ea3640b494511bfccf362"
+                "reference": "c355f6db5d5317558f90fe274cd5b3504316d35f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/a4eae2ea4cbc45bbec1ea3640b494511bfccf362",
-                "reference": "a4eae2ea4cbc45bbec1ea3640b494511bfccf362",
+                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/c355f6db5d5317558f90fe274cd5b3504316d35f",
+                "reference": "c355f6db5d5317558f90fe274cd5b3504316d35f",
                 "shasum": ""
             },
             "require": {
@@ -4965,7 +4965,7 @@
                 "templates",
                 "views"
             ],
-            "time": "2018-09-04T18:18:59+00:00"
+            "time": "2018-10-02T19:40:46+00:00"
         },
         {
             "name": "symfony/filesystem",
