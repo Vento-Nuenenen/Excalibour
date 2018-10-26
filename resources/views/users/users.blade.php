@@ -10,14 +10,16 @@
 
         <div class="card mb-3">
             <div class="card-header">
+                {!! Form::open(array('route' => 'users', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                 <div class="input-group" id="adv-search">
-                    <input type="text" class="form-control" placeholder="Suche" />
+                    {!! Form::text('search', NULL, array('id' => 'search', 'class' => 'form-control', 'placeholder' => 'Suche')) !!}
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary form-control">
                             <span class="fa fa-search"></span>
                         </button>
                     </div>
                 </div>
+                {!! Form::close() !!}
                 <div class="input-group" id="adv-search">
                     <button onclick="location.href='{{ route('add-users') }}'" type="button" class="btn btn-primary form-control mt-2">Neuer Benutzer</button>
                 </div>
@@ -34,7 +36,7 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".User">
                 <div class="card-body table-responsive">
-                    <table class="table table-hover">
+                    <table id="dataTable" class="table table-hover">
                         <thead>
                             <th>
                                 Name
