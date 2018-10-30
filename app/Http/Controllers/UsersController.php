@@ -8,14 +8,30 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @param Request $request
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function index(Request $request)
     {
-        $users = DB::table('users')->leftJoin('group', 'group.id', '=', 'users.FK_GRP')->select('users.*', 'group.name')->get();
+	    if ($request->input('search') == null) {
+		    $users = DB::table('users')
+			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
+			    ->select('users.*', 'group.name')->get();
+	    }else{
+		    $search_string = $request->input('search');
+
+		    $users = DB::table('users')
+			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
+			    ->select('users.*', 'group.name')
+			    ->where('scout_name', 'LIKE', "%$search_string%")
+			    ->orWhere('last_name', 'LIKE', "%$search_string%")
+			    ->orWhere('first_name', 'LIKE', "%$search_string%")
+			    ->orWhere('group.name', 'LIKE', "%$search_string%")->get();
+	    }
 
         return view('users.users', ['users' => $users]);
     }
@@ -71,7 +87,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

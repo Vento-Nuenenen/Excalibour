@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/participations/update/{uid}', 'ParticipationsController@update')->name('update-participations');
     Route::get('/participations/destroy/{uid}', 'ParticipationsController@destroy')->name('destroy-participations');
 
-    Route::get('/users', 'UsersController@index')->name('users');
+    Route::any('/users', 'UsersController@index')->name('users');
     Route::get('/users/add', 'UsersController@create')->name('add-users');
     Route::post('/users/store', 'UsersController@store')->name('store-users');
     Route::get('/users/edit', 'UsersController@edit')->name('edit-users');
