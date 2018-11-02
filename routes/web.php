@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('/participations', 'ParticipationsController@index')->name('participations');
     Route::get('/participations/add', 'ParticipationsController@create')->name('add-participations');
     Route::post('/participations/store', 'ParticipationsController@store')->name('store-participations');
+    Route::post('/participations/import', 'ParticipationsController@import')->name('import-participations');
     Route::get('/participations/edit/{uid}', 'ParticipationsController@edit')->name('edit-participations');
     Route::post('/participations/update/{uid}', 'ParticipationsController@update')->name('update-participations');
     Route::get('/participations/destroy/{uid}', 'ParticipationsController@destroy')->name('destroy-participations');

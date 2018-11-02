@@ -69,6 +69,20 @@ class ParticipationsController extends Controller
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
     }
 
+    public function import(Request $request){
+      $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'),'participations.csv');
+
+        $handle = fopen($participations_list,'r');
+
+        $header = true;
+
+        while ($csvLine = fgetcsv($handle, 1000, ",")){
+            print_r( $csvLine);
+        }
+
+      return view('participations.import');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
