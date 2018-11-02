@@ -12,20 +12,20 @@
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Teilnehmer bearbeiten
+                        Benutzer bearbeiten
                     </button>
                 </h5>
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".EditParticipant">
                 <div class="card-body table-responsive">
-                    {!! Form::open(array('route' => ['update-participations',$participations->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                    {!! Form::open(array('route' => ['update-users',$users->id], 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                         {!! csrf_field() !!}
 
                         <div class="form-group has-feedback row {{ $errors->has('scout_name') ? ' has-error ' : '' }}">
                             {!! Form::label('scout_name', 'Pfadiname', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('scout_name', old('scut_name', $participations->scout_name ?? null), array('id' => 'scout_name', 'class' => 'form-control', 'placeholder' => 'Pfadiname')) !!}
+                                    {!! Form::text('scout_name', old('scut_name', $users->scout_name ?? null), array('id' => 'scout_name', 'class' => 'form-control', 'placeholder' => 'Pfadiname')) !!}
                                     <div class="input-group-append">
                                         <label class="input-group-text" for="scout_name">
                                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
                             {!! Form::label('first_name', 'Vorname', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('first_name', old('first_name',$participations->first_name ?? null), array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname')) !!}
+                                    {!! Form::text('first_name', old('first_name',$users->first_name ?? null), array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname')) !!}
                                     <div class="input-group-append">
                                         <label class="input-group-text" for="first_name">
                                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -63,7 +63,7 @@
                             {!! Form::label('last_name', 'Nachname', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('last_name', old('last_name',$participations->last_name ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
+                                    {!! Form::text('last_name', old('last_name',$users->last_name ?? null), array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
                                     <div class="input-group-append">
                                         <label class="input-group-text" for="last_name">
                                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -86,7 +86,7 @@
                                         <option value="">Abteilung wählen</option>
                                         @if ($groups)
                                             @foreach($groups as $group)
-                                                <option value="{{ $group->id }}" {{($participations->FK_GRP == $group->id) ? 'selected':''}}>{{ $group->name }}</option>
+                                                <option value="{{ $group->id }}" {{($users->FK_GRP == $group->id) ? 'selected':''}}>{{ $group->name }}</option>
                                             @endforeach
                                         @endif
                                     </select>
@@ -99,32 +99,6 @@
                                 @if ($errors->has('role'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('group') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('exer') ? ' has-error ' : '' }}">
-                            {!! Form::label('group', 'Exer', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    <select class="custom-select form-control" name="exer" id="exer">
-                                        <option value="">Exer wählen</option>
-                                        @if ($exer)
-                                            @foreach($exer as $ex)
-                                                <option value="{{ $ex->id }}" {{($participations->FK_EXER == $ex->id) ? 'selected':''}}>{{ $ex->exer_name }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="group">
-                                            <i class="fa fa-group" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('exer'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('exer') }}</strong>
                                     </span>
                                 @endif
                             </div>

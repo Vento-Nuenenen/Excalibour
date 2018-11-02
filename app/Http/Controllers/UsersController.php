@@ -78,29 +78,39 @@ class UsersController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param $uid
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function edit($uid)
     {
+	    $users = DB::table('users')->where('id', '=', $uid)->first();
+	    $groups = DB::table('group')->select('group.id', 'group.name')->get();
 
+	    return view('users.edit', ['users' => $users, 'groups' => $groups]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param                          $uid
+	 *
+	 * @return void
+	 */
+    public function update(Request $request, $uid)
     {
-        //
+	    $scout_name = $request->input('scout_name');
+	    $first_name = $request->input('first_name');
+	    $last_name = $request->input('last_name');
+	    $group = $request->input('group');
+
+	    DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
+
+	    //return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
     }
 
     /**

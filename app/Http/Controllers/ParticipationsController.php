@@ -76,9 +76,9 @@ class ParticipationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($uid)
+    public function edit($pid)
     {
-        $participations = DB::table('participations')->where('id', '=', $uid)->first();
+        $participations = DB::table('participations')->where('id', '=', $pid)->first();
         $groups = DB::table('group')->select('group.id', 'group.name')->get();
         $exer = DB::table('exer')->select('exer.id', 'exer.exer_name')->get();
 
@@ -93,7 +93,7 @@ class ParticipationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $uid)
+    public function update(Request $request, $pid)
     {
         $scout_name = $request->input('scout_name');
         $first_name = $request->input('first_name');
@@ -101,7 +101,7 @@ class ParticipationsController extends Controller
         $group = $request->input('group');
         $exer = $request->input('exer');
 
-        DB::table('participations')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group, 'FK_EXER' => $exer]);
+        DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group, 'FK_EXER' => $exer]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
     }
