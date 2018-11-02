@@ -143,6 +143,7 @@
                         {!! Form::button('Teilnehmer erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                     {!! Form::close() !!}
                 </div>
+                <br />
             </div>
         </div>
 
@@ -156,11 +157,11 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent=".ImportParticipant">
                 <div class="card-body table-responsive">
-                    <form method="post"
-                          action="/item-upload"
-                          class="dropzone"
-                          id="my-awesome-dropzone">
-                    </form>
+                  {!! Form::open(array('route' => 'import-participations', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
+                    {!! csrf_field() !!}
+                    <input type="file" accept="text/csv" id="participations_list" name="participations_list" >
+                    {!! Form::button('Teilnehmer importieren', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
+                  {!! Form::close() !!}
                 </div>
             </div>
         </div>
