@@ -19,8 +19,5 @@
         "lodash": "^4.17.11",
         "popper.js": "^1.14",
         "vue": "^2.5.7"
-    },
-    "dependencies": {
-        "dropzone": "^5.5.1"
     }
 }

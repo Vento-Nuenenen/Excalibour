@@ -39,6 +39,10 @@
                             <a class="dropdown-item {{ Request::is('fields/')}}" href="{{ url('/fields') }}">
                                 Posten
                             </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('points/')}}" href="{{ url('/points') }}">
+                                Punkte
+                            </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -47,10 +51,6 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('info/')}}" href="{{ url('/info') }}">
-                                Info
-                            </a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('gratulation/')}}" href="{{ url('/gratulation') }}">
                                 Gratulation
                             </a>

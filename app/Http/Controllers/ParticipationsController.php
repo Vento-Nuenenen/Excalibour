@@ -70,17 +70,36 @@ class ParticipationsController extends Controller
     }
 
     public function import(Request $request){
-      $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'),'participations.csv');
+    	if($request->file('participations_list')){
+		    $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'),'participations.csv');
+	    }else{
+    		return redirect()->back()->with('error','Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
+	    }
 
-        $handle = fopen($participations_list,'r');
+	    $handle = fopen($participations_list, 'r');
+    	$content = mb_convert_encoding(fread($handle,filesize($participations_list)),'UTF-8','Windows-1252');
+    	$lines = preg_split("/(\n)/", $content);
 
-        $header = true;
+    	$number_participations = count($lines);
 
-        while ($csvLine = fgetcsv($handle, 1000, ",")){
-            print_r( $csvLine);
-        }
+    	unset($lines[$number_participations - 1]);
 
-      return view('participations.import');
+    	foreach($lines as $line){
+    		$contents[] = explode(";",$line);
+	    }
+
+    	fclose($handle);
+
+    	foreach($contents as $content){
+    		$grp = DB::table('group')->select('id')->where('name','LIKE',"%$content[3]%")->first();
+
+    		$content[4] = str_replace("\r",'',$content[4]);
+		    $exer = DB::table('exer')->select('id','exer_name')->where('escaped_exer_name','LIKE',"%$content[4]%")->first();
+
+    		DB::table('participations')->insert(['scout_name' => $content[0],'first_name' => $content[1],'last_name' => $content[2],'FK_GRP' => $grp->id,'FK_EXER' => $exer->id]);
+	    }
+
+        return redirect()->back()->with('message','Die TN wurden importiert!');
     }
 
     /**

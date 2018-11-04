@@ -14,17 +14,17 @@
             </div>
         @endif
 
-        <div class="card CreateParticipant mb-3">
+        <div class="card ExerOne mb-3">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Teilnehmer erstellen
+                        Neuer Benutzer
                     </button>
                 </h5>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".CreateParticipant">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".ExerOne">
                 <div class="card-body">
-                    {!! Form::open(array('route' => 'store-participations', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                    {!! Form::open(array('route' => 'store-users', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                         {!! csrf_field() !!}
 
                         <div class="form-group has-feedback row {{ $errors->has('scout_name') ? ' has-error ' : '' }}">
@@ -84,6 +84,63 @@
                             </div>
                         </div>
 
+                        <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
+                            {!! Form::label('email', 'E-Mail', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => 'E-Mail')) !!}
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="email">
+                                            <i class="fa fa-mail-forward" aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('password') ? ' has-error ' : '' }}">
+                            {!! Form::label('password', 'Passwort', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::password('password', ['id' => 'password', 'class' => 'form-control', 'placeholder' => 'Passwort']) !!}
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="password">
+                                            <i class="fa fa-key" aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('password_repeat') ? ' has-error ' : '' }}">
+                            {!! Form::label('password_repeat', 'Passwort wiederholen', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::password('password_repeat', array('id' => 'password_repeat', 'class' => 'form-control', 'placeholder' => 'Passwort wiederholen')) !!}
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="password_repeat">
+                                            <i class="fa fa-key" aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('password_repeat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password_repeat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
                             {!! Form::label('group', 'Abteilung', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
@@ -110,97 +167,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group has-feedback row {{ $errors->has('exer') ? ' has-error ' : '' }}">
-                            {!! Form::label('group', 'Exer', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    <select class="custom-select form-control" name="exer" id="exer">
-                                        <option value="">Exer wählen</option>
-                                        @if ($exer)
-                                            @foreach($exer as $ex)
-                                                <option value="{{ $ex->id }}">{{ $ex->exer_name }}</option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="group">
-                                            <i class="fa fa-group" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('exer'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('exer') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        {!! Form::button('Teilnehmer erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
-                    {!! Form::close() !!}
-                </div>
-                <br />
-            </div>
-        </div>
-
-        <div class="card ImportParticipant">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Teilnehmer importieren
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent=".ImportParticipant">
-                <div class="card-body table-responsive">
-                    <p>
-                        Um Teilnehmer zu importieren, muss eine CSV-Datei vorbereitet werden. Diese muss mit semikolon (;) separtierte Werte haben.
-
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <th>
-                                        Pfadiname
-                                    </th>
-                                    <th>
-                                        Vorname
-                                    </th>
-                                    <th>
-                                        Nachname
-                                    </th>
-                                    <th>
-                                        Abteilung
-                                    </th>
-                                    <th>
-                                        Exer
-                                    </th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            Vento
-                                        </td>
-                                        <td>
-                                            Caspar
-                                        </td>
-                                        <td>
-                                            Brenneisen
-                                        </td>
-                                        <td>
-                                            Ritter Berchtold, Dracheburg, Virus, Nünenen, Wendelsee
-                                        </td>
-                                        <td>
-                                            exer_one, exer_two
-                                        </td>
-                                    </tr>
-                                </tbody>
-                        </table>
-                    </p>
-                    <hr />
-                    {!! Form::open(array('route' => 'import-participations', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation', 'enctype' => "multipart/form-data")) !!}
-                        {!! csrf_field() !!}
-                            <input type="file" accept="text/csv" id="participations_list" name="participations_list" >
-                        {!! Form::button('Teilnehmer importieren', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
+                        {!! Form::button('Benutzer erstellen', array('class' => 'btn btn-success margin-bottom-1 mb-1 float-right','type' => 'submit' )) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

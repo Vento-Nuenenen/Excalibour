@@ -22,6 +22,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::any('/participations', 'ParticipationsController@index')->name('participations');
     Route::get('/participations/add', 'ParticipationsController@create')->name('add-participations');
     Route::post('/participations/store', 'ParticipationsController@store')->name('store-participations');
+    Route::post('participations/import', 'ParticipationsController@import')->name('import-participations');
     Route::get('/participations/edit/{pid}', 'ParticipationsController@edit')->name('edit-participations');
     Route::post('/participations/update/{pid}', 'ParticipationsController@update')->name('update-participations');
     Route::get('/participations/destroy/{pid}', 'ParticipationsController@destroy')->name('destroy-participations');
@@ -30,7 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/add', 'UsersController@create')->name('add-users');
     Route::post('/users/store', 'UsersController@store')->name('store-users');
     Route::get('/users/edit/{uid}', 'UsersController@edit')->name('edit-users');
-    Route::post('/users/update/{uid}','ParticipationsController@update')->name('update-users');
+    Route::post('/users/update/{uid}','UsersController@update')->name('update-users');
     Route::get('/users/destroy/{uid}', 'UsersController@destroy')->name('destroy-users');
 
     Route::any('/groups', 'GroupsController@index')->name('groups');
@@ -46,6 +47,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/fields/edit/{fid}', 'FieldsController@edit')->name('edit-fields');
     Route::post('/fields/update/{fid}', 'FieldsController@update')->name('update-fields');
     Route::get('/fields/destroy/{fid}', 'FieldsController@destroy')->name('destroy-fields');
+
+	Route::any('/points', 'PointsController@index')->name('points');
+	Route::get('/points/add', 'PointsController@create')->name('add-points');
+	Route::post('/points/store', 'PointsController@store')->name('store-points');
+	Route::get('/points/edit/{poid}', 'PointsController@edit')->name('edit-points');
+	Route::post('/points/update/{poid}', 'PointsController@update')->name('update-points');
+	Route::get('/points/destroy/{poid}', 'PointsController@destroy')->name('destroy-points');
 
     Route::get('/info', 'InfoController@index')->name('info');
     Route::get('/info/add', 'InfoController@create')->name('add-info');

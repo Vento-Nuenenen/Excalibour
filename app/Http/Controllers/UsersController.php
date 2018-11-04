@@ -110,18 +110,20 @@ class UsersController extends Controller
 
 	    DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
 
-	    //return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
+	    return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param $uid
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function destroy($uid)
     {
-        //
+	    DB::table('users')->where('id', '=', $uid)->delete();
+
+	    return redirect()->back()->with('message', 'Benutzer erfolgreich gelöscht.');
     }
 }

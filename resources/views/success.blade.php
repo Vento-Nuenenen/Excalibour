@@ -28,7 +28,19 @@
                 <table class="table table-hover">
                     <thead>
                         <th>
-                            Test
+                            Name
+                        </th>
+                        <th>
+                            Abteilung
+                        </th>
+                        <th>
+                            Posten
+                        </th>
+                        <th>
+                            Punkte
+                        </th>
+                        <th>
+                            Status
                         </th>
                     </thead>
                     <tbody>
@@ -56,7 +68,19 @@
                 <table class="table table-hover">
                     <thead>
                         <th>
-                            Test
+                            Name
+                        </th>
+                        <th>
+                            Abteilung
+                        </th>
+                        <th>
+                            Posten
+                        </th>
+                        <th>
+                            Punkte
+                        </th>
+                        <th>
+                            Status
                         </th>
                     </thead>
                     <tbody>

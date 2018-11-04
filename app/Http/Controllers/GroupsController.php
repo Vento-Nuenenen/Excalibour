@@ -12,11 +12,22 @@ class GroupsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $groups = DB::table('group')
-            ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
-            ->select('group.id as group_id', 'group.name as group_name', 'field.name as field_name')->get();
+    	if($request->input('search') == null){
+		    $groups = DB::table('group')
+			    ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
+			    ->select('group.id as group_id', 'group.name as group_name', 'field.name as field_name')->get();
+	    }else{
+    		$search_string = $request->input('search');
+
+    		$groups = DB::table('group')
+			    ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
+			    ->select('group.id as group_id', 'group.name as group_name', 'field.name as field_name')
+			    ->where('group.name', 'LIKE', "%$search_string%")
+			    ->orWhere('field.name', 'LIKE', "%$search_string%")
+			    ->orWhere('field.description', 'LIKE', "%$search_string%")->get();
+	    }
 
         return view('groups.groups', ['groups' => $groups]);
     }
@@ -48,18 +59,6 @@ class GroupsController extends Controller
         DB::table('group')->insert(['name' => $group_name, 'FK_FLD' => $field]);
 
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return void
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
