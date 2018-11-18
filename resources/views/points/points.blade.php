@@ -51,6 +51,9 @@
                                 Punkte
                             </th>
                             <th>
+                                Bestanden
+                            </th>
+                            <th>
                                 Optionen
                             </th>
                         </thead>

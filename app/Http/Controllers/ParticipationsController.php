@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class ParticipationsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @param Request $request
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
@@ -102,13 +104,13 @@ class ParticipationsController extends Controller
         return redirect()->back()->with('message','Die TN wurden importiert!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param $uid
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param $pid
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
     public function edit($pid)
     {
         $participations = DB::table('participations')->where('id', '=', $pid)->first();
@@ -118,14 +120,14 @@ class ParticipationsController extends Controller
         return view('participations.edit', ['participations' => $participations, 'groups' => $groups, 'exer' => $exer]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param $uid
-     *
-     * @return \Illuminate\Http\Response
-     */
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param \Illuminate\Http\Request $request
+	 * @param                          $pid
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
     public function update(Request $request, $pid)
     {
         $scout_name = $request->input('scout_name');

@@ -9,11 +9,16 @@
 		/**
 		 * Display a listing of the resource.
 		 *
+		 * @param Request $request
+		 *
 		 * @return \Illuminate\Http\Response
 		 */
 		public function index(Request $request)
 		{
-			$points = DB::table('points')->leftJoin('participations','participations.id', '=', 'points.FK_PCP')->get();
+			$points = DB::table('points')
+				->join('participations','points.FK_PCP', '=', 'participations.id')
+				->join('field','points.FK_FLD','=','field.id')
+				->join('group', 'participations.FK_GRP', '=', 'group.id')->get();
 			
 			print_r($points);
 
@@ -23,7 +28,7 @@
 		/**
 		 * Show the form for creating a new resource.
 		 *
-		 * @return \Illuminate\Http\Response
+		 * @return void
 		 */
 		public function create()
 		{
@@ -35,7 +40,7 @@
 		 *
 		 * @param \Illuminate\Http\Request $request
 		 *
-		 * @return \Illuminate\Http\Response
+		 * @return void
 		 */
 		public function store(Request $request)
 		{
@@ -47,7 +52,7 @@
 		 *
 		 * @param $fid
 		 *
-		 * @return \Illuminate\Http\Response
+		 * @return void
 		 */
 		public function edit($fid)
 		{
@@ -60,7 +65,7 @@
 		 * @param \Illuminate\Http\Request $request
 		 * @param                          $fid
 		 *
-		 * @return \Illuminate\Http\Response
+		 * @return void
 		 */
 		public function update(Request $request, $fid)
 		{
