@@ -62,6 +62,21 @@
                                 <td>
                                     Data
                                 </td>
+                                <td>
+                                    Data
+                                </td>
+                                <td>
+                                    Data
+                                </td>
+                                <td>
+                                    Data
+                                </td>
+                                <td>
+                                    Data
+                                </td>
+                                <td>
+
+                                </td>
                             </tr>
                         </tbody>
                     </table>

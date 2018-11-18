@@ -32,7 +32,10 @@
 		 */
 		public function create()
 		{
-			//
+			$participations = DB::table('participations')->get();
+			$field = DB::table('field')->get();
+
+			return view('points.add',['participations' => $participations, 'fields' => $field]);
 		}
 
 		/**

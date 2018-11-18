@@ -18,7 +18,7 @@
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Neuer Benutzer
+                        Neuer Punktesatz
                     </button>
                 </h5>
             </div>
@@ -27,141 +27,73 @@
                     {!! Form::open(array('route' => 'store-users', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                         {!! csrf_field() !!}
 
-                        <div class="form-group has-feedback row {{ $errors->has('scout_name') ? ' has-error ' : '' }}">
-                            {!! Form::label('scout_name', 'Pfadiname', array('class' => 'col-md-3 control-label')); !!}
+                        <div class="form-group has-feedback row {{ $errors->has('participation') ? ' has-error ' : '' }}">
+                            {!! Form::label('participation', 'Teilnehmer', array('class' => 'col-md-3 control-label')); !!}
                             <div class="col-md-9">
                                 <div class="input-group">
-                                    {!! Form::text('scout_name', NULL, array('id' => 'scout_name', 'class' => 'form-control', 'placeholder' => 'Pfadiname')) !!}
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="scout_name">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('scout_name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('scout_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('first_name') ? ' has-error ' : '' }}">
-                            {!! Form::label('first_name', 'Vorname', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('first_name', NULL, array('id' => 'first_name', 'class' => 'form-control', 'placeholder' => 'Vorname')) !!}
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="first_name">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('first_name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('last_name') ? ' has-error ' : '' }}">
-                            {!! Form::label('last_name', 'Nachname', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('last_name', NULL, array('id' => 'last_name', 'class' => 'form-control', 'placeholder' => 'Nachname')) !!}
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="last_name">
-                                            <i class="fa fa-user" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('last_name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('email') ? ' has-error ' : '' }}">
-                            {!! Form::label('email', 'E-Mail', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::text('email', NULL, array('id' => 'email', 'class' => 'form-control', 'placeholder' => 'E-Mail')) !!}
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="email">
-                                            <i class="fa fa-mail-forward" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('password') ? ' has-error ' : '' }}">
-                            {!! Form::label('password', 'Passwort', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::password('password', ['id' => 'password', 'class' => 'form-control', 'placeholder' => 'Passwort']) !!}
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="password">
-                                            <i class="fa fa-key" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('password_repeat') ? ' has-error ' : '' }}">
-                            {!! Form::label('password_repeat', 'Passwort wiederholen', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    {!! Form::password('password_repeat', array('id' => 'password_repeat', 'class' => 'form-control', 'placeholder' => 'Passwort wiederholen')) !!}
-                                    <div class="input-group-append">
-                                        <label class="input-group-text" for="password_repeat">
-                                            <i class="fa fa-key" aria-hidden="true"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                                @if ($errors->has('password_repeat'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_repeat') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group has-feedback row {{ $errors->has('group') ? ' has-error ' : '' }}">
-                            {!! Form::label('group', 'Abteilung', array('class' => 'col-md-3 control-label')); !!}
-                            <div class="col-md-9">
-                                <div class="input-group">
-                                    <select class="custom-select form-control" name="group" id="group">
-                                        <option value="">Abteilung wählen</option>
-                                        @if ($groups)
-                                            @foreach($groups as $group)
-                                                <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                    <select class="custom-select form-control" name="participation" id="participation" data-live-search="true">
+                                        <option value="">Teilnehmer wählen</option>
+                                        @if ($participations)
+                                            @foreach($participations as $participation)
+                                                <option value="{{ $participation->id }}">{{ empty($participation->scout_name) ? $participation->scout_name." / "
+                                                .$participation->scout_name." ".$participation->scout_name : $participation->scout_name." ".$participation->scout_name }}</option>
                                             @endforeach
                                         @endif
                                     </select>
                                     <div class="input-group-append">
-                                        <label class="input-group-text" for="group">
+                                        <label class="input-group-text" for="participation">
                                             <i class="fa fa-group" aria-hidden="true"></i>
                                         </label>
                                     </div>
                                 </div>
-                                @if ($errors->has('role'))
+                                @if ($errors->has('participation'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('group') }}</strong>
+                                        <strong>{{ $errors->first('participation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('field') ? ' has-error ' : '' }}">
+                            {!! Form::label('field', 'Posten', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    <select class="custom-select form-control" name="field" id="field" data-live-search="true">
+                                        <option value="">Posten wählen</option>
+                                        @if ($fields)
+                                            @foreach($fields as $field)
+                                                <option value="{{ $field->id }}">{{ $field->name }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="field">
+                                            <i class="fa fa-group" aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('field'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('field') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group has-feedback row {{ $errors->has('reached_points') ? ' has-error ' : '' }}">
+                            {!! Form::label('reached_points', 'Erreichte Punkte', array('class' => 'col-md-3 control-label')); !!}
+                            <div class="col-md-9">
+                                <div class="input-group">
+                                    {!! Form::number('reached_points', NULL, array('id' => 'reached_points', 'class' => 'form-control', 'placeholder' => 'Punkte')) !!}
+                                    <div class="input-group-append">
+                                        <label class="input-group-text" for="reached_points">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                @if ($errors->has('reached_points'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('reached_points') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -174,3 +106,4 @@
         </div>
     </div>
 @endsection
+

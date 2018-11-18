@@ -4,6 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
+require('bootstrap-select');
+
+$(document).ready(function () {
+    $('select').selectpicker();
+});
 
 window.Vue = require('vue');
 
