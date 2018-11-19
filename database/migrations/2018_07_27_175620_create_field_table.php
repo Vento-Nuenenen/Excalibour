@@ -15,8 +15,8 @@ class CreateFieldTable extends Migration
     {
         Schema::create('field', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('description');
+            $table->string('field_name');
+            $table->string('field_description');
             $table->integer('MAX_POINTS');
         });
     }

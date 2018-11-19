@@ -58,26 +58,37 @@
                             </th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    Data
-                                </td>
-                                <td>
-                                    Data
-                                </td>
-                                <td>
-                                    Data
-                                </td>
-                                <td>
-                                    Data
-                                </td>
-                                <td>
-                                    Data
-                                </td>
-                                <td>
-
-                                </td>
-                            </tr>
+                            @foreach($points as $point)
+                                <tr>
+                                    <td>
+                                        @if($point->scout_name)
+                                            {{ $point->scout_name }} / {{ $point->first_name }} {{ $point->last_name }}
+                                        @else
+                                            {{ $point->first_name }} {{ $point->last_name }}
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{ $point->group_name }}
+                                    </td>
+                                    <td>
+                                        {{ $point->field_name }}
+                                    </td>
+                                    <td>
+                                        {{ $point->reached_points }} / {{ $point->MAX_POINTS }}
+                                    </td>
+                                    <td>
+                                        @if($point->reached_points > ($point->MAX_POINTS/ 2))
+                                            <i class="fa fa-check fa-lg"></i>
+                                        @else
+                                            <i class="fa fa-remove fa-lg"></i>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <button onclick="location.href='{{ route('edit-points',$point->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>
+                                        <button onclick="location.href='{{ route('destroy-points',$point->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-remove"></span></button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -24,7 +24,7 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent=".ExerOne">
                 <div class="card-body">
-                    {!! Form::open(array('route' => 'store-users', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
+                    {!! Form::open(array('route' => 'store-points', 'method' => 'POST', 'role' => 'form', 'class' => 'needs-validation')) !!}
                         {!! csrf_field() !!}
 
                         <div class="form-group has-feedback row {{ $errors->has('participation') ? ' has-error ' : '' }}">
@@ -62,7 +62,7 @@
                                         <option value="">Posten wählen</option>
                                         @if ($fields)
                                             @foreach($fields as $field)
-                                                <option value="{{ $field->id }}">{{ $field->name }}</option>
+                                                <option value="{{ $field->id }}">{{ $field->field_name }}</option>
                                             @endforeach
                                         @endif
                                     </select>

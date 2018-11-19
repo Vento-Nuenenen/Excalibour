@@ -15,14 +15,12 @@
 		 */
 		public function index(Request $request)
 		{
-			$points = DB::table('points')
+			$points = DB::table('points')->select('points.id','participations.scout_name','participations.first_name','participations.last_name','field.field_name','points.reached_points','group.group_name','MAX_POINTS')
 				->join('participations','points.FK_PCP', '=', 'participations.id')
 				->join('field','points.FK_FLD','=','field.id')
 				->join('group', 'participations.FK_GRP', '=', 'group.id')->get();
 			
-			print_r($points);
-
-			return view('points.points');
+			return view('points.points',['points' => $points]);
 		}
 
 		/**
@@ -47,7 +45,13 @@
 		 */
 		public function store(Request $request)
 		{
-			//
+			$participation = $request->input('participation');
+			$field = $request->input('field');
+			$points = $request->input('reached_points');
+
+			DB::table('points')->insert(['FK_PCP' => $participation, 'FK_FLD' => $field, 'reached_points' => $points]);
+
+			return redirect()->back()->with('message','Der Punktesatz wurde erfolgreich eingetragen!');
 		}
 
 		/**
