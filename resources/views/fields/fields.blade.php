@@ -55,10 +55,10 @@
                             @foreach($fields as $field)
                                 <tr>
                                     <td>
-                                        {{ $field->name }}
+                                        {{ $field->field_name }}
                                     </td>
                                     <td>
-                                        {{ $field->description }}
+                                        {{ $field->field_description }}
                                     </td>
                                     <td>
                                         {{ $field->MAX_POINTS }}

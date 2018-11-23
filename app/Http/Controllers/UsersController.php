@@ -20,17 +20,17 @@ class UsersController extends Controller
 	    if ($request->input('search') == null) {
 		    $users = DB::table('users')
 			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-			    ->select('users.*', 'group.name')->get();
+			    ->select('users.*', 'group.group_name')->get();
 	    }else{
 		    $search_string = $request->input('search');
 
 		    $users = DB::table('users')
 			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-			    ->select('users.*', 'group.name')
+			    ->select('users.*', 'group.group_name')
 			    ->where('scout_name', 'LIKE', "%$search_string%")
 			    ->orWhere('last_name', 'LIKE', "%$search_string%")
 			    ->orWhere('first_name', 'LIKE', "%$search_string%")
-			    ->orWhere('group.name', 'LIKE', "%$search_string%")->get();
+			    ->orWhere('group.group_name', 'LIKE', "%$search_string%")->get();
 	    }
 
         return view('users.users', ['users' => $users]);
@@ -43,7 +43,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $groups = DB::table('group')->select('id', 'name')->get();
+        $groups = DB::table('group')->select('id', 'group_name')->get();
 
         return view('users.add', ['groups' => $groups]);
     }
@@ -88,7 +88,7 @@ class UsersController extends Controller
     public function edit($uid)
     {
 	    $users = DB::table('users')->where('id', '=', $uid)->first();
-	    $groups = DB::table('group')->select('group.id', 'group.name')->get();
+	    $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
 
 	    return view('users.edit', ['users' => $users, 'groups' => $groups]);
     }

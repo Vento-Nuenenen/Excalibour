@@ -10468,6 +10468,27 @@ a.text-dark:focus {
   }
 }
 
+/*!
+ *
+ *  * Copyright (C) $year Caspar Brenneisen
+ *  *
+ *  * This file is part of Qitsune
+ *  *
+ *  * Qitsune is free software: you can redistribute it and/or modify
+ *  * it under the terms of the GNU Affero General Public License as published by
+ *  * the Free Software Foundation, either version 3 of the License, or
+ *  * (at your option) any later version.
+ *  *
+ *  * Qitsune is distributed in the hope that it will be useful,
+ *  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  * GNU Affero General Public License for more details.
+ *  *
+ *  * You should have received a copy of the GNU Affero General Public License
+ *  * along with Qitsune.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 select.bs-select-hidden,
 .bootstrap-select > select.bs-select-hidden,
 select.selectpicker {
@@ -10485,13 +10506,6 @@ select.selectpicker {
   z-index: 1;
   text-align: right;
   white-space: nowrap;
-}
-
-.bootstrap-select > .dropdown-toggle.bs-placeholder,
-.bootstrap-select > .dropdown-toggle.bs-placeholder:hover,
-.bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
-.bootstrap-select > .dropdown-toggle.bs-placeholder:active {
-  color: #999;
 }
 
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-primary,
@@ -10518,7 +10532,7 @@ select.selectpicker {
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark:hover,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark:active {
-  color: rgba(255, 255, 255, 0.5);
+  color: #f8fafc;
 }
 
 .bootstrap-select > select {
@@ -10545,12 +10559,12 @@ select.selectpicker {
 .error .bootstrap-select .dropdown-toggle,
 .bootstrap-select.is-invalid .dropdown-toggle,
 .was-validated .bootstrap-select .selectpicker:invalid + .dropdown-toggle {
-  border-color: #b94a48;
+  border-color: #e3342f;
 }
 
 .bootstrap-select.is-valid .dropdown-toggle,
 .was-validated .bootstrap-select .selectpicker:valid + .dropdown-toggle {
-  border-color: #28a745;
+  border-color: #38c172;
 }
 
 .bootstrap-select.fit-width {
@@ -10726,10 +10740,6 @@ select.selectpicker {
   position: relative;
 }
 
-.bootstrap-select .dropdown-menu li.active small {
-  color: rgba(255, 255, 255, 0.5) !important;
-}
-
 .bootstrap-select .dropdown-menu li.disabled a {
   cursor: not-allowed;
 }
@@ -10768,8 +10778,8 @@ select.selectpicker {
   padding: 3px 5px;
   background: whitesmoke;
   border: 1px solid #e3e3e3;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: inset 0 1px 1px fade(black, 5);
+  box-shadow: inset 0 1px 1px fade(black, 5);
   pointer-events: none;
   opacity: 0.9;
   -webkit-box-sizing: border-box;

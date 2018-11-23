@@ -55,11 +55,6 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/points/update/{poid}', 'PointsController@update')->name('update-points');
 	Route::get('/points/destroy/{poid}', 'PointsController@destroy')->name('destroy-points');
 
-    Route::get('/info', 'InfoController@index')->name('info');
-    Route::get('/info/add', 'InfoController@create')->name('add-info');
-    Route::get('/info/edit', 'InfoController@edit')->name('edit-info');
-    Route::get('/info/destroy', 'InfoController@destroy')->name('destroy-info');
-
-    Route::get('/gratulation', 'InfoController@index')->name('gratulation');
-    Route::get('/gratulation/create', 'InfoController@create')->name('create-gratulation');
+    Route::get('/gratulation', 'GratulationController@index')->name('gratulation');
+    Route::post('/gratulation/create', 'GratulationController@create')->name('create-gratulation');
 });

@@ -57,26 +57,42 @@
 		/**
 		 * Show the form for editing the specified resource.
 		 *
-		 * @param $fid
+		 * @param $poid
 		 *
 		 * @return void
 		 */
-		public function edit($fid)
+		public function edit($poid)
 		{
-			//
+			$points = DB::table('points')->where('id','=',$poid)->first();
+			$participations = DB::table('participations')->get();
+			$field = DB::table('field')->get();
+
+			return view('points.edit',['points' => $points,'participations' => $participations, 'fields' => $field]);
 		}
 
 		/**
 		 * Update the specified resource in storage.
 		 *
 		 * @param \Illuminate\Http\Request $request
-		 * @param                          $fid
+		 * @param                          $poid
 		 *
 		 * @return void
 		 */
-		public function update(Request $request, $fid)
+		public function update(Request $request, $poid)
 		{
-			//
+			$participation = $request->input('participation');
+			$field = $request->input('field');
+			$reached_points = $request->input('reached_points');
+
+			$max_points = DB::table('field')->select('max_points')->where('id','=',$field)->first();
+
+			if($reached_points <= $max_points->max_points){
+				DB::table('points')->where('id','=',$poid)->update(['reached_points' => $reached_points,'FK_PCP' => $participation,'FK_FLD' => $field]);
+
+				return redirect()->back()->with('message','Der Punktestand wurde aktualisiert!');
+			}else{
+				return redirect()->back()->with('error','Der Punktestand ist höher als die mögliche Punktzahl!');
+			}
 		}
 
 		/**

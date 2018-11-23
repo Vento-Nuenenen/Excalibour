@@ -62,7 +62,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        {{ $participation->name }}
+                                        {{ $participation->group_name }}
                                     </td>
                                     <td>
                                         {{ $participation->exer_name }}

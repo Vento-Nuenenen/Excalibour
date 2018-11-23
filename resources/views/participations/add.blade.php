@@ -92,7 +92,7 @@
                                         <option value="">Abteilung wählen</option>
                                         @if ($groups)
                                             @foreach($groups as $group)
-                                                <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                                <option value="{{ $group->id }}">{{ $group->group_name }}</option>
                                             @endforeach
                                         @endif
                                     </select>

@@ -61,7 +61,7 @@
                                     <option value="">Posten wählen</option>
                                     @if ($fields)
                                         @foreach($fields as $field)
-                                            <option value="{{ $field->id }}">{{ $field->name }}</option>
+                                            <option value="{{ $field->id }}">{{ $field->field_name }}</option>
                                         @endforeach
                                     @endif
                                 </select>
