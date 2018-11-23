@@ -24,15 +24,13 @@
 
                         <div class="form-group col-sm-10 col-sm-offset-1 has-feedback row {{ $errors->has('certificate_text') ? ' has-error ' : '' }}">
                             <textarea class="form-control" rows="9" name="certificate_text" id="certificate_text">
-Lieber
-@pfadiname
-
-Du hast den @exer bestanden.
-Wir gratulieren dir dazu ganz herzlich und freuen uns darauf, deinen Werdegang in der Pfadi zu verfolgen.
-
-Das Exer-Team
-Malena, Yasha
-                            </textarea>
+Lieber @pfadiname <br />
+<br />
+Du hast den @exer bestanden. <br />
+Wir gratulieren dir dazu ganz herzlich und freuen uns darauf, deinen Werdegang in der Pfadi zu verfolgen. <br />
+<br />
+Das Exer-Team <br />
+Malena, Yasha</textarea>
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group col-md-10 col-md-offset-1">
