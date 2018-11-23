@@ -19,7 +19,7 @@
 				->join('participations','points.FK_PCP', '=', 'participations.id')
 				->join('field','points.FK_FLD','=','field.id')
 				->join('group', 'participations.FK_GRP', '=', 'group.id')->get();
-			
+
 			return view('points.points',['points' => $points]);
 		}
 
@@ -82,12 +82,14 @@
 		/**
 		 * Remove the specified resource from storage.
 		 *
-		 * @param $fid
+		 * @param $poid
 		 *
-		 * @return \Illuminate\Http\Response
+		 * @return void
 		 */
-		public function destroy($fid)
+		public function destroy($poid)
 		{
-			//
+			DB::table('points')->where('id', '=', $poid)->delete();
+
+			return redirect()->back()->with('message', 'Punktsatz wurde erfolgreich gelöscht.');
 		}
 	}
