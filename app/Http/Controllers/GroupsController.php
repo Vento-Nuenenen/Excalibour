@@ -17,16 +17,16 @@ class GroupsController extends Controller
     	if($request->input('search') == null){
 		    $groups = DB::table('group')
 			    ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
-			    ->select('group.id as group_id', 'group.name as group_name', 'field.name as field_name')->get();
+			    ->select('group.id as group_id', 'group.group_name', 'field.field_name')->get();
 	    }else{
     		$search_string = $request->input('search');
 
     		$groups = DB::table('group')
 			    ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
-			    ->select('group.id as group_id', 'group.name as group_name', 'field.name as field_name')
-			    ->where('group.name', 'LIKE', "%$search_string%")
-			    ->orWhere('field.name', 'LIKE', "%$search_string%")
-			    ->orWhere('field.description', 'LIKE', "%$search_string%")->get();
+			    ->select('group.id as group_id', 'group.group_name', 'field.field_name')
+			    ->where('group.group_name', 'LIKE', "%$search_string%")
+			    ->orWhere('field.field_name', 'LIKE', "%$search_string%")
+			    ->orWhere('field.field_description', 'LIKE', "%$search_string%")->get();
 	    }
 
         return view('groups.groups', ['groups' => $groups]);
@@ -56,7 +56,7 @@ class GroupsController extends Controller
         $group_name = $request->input('group_name');
         $field = $request->input('field');
 
-        DB::table('group')->insert(['name' => $group_name, 'FK_FLD' => $field]);
+        DB::table('group')->insert(['group_name' => $group_name, 'FK_FLD' => $field]);
 
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
     }
@@ -89,7 +89,7 @@ class GroupsController extends Controller
         $group_name = $request->input('group_name');
         $field = $request->input('field');
 
-        DB::table('group')->where('id', '=', $gid)->update(['name' => $group_name, 'FK_FLD' => $field]);
+        DB::table('group')->where('id', '=', $gid)->update(['group_name' => $group_name, 'FK_FLD' => $field]);
 
         return redirect()->back()->with('message', 'Gruppe wurde aktualisiert.');
     }

@@ -65,7 +65,7 @@
                                     {{ $user->email }}
                                 </td>
                                 <td>
-                                    {{ $user->name }}
+                                    {{ $user->group_name }}
                                 </td>
                                 <td>
                                     <button onclick="location.href='{{ route('edit-users',$user->id) }}'" class="btn btn-danger ml-2"><span class="fa fa-edit"></span></button>

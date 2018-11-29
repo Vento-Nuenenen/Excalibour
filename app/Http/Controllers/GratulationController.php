@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\helper\helper;
+use DB;
 use Illuminate\Http\Request;
+use PDF;
+use App\helper\PDF_TextBox;
 
 class GratulationController extends Controller
 {
@@ -21,69 +25,27 @@ class GratulationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
+	    $data = $request->certificate_text;
+	    $users = DB::table('participations')->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')->get();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+	    foreach ($users as $user){
+		    $data = str_replace('@pfadiname',$user->scout_name,$data);
+		    $data = str_replace('@exer',$user->exer_name,$data);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+		    $data = helper::br2nl($data);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+		    PDF::SetTitle(config('app.name'));
+		    PDF::SetFont('Arial','B',18);
+		    PDF::SetCreator(config('app.name'));
+		    PDF::SetAuthor(config('app.name'));
+		    PDF::SetTopMargin(50);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+		    PDF::AddPage();
+		    PDF::MultiCell(0,10, $data,0,'C');
+	    }
+	    return response(PDF::Output(), 200)->header('Content-Type', 'application/pdf');
     }
 }
