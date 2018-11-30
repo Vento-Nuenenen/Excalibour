@@ -34,9 +34,6 @@
                             Abteilung
                         </th>
                         <th>
-                            Posten
-                        </th>
-                        <th>
                             Punkte
                         </th>
                         <th>
@@ -44,11 +41,25 @@
                         </th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                Data
-                            </td>
-                        </tr>
+                        @foreach($first as $participation)
+                            <tr>
+                                <td>
+                                    @if($participation->scout_name)
+                                        {{ $participation->scout_name }} / {{ $participation->first_name }} {{ $participation->last_name }}
+                                    @else
+                                        {{ $participation->first_name }} {{ $participation->last_name }}
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ $participation->group_name }}
+                                </td>
+                                <td>
+                                    {{ $participation->exer_name }}
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -84,11 +95,25 @@
                         </th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                Data
-                            </td>
-                        </tr>
+                        @foreach($second as $participation)
+                            <tr>
+                                <td>
+                                    @if($participation->scout_name)
+                                        {{ $participation->scout_name }} / {{ $participation->first_name }} {{ $participation->last_name }}
+                                    @else
+                                        {{ $participation->first_name }} {{ $participation->last_name }}
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ $participation->group_name }}
+                                </td>
+                                <td>
+                                    {{ $participation->exer_name }}
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
