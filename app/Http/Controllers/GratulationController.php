@@ -36,7 +36,6 @@ class GratulationController extends Controller
 
 		    $data = helper::br2nl($data);
 
-
 		    PDF::SetTitle(config('app.name'));
 		    PDF::SetFont('Arial','B',18);
 		    PDF::SetCreator(config('app.name'));
@@ -46,6 +45,7 @@ class GratulationController extends Controller
 		    PDF::AddPage();
 		    PDF::MultiCell(0,10, $data,0,'C');
 	    }
+
 	    return response(PDF::Output(), 200)->header('Content-Type', 'application/pdf');
     }
 }
