@@ -25,10 +25,7 @@ class SuccessController extends Controller
     public function index(Request $request)
     {
 	    if ($request->input('search') == null) {
-		    $first = DB::table('participations')
-			    ->leftJoin('group', 'group.id', '=', 'participations.FK_GRP')
-			    ->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')
-			    ->where('exer.id','=','1')->get();
+	    	$first = DB::table()->get('');
 
 		    $second = DB::table('participations')
 			    ->leftJoin('group', 'group.id', '=', 'participations.FK_GRP')
