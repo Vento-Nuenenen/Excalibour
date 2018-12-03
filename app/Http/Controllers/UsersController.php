@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @param Request $request
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+    public function index(Request $request)
     {
         $users = DB::table('users')->leftJoin('group', 'group.id', '=', 'users.FK_GRP')->select('users.*', 'group.name')->get();
 
@@ -71,7 +73,10 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+	    $users = DB::table('users')->where('id', '=', $uid)->first();
+	    $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
+
+	    return view('users.edit', ['users' => $users, 'groups' => $groups]);
     }
 
     /**
@@ -84,7 +89,14 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+	    $scout_name = $request->input('scout_name');
+	    $first_name = $request->input('first_name');
+	    $last_name = $request->input('last_name');
+	    $group = $request->input('group');
+
+	    DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
+
+	    return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
     }
 
     /**
@@ -96,6 +108,8 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+	    DB::table('users')->where('id', '=', $uid)->delete();
+
+	    return redirect()->back()->with('message', 'Benutzer erfolgreich gelöscht.');
     }
 }

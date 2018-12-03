@@ -5,10 +5,7 @@
  *
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-<<<<<<< HEAD
-=======
 define('LARAVEL_START', microtime(true));
->>>>>>> master
 
 /*
 |--------------------------------------------------------------------------

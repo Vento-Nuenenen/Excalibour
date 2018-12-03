@@ -46,7 +46,6 @@ return [
         'local' => [
             'driver' => 'local',
             'root'   => storage_path('app'),
-<<<<<<< HEAD
         ],
 
         'ftp' => [
@@ -61,8 +60,6 @@ return [
             // 'passive'  => true,
             // 'ssl'      => true,
             // 'timeout'  => 30,
-=======
->>>>>>> master
         ],
 
         'public' => [
@@ -74,18 +71,15 @@ return [
 
         's3' => [
             'driver' => 's3',
-<<<<<<< HEAD
             'key'    => env('AWS_KEY'),
             'secret' => env('AWS_SECRET'),
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
-=======
             'key'    => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url'    => env('AWS_URL'),
->>>>>>> master
         ],
 
     ],

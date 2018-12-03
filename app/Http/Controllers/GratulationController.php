@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\helper\helper;
+use DB;
 use Illuminate\Http\Request;
+use PDF;
+use App\helper\PDF_TextBox;
 
 class GratulationController extends Controller
 {
@@ -21,10 +25,10 @@ class GratulationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
-    }
+	    $data = $request->certificate_text;
+	    $users = DB::table('participations')->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')->get();
 
     /**
      * Store a newly created resource in storage.

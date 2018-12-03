@@ -53,7 +53,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-<<<<<<< HEAD
         'auth'        => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic'  => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings'    => \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -65,7 +64,6 @@ class Kernel extends HttpKernel
         'permission'  => \jeremykenedy\LaravelRoles\Middleware\VerifyPermission::class,
         'level'       => \jeremykenedy\LaravelRoles\Middleware\VerifyLevel::class,
         'currentUser' => \App\Http\Middleware\CheckCurrentUser::class,
-=======
         'auth'          => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic'    => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings'      => \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -74,6 +72,5 @@ class Kernel extends HttpKernel
         'guest'         => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'signed'        => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests::class,
->>>>>>> master
     ];
 }

@@ -176,7 +176,6 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-<<<<<<< HEAD
         Collective\Html\HtmlServiceProvider::class,
         Illuminate\Notifications\NotificationServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
@@ -188,9 +187,6 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-=======
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
->>>>>>> master
 
     ],
 
@@ -240,7 +236,6 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
         'Form'         => \Collective\Html\FormFacade::class,
         'HTML'         => \Collective\Html\HtmlFacade::class,
         'Input'        => Illuminate\Support\Facades\Input::class,
@@ -248,9 +243,6 @@ return [
         'Image'        => Intervention\Image\Facades\Image::class,
         'Uuid'         => Webpatser\Uuid\Uuid::class,
         'PDF'          => Barryvdh\DomPDF\Facade::class,
-=======
->>>>>>> master
 
     ],
-
 ];

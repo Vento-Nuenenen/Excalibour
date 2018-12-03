@@ -19,7 +19,6 @@ Route::get('/', ['as' => 'public.home',   'uses' => 'AuswertungController@index'
 // Authentication Routes
 Auth::routes();
 
-<<<<<<< HEAD
 // Public Routes
 Route::group(['middleware' => ['web', 'activity']], function () {
 
@@ -130,7 +129,6 @@ Route::group(['middleware' => ['auth', 'activated', 'role:admin', 'activity']], 
     Route::get('groups', 'GroupController@manage');
     Route::post('groups/add', 'GroupController@add')->name('add_groups');
     Route::post('groups/delete', 'GroupController@delete');
-=======
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'SuccessController@index')->name('home');
     Route::get('/success', 'SuccessController@index')->name('home');

@@ -15,7 +15,7 @@ class CreateGroupTable extends Migration
     {
         Schema::create('group', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('group_name');
             $table->integer('FK_FLD')->unsigned()->index()->nullable();
         });
     }

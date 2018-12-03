@@ -12,7 +12,7 @@ class FieldsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $fields = DB::table('field')->get();
 
@@ -62,14 +62,16 @@ class FieldsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified resource.
+     *
+     * @param $fid
      *
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $fid)
+    public function edit($fid)
     {
         $field_name = $request->input('field_name');
         $field_description = $request->input('field_description');
