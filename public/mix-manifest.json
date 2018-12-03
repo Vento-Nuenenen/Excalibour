@@ -1,4 +1,10 @@
 {
+<<<<<<< HEAD
+    "/js/app.js": "/js/app.js?id=a0c1379338e455022273",
+    "/css/app.css": "/css/app.css?id=5b1a11d93906f88f4a77"
+}
+=======
     "/js/app.js": "/js/app.js?id=42221975554cf3166e91",
     "/css/app.css": "/css/app.css?id=15ed8bcd11456988c02c"
 }
+>>>>>>> release

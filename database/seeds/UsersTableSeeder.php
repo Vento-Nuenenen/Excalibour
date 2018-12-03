@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Foundation\Auth\User;
+use jeremykenedy\LaravelRoles\Models\Role;
 
 class UsersTableSeeder extends Seeder
 {
@@ -31,6 +33,40 @@ class UsersTableSeeder extends Seeder
         $user = User::where('email', '=', 'user@user.com')->first();
         if ($user === null) {
             $user = User::create([
+                'scoutname'                      => $faker->userName,
+                'first_name'                     => $faker->firstName,
+                'last_name'                      => $faker->lastName,
+                'email'                          => 'user@user.com',
+                'password'                       => Hash::make('password'),
+                'token'                          => str_random(64),
+                'activated'                      => true,
+                'signup_ip_address'              => $faker->ipv4,
+                'signup_confirmation_ip_address' => $faker->ipv4,
+            ]);
+
+            $user->profile()->save(new Profile());
+            $user->attachRole($userRole);
+            $user->save();
+        }
+
+        // Seed test user
+        $user = User::where('email', '=', 'tn@tn.com')->first();
+        if ($user === null) {
+            $user = User::create([
+                'scoutname'                      => $faker->userName,
+                'first_name'                     => $faker->firstName,
+                'last_name'                      => $faker->lastName,
+                'email'                          => 'tn@tn.com',
+                'password'                       => Hash::make('password'),
+                'token'                          => str_random(64),
+                'loginable'                      => false,
+                'activated'                      => true,
+                'signup_ip_address'              => $faker->ipv4,
+                'signup_confirmation_ip_address' => $faker->ipv4,
+            ]);
+
+            $user->profile()->save(new Profile());
+            $user->attachRole($tnRole);
                 'scout_name'                     => 'Vento',
                 'first_name'                     => 'Caspar',
                 'last_name'                      => 'Brenneisen',

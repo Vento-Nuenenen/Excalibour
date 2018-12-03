@@ -17,21 +17,7 @@ class UsersController extends Controller
 	 */
     public function index(Request $request)
     {
-	    if ($request->input('search') == null) {
-		    $users = DB::table('users')
-			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-			    ->select('users.*', 'group.group_name')->get();
-	    }else{
-		    $search_string = $request->input('search');
-
-		    $users = DB::table('users')
-			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-			    ->select('users.*', 'group.group_name')
-			    ->where('scout_name', 'LIKE', "%$search_string%")
-			    ->orWhere('last_name', 'LIKE', "%$search_string%")
-			    ->orWhere('first_name', 'LIKE', "%$search_string%")
-			    ->orWhere('group.group_name', 'LIKE', "%$search_string%")->get();
-	    }
+        $users = DB::table('users')->leftJoin('group', 'group.id', '=', 'users.FK_GRP')->select('users.*', 'group.name')->get();
 
         return view('users.users', ['users' => $users]);
     }
@@ -43,7 +29,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $groups = DB::table('group')->select('id', 'group_name')->get();
+        $groups = DB::table('group')->select('id', 'name')->get();
 
         return view('users.add', ['groups' => $groups]);
     }
@@ -78,14 +64,14 @@ class UsersController extends Controller
         }
     }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param $uid
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-    public function edit($uid)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
     {
 	    $users = DB::table('users')->where('id', '=', $uid)->first();
 	    $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
@@ -93,15 +79,15 @@ class UsersController extends Controller
 	    return view('users.edit', ['users' => $users, 'groups' => $groups]);
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param                          $uid
-	 *
-	 * @return void
-	 */
-    public function update(Request $request, $uid)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
 	    $scout_name = $request->input('scout_name');
 	    $first_name = $request->input('first_name');
@@ -113,14 +99,14 @@ class UsersController extends Controller
 	    return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
     }
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param $uid
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
-    public function destroy($uid)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
 	    DB::table('users')->where('id', '=', $uid)->delete();
 
