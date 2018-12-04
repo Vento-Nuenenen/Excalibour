@@ -23,7 +23,7 @@
     "hideshowpassword": "^2.0.4",
     "laravel-echo": "^1.4.0",
     "moment": "^2.22.2",
-    "password-strength-meter": "^1.2.1",
+    "password-strength-meter": "^1.2.2",
     "pusher-js": "^4.2.2"
   }
 }
