@@ -2,10 +2,7 @@
 
 return [
 
-<<<<<<< HEAD
-   /*
-     * Environment to show the debug bar on.
-=======
+
     /*
      |--------------------------------------------------------------------------
      | Debugbar Settings
@@ -16,12 +13,8 @@ return [
      |
      | You can provide an array of URI's that must be ignored (eg. 'api/*')
      |
->>>>>>> master
      */
     'enabled_environment' => env('DEBUG_BAR_ENVIRONMENT'),
-
-<<<<<<< HEAD
-=======
     'enabled' => env('DEBUGBAR_ENABLED', null),
     'except'  => [
         //
@@ -206,5 +199,4 @@ return [
      | To override default domain, specify it as a non-empty value.
      */
     'route_domain' => null,
->>>>>>> master
 ];

@@ -31,17 +31,9 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * <<<<<<< HEAD
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
      * @param \Exception $exception
-     * @param \Exception $exception
-     *
-     * >>>>>>> master
-     *
-     * @throws Exception
-     *
-     * =======
      *
      * @return void
      */
@@ -66,12 +58,8 @@ class Handler extends ExceptionHandler
      * @param \Illuminate\Http\Request $request
      * @param \Exception               $exception
      *
-     * <<<<<<< HEAD
      *
      * @return \Symfony\Component\HttpFoundation\Response
-     *                                                    =======
-     * @return \Illuminate\Http\Response
-     *                                                    >>>>>>> master
      */
     public function render($request, Exception $exception)
     {
