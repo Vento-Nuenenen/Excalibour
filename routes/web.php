@@ -167,5 +167,4 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/gratulation', 'InfoController@index')->name('gratulation');
     Route::get('/gratulation/create', 'InfoController@create')->name('create-gratulation');
->>>>>>> master
 });
