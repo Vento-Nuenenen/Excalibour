@@ -57,17 +57,42 @@
                                     {{ $participation->group_name }}
                                 </td>
                                 <td>
-                                    @for ($i = 0; $i < count($participation->fields); $i++)
-                                        @if($participation->points[$i] > floor((int) $participation->maxpoints / 2))
+                                    @for($i = 0; $i < count($participation->fields); $i++)
+                                        @if((int) $participation->points[$i] > floor((int) $participation->maxpoints[$i] / 2))
                                             <span class="badge badge-success"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
+                                        @elseif((int) $participation->points[$i] < floor((int) $participation->maxpoints[$i] / 2))
+                                            <span class="badge badge-danger"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
                                         @endif
                                     @endfor
                                 </td>
                                 <td>
-                                   {{ $participation->reached_points }} / {{$max_points}}
+                                    @if($participation->reached_points < env('POINTS_TO_PASS'))
+                                        <span class="badge badge-danger">{{ $participation->reached_points }} / {{$max_points}}</span>
+                                    @else
+                                        <span class="badge badge-success">{{ $participation->reached_points }} / {{$max_points}}</span>
+                                    @endif
                                 </td>
                                 <td>
+                                    @php($success = true)
+                                    @if(count($participation->fields) > $fields_number)
+                                        @if($participation->reached_points < env('POINTS_TO_PASS'))
+                                            @php($success = false)
+                                        @endif
 
+                                        @for($i = 0; $i < count($participation->fields); $i++)
+                                            @if((int) $participation->points[$i] < floor((int) $participation->maxpoints[$i] / 2))
+                                                @php($success = false)
+                                            @endif
+                                        @endfor
+
+                                        @if($success == true)
+                                            <span class="badge badge-success">Bestanden</span>
+                                        @else
+                                            <span class="badge badge-danger">Nicht Bestanden</span>
+                                        @endif
+                                    @else
+                                        <span class="badge badge-info">Unterwegs</span>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
@@ -89,24 +114,81 @@
             <div class="card-body table-responsive">
                 <table class="table table-hover">
                     <thead>
-                        <th>
-                            Name
-                        </th>
-                        <th>
-                            Abteilung
-                        </th>
-                        <th>
-                            Posten
-                        </th>
-                        <th>
-                            Punkte
-                        </th>
-                        <th>
-                            Status
-                        </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Abteilung
+                    </th>
+                    <th>
+                        Posten bestanden
+                    </th>
+                    <th>
+                        Punkte total
+                    </th>
+                    <th>
+                        Status
+                    </th>
                     </thead>
                     <tbody>
+                    @foreach($second as $participation)
+                        <tr>
+                            <td>
+                                @if($participation->scout_name)
+                                    {{ $participation->scout_name }} / {{ $participation->first_name }} {{ $participation->last_name }}
+                                @else
+                                    {{ $participation->first_name }} {{ $participation->last_name }}
+                                @endif
+                            </td>
+                            <td>
+                                {{ $participation->group_name }}
+                            </td>
+                            <td>
+                                @if($participation->fields)
+                                    @for($i = 0; $i < count($participation->fields); $i++)
+                                        @if((int) $participation->points[$i] > floor((int) $participation->maxpoints[$i] / 2))
+                                            <span class="badge badge-success"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
+                                        @elseif((int) $participation->points[$i] < floor((int) $participation->maxpoints[$i] / 2))
+                                            <span class="badge badge-danger"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
+                                        @endif
+                                    @endfor
+                                @endif
+                            </td>
+                            <td>
+                                @if($participation->reached_points != null)
+                                    @if($participation->reached_points < env('POINTS_TO_PASS'))
+                                        <span class="badge badge-danger">{{ $participation->reached_points }} / {{$max_points}}</span>
+                                    @else
+                                        <span class="badge badge-success">{{ $participation->reached_points }} / {{$max_points}}</span>
+                                    @endif
+                                @endif
+                            </td>
+                            <td>
+                                @php($success = true)
+                                @if($participation->fields)
+                                    @if(count($participation->fields) > $fields_number)
+                                        @if($participation->reached_points < env('POINTS_TO_PASS'))
+                                            @php($success = false)
+                                        @endif
 
+                                        @for($i = 0; $i < count($participation->fields); $i++)
+                                            @if((int) $participation->points[$i] < floor((int) $participation->maxpoints[$i] / 2))
+                                                @php($success = false)
+                                            @endif
+                                        @endfor
+
+                                        @if($success == true)
+                                            <span class="badge badge-success">Bestanden</span>
+                                        @else
+                                            <span class="badge badge-danger">Nicht Bestanden</span>
+                                        @endif
+                                    @else
+                                        <span class="badge badge-info">Unterwegs</span>
+                                    @endif
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
