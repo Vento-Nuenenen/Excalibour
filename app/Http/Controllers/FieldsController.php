@@ -65,7 +65,6 @@ class FieldsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param $fid
-     *
      * @param \Illuminate\Http\Request $request
      * @param int                      $id
      *
