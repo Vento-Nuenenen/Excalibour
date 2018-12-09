@@ -11,7 +11,6 @@
  */
 
 namespace Illuminate\Support\Facades {
-
     class App
     {
         /**

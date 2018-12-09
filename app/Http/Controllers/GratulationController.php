@@ -30,22 +30,64 @@ class GratulationController extends Controller
 	    $data = $request->certificate_text;
 	    $users = DB::table('participations')->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')->get();
 
-	    foreach ($users as $user){
-		    $data = str_replace('@pfadiname',$user->scout_name,$data);
-		    $data = str_replace('@exer',$user->exer_name,$data);
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
 
-		    $data = helper::br2nl($data);
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
 
-		    PDF::SetTitle(config('app.name'));
-		    PDF::SetFont('Arial','B',18);
-		    PDF::SetCreator(config('app.name'));
-		    PDF::SetAuthor(config('app.name'));
-		    PDF::SetTopMargin(50);
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
-		    PDF::AddPage();
-		    PDF::MultiCell(0,10, $data,0,'C');
-	    }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
 
-	    return response(PDF::Output(), 200)->header('Content-Type', 'application/pdf');
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
