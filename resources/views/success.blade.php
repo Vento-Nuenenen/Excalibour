@@ -34,7 +34,10 @@
                             Abteilung
                         </th>
                         <th>
-                            Punkte
+                            Posten bestanden
+                        </th>
+                        <th>
+                            Punkte total
                         </th>
                         <th>
                             Status
@@ -54,9 +57,17 @@
                                     {{ $participation->group_name }}
                                 </td>
                                 <td>
-                                    {{ $participation->exer_name }}
+                                    @for ($i = 0; $i < count($participation->fields); $i++)
+                                        @if($participation->points[$i] > floor((int) $participation->maxpoints / 2))
+                                            <span class="badge badge-success"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
+                                        @endif
+                                    @endfor
                                 </td>
                                 <td>
+                                   {{ $participation->reached_points }} / {{$max_points}}
+                                </td>
+                                <td>
+
                                 </td>
                             </tr>
                         @endforeach
@@ -95,25 +106,7 @@
                         </th>
                     </thead>
                     <tbody>
-                        @foreach($second as $participation)
-                            <tr>
-                                <td>
-                                    @if($participation->scout_name)
-                                        {{ $participation->scout_name }} / {{ $participation->first_name }} {{ $participation->last_name }}
-                                    @else
-                                        {{ $participation->first_name }} {{ $participation->last_name }}
-                                    @endif
-                                </td>
-                                <td>
-                                    {{ $participation->group_name }}
-                                </td>
-                                <td>
-                                    {{ $participation->exer_name }}
-                                </td>
-                                <td>
-                                </td>
-                            </tr>
-                        @endforeach
+
                     </tbody>
                 </table>
             </div>
