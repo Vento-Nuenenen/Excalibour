@@ -1,6 +1,5 @@
 <?php
 /**
- *
  *  * Copyright (C) $year Caspar Brenneisen
  *  *
  *  * This file is part of Qitsune
@@ -17,22 +16,21 @@
  *  *
  *  * You should have received a copy of the GNU Affero General Public License
  *  * along with Qitsune.  If not, see <http://www.gnu.org/licenses/>.
- *
  */
 
-	/**
-	 * Created by PhpStorm.
-	 * User: caspa
-	 * Date: 23.11.2018
-	 * Time: 22:20
-	 */
+    /**
+     * Created by PhpStorm.
+     * User: caspa
+     * Date: 23.11.2018
+     * Time: 22:20.
+     */
 
-	namespace App\helper;
+namespace App\helper;
 
-
-	class helper
-	{
-		public static function br2nl($str){
-			return str_replace("<br />", "\n", $str);
-		}
-	}
+class helper
+{
+    public static function br2nl($str)
+    {
+        return str_replace('<br />', "\n", $str);
+    }
+}

@@ -14,15 +14,15 @@ class FieldsController extends Controller
      */
     public function index(Request $request)
     {
-	    if ($request->input('search') == null) {
-		    $fields = DB::table('field')->get();
-	    } else {
-		    $search_string = $request->input('search');
+        if ($request->input('search') == null) {
+            $fields = DB::table('field')->get();
+        } else {
+            $search_string = $request->input('search');
 
-		    $fields = DB::table('field')
-			    ->where('name', 'LIKE', "%$search_string%")
-			    ->orWhere('description', 'LIKE', "%$search_string%")->get();
-	    }
+            $fields = DB::table('field')
+                ->where('name', 'LIKE', "%$search_string%")
+                ->orWhere('description', 'LIKE', "%$search_string%")->get();
+        }
 
         return view('fields.fields', ['fields' => $fields]);
     }
@@ -69,14 +69,14 @@ class FieldsController extends Controller
         return view('fields.edit', ['fields' => $fields]);
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param                          $fid
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param                          $fid
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $fid)
     {
         $field_name = $request->input('field_name');

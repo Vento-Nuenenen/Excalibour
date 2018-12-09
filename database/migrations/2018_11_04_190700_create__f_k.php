@@ -26,9 +26,9 @@ class CreateFK extends Migration
             $table->foreign('FK_EXER')->references('id')->on('exer')->onDelete('cascade')->onUpdate('cascade');
         });
 
-        Schema::table('points',function(Blueprint $table){
-        	$table->foreign('FK_PCP')->references('id')->on('participations');
-        	$table->foreign('FK_FLD')->references('id')->on('field');
+        Schema::table('points', function (Blueprint $table) {
+            $table->foreign('FK_PCP')->references('id')->on('participations');
+            $table->foreign('FK_FLD')->references('id')->on('field');
         });
     }
 }
