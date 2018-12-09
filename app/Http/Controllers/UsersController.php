@@ -8,30 +8,30 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @param Request $request
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
-	    if ($request->input('search') == null) {
-		    $users = DB::table('users')
-			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-			    ->select('users.*', 'group.group_name')->get();
-	    }else{
-		    $search_string = $request->input('search');
+        if ($request->input('search') == null) {
+            $users = DB::table('users')
+                ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
+                ->select('users.*', 'group.group_name')->get();
+        } else {
+            $search_string = $request->input('search');
 
-		    $users = DB::table('users')
-			    ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
-			    ->select('users.*', 'group.group_name')
-			    ->where('scout_name', 'LIKE', "%$search_string%")
-			    ->orWhere('last_name', 'LIKE', "%$search_string%")
-			    ->orWhere('first_name', 'LIKE', "%$search_string%")
-			    ->orWhere('group.group_name', 'LIKE', "%$search_string%")->get();
-	    }
+            $users = DB::table('users')
+                ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
+                ->select('users.*', 'group.group_name')
+                ->where('scout_name', 'LIKE', "%$search_string%")
+                ->orWhere('last_name', 'LIKE', "%$search_string%")
+                ->orWhere('first_name', 'LIKE', "%$search_string%")
+                ->orWhere('group.group_name', 'LIKE', "%$search_string%")->get();
+        }
 
         return view('users.users', ['users' => $users]);
     }
@@ -78,52 +78,52 @@ class UsersController extends Controller
         }
     }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param $uid
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param $uid
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function edit($uid)
     {
-	    $users = DB::table('users')->where('id', '=', $uid)->first();
-	    $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
+        $users = DB::table('users')->where('id', '=', $uid)->first();
+        $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
 
-	    return view('users.edit', ['users' => $users, 'groups' => $groups]);
+        return view('users.edit', ['users' => $users, 'groups' => $groups]);
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param                          $uid
-	 *
-	 * @return void
-	 */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param                          $uid
+     *
+     * @return void
+     */
     public function update(Request $request, $uid)
     {
-	    $scout_name = $request->input('scout_name');
-	    $first_name = $request->input('first_name');
-	    $last_name = $request->input('last_name');
-	    $group = $request->input('group');
+        $scout_name = $request->input('scout_name');
+        $first_name = $request->input('first_name');
+        $last_name = $request->input('last_name');
+        $group = $request->input('group');
 
-	    DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
+        DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group]);
 
-	    return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
+        return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
     }
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param $uid
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param $uid
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($uid)
     {
-	    DB::table('users')->where('id', '=', $uid)->delete();
+        DB::table('users')->where('id', '=', $uid)->delete();
 
-	    return redirect()->back()->with('message', 'Benutzer erfolgreich gelöscht.');
+        return redirect()->back()->with('message', 'Benutzer erfolgreich gelöscht.');
     }
 }

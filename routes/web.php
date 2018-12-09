@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users/add', 'UsersController@create')->name('add-users');
     Route::post('/users/store', 'UsersController@store')->name('store-users');
     Route::get('/users/edit/{uid}', 'UsersController@edit')->name('edit-users');
-    Route::post('/users/update/{uid}','UsersController@update')->name('update-users');
+    Route::post('/users/update/{uid}', 'UsersController@update')->name('update-users');
     Route::get('/users/destroy/{uid}', 'UsersController@destroy')->name('destroy-users');
 
     Route::any('/groups', 'GroupsController@index')->name('groups');
@@ -48,12 +48,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/fields/update/{fid}', 'FieldsController@update')->name('update-fields');
     Route::get('/fields/destroy/{fid}', 'FieldsController@destroy')->name('destroy-fields');
 
-	Route::any('/points', 'PointsController@index')->name('points');
-	Route::get('/points/add', 'PointsController@create')->name('add-points');
-	Route::post('/points/store', 'PointsController@store')->name('store-points');
-	Route::get('/points/edit/{poid}', 'PointsController@edit')->name('edit-points');
-	Route::post('/points/update/{poid}', 'PointsController@update')->name('update-points');
-	Route::get('/points/destroy/{poid}', 'PointsController@destroy')->name('destroy-points');
+    Route::any('/points', 'PointsController@index')->name('points');
+    Route::get('/points/add', 'PointsController@create')->name('add-points');
+    Route::post('/points/store', 'PointsController@store')->name('store-points');
+    Route::get('/points/edit/{poid}', 'PointsController@edit')->name('edit-points');
+    Route::post('/points/update/{poid}', 'PointsController@update')->name('update-points');
+    Route::get('/points/destroy/{poid}', 'PointsController@destroy')->name('destroy-points');
 
     Route::get('/gratulation', 'GratulationController@index')->name('gratulation');
     Route::post('/gratulation/create', 'GratulationController@create')->name('create-gratulation');

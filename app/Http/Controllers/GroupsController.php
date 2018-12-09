@@ -14,20 +14,20 @@ class GroupsController extends Controller
      */
     public function index(Request $request)
     {
-    	if($request->input('search') == null){
-		    $groups = DB::table('group')
-			    ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
-			    ->select('group.id as group_id', 'group.group_name', 'field.field_name')->get();
-	    }else{
-    		$search_string = $request->input('search');
+        if ($request->input('search') == null) {
+            $groups = DB::table('group')
+                ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
+                ->select('group.id as group_id', 'group.group_name', 'field.field_name')->get();
+        } else {
+            $search_string = $request->input('search');
 
-    		$groups = DB::table('group')
-			    ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
-			    ->select('group.id as group_id', 'group.group_name', 'field.field_name')
-			    ->where('group.group_name', 'LIKE', "%$search_string%")
-			    ->orWhere('field.field_name', 'LIKE', "%$search_string%")
-			    ->orWhere('field.field_description', 'LIKE', "%$search_string%")->get();
-	    }
+            $groups = DB::table('group')
+                ->leftJoin('field', 'field.id', '=', 'group.FK_FLD')
+                ->select('group.id as group_id', 'group.group_name', 'field.field_name')
+                ->where('group.group_name', 'LIKE', "%$search_string%")
+                ->orWhere('field.field_name', 'LIKE', "%$search_string%")
+                ->orWhere('field.field_description', 'LIKE', "%$search_string%")->get();
+        }
 
         return view('groups.groups', ['groups' => $groups]);
     }
