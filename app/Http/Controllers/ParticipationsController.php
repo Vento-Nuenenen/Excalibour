@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class ParticipationsController extends Controller
 {
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @param Request $request
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         if ($request->input('search') == null) {
@@ -71,46 +71,47 @@ class ParticipationsController extends Controller
         return redirect()->back()->with('message', 'Teilnehmer wurde erstellt.');
     }
 
-    public function import(Request $request){
-    	if($request->file('participations_list')){
-		    $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'),'participations.csv');
-	    }else{
-    		return redirect()->back()->with('error','Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
-	    }
+    public function import(Request $request)
+    {
+        if ($request->file('participations_list')) {
+            $participations_list = $request->file('participations_list')->move(storage_path('temp/csv'), 'participations.csv');
+        } else {
+            return redirect()->back()->with('error', 'Die Teilnehmer konnten nicht importiert werden, da keine entsprehende Datei gesendet wurde.');
+        }
 
-	    $handle = fopen($participations_list, 'r');
-    	$content = mb_convert_encoding(fread($handle,filesize($participations_list)),'UTF-8','Windows-1252');
-    	$lines = preg_split("/(\n)/", $content);
+        $handle = fopen($participations_list, 'r');
+        $content = mb_convert_encoding(fread($handle, filesize($participations_list)), 'UTF-8', 'Windows-1252');
+        $lines = preg_split("/(\n)/", $content);
 
-    	$number_participations = count($lines);
+        $number_participations = count($lines);
 
-    	unset($lines[$number_participations - 1]);
+        unset($lines[$number_participations - 1]);
 
-    	foreach($lines as $line){
-    		$contents[] = explode(";",$line);
-	    }
+        foreach ($lines as $line) {
+            $contents[] = explode(';', $line);
+        }
 
-    	fclose($handle);
+        fclose($handle);
 
-    	foreach($contents as $content){
-    		$grp = DB::table('group')->select('id')->where('name','LIKE',"%$content[3]%")->first();
+        foreach ($contents as $content) {
+            $grp = DB::table('group')->select('id')->where('name', 'LIKE', "%$content[3]%")->first();
 
-    		$content[4] = str_replace("\r",'',$content[4]);
-		    $exer = DB::table('exer')->select('id','exer_name')->where('escaped_exer_name','LIKE',"%$content[4]%")->first();
+            $content[4] = str_replace("\r", '', $content[4]);
+            $exer = DB::table('exer')->select('id', 'exer_name')->where('escaped_exer_name', 'LIKE', "%$content[4]%")->first();
 
-    		DB::table('participations')->insert(['scout_name' => $content[0],'first_name' => $content[1],'last_name' => $content[2],'FK_GRP' => $grp->id,'FK_EXER' => $exer->id]);
-	    }
+            DB::table('participations')->insert(['scout_name' => $content[0], 'first_name' => $content[1], 'last_name' => $content[2], 'FK_GRP' => $grp->id, 'FK_EXER' => $exer->id]);
+        }
 
-        return redirect()->back()->with('message','Die TN wurden importiert!');
+        return redirect()->back()->with('message', 'Die TN wurden importiert!');
     }
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param $pid
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param $pid
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function edit($pid)
     {
         $participations = DB::table('participations')->where('id', '=', $pid)->first();
@@ -120,14 +121,14 @@ class ParticipationsController extends Controller
         return view('participations.edit', ['participations' => $participations, 'groups' => $groups, 'exer' => $exer]);
     }
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param \Illuminate\Http\Request $request
-	 * @param                          $pid
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param                          $pid
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $pid)
     {
         $scout_name = $request->input('scout_name');

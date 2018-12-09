@@ -2,7 +2,6 @@
 
 return [
 
-
     /*
      |--------------------------------------------------------------------------
      | Debugbar Settings
@@ -15,8 +14,8 @@ return [
      |
      */
     'enabled_environment' => env('DEBUG_BAR_ENVIRONMENT'),
-    'enabled' => env('DEBUGBAR_ENABLED', null),
-    'except'  => [
+    'enabled'             => env('DEBUGBAR_ENABLED', null),
+    'except'              => [
         //
     ],
 
