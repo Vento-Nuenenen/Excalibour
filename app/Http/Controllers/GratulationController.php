@@ -31,9 +31,9 @@ class GratulationController extends Controller
         foreach ($users as $user) {
             $text = $request->certificate_text;
 
-            if(isset($user->scout_name)){
+            if (isset($user->scout_name)) {
                 $text = str_replace('@name', $user->scout_name, $text);
-            }else{
+            } else {
                 $text = str_replace('@name', $user->first_name, $text);
             }
 
