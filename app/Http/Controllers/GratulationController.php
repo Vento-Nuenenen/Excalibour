@@ -26,14 +26,20 @@ class GratulationController extends Controller
      */
     public function create(Request $request)
     {
-        $data = $request->certificate_text;
         $users = DB::table('participations')->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')->get();
 
         foreach ($users as $user) {
-            $data = str_replace('@pfadiname', $user->scout_name, $data);
-            $data = str_replace('@exer', $user->exer_name, $data);
+            $text = $request->certificate_text;
 
-            $data = helper::br2nl($data);
+            if(isset($user->scout_name)){
+                $text = str_replace('@name', $user->scout_name, $text);
+            }else{
+                $text = str_replace('@name', $user->first_name, $text);
+            }
+
+            $text = str_replace('@exer', $user->exer_name, $text);
+
+            $text = helper::br2nl($text);
 
             PDF::SetTitle(config('app.name'));
             PDF::SetFont('Arial', 'B', 18);
@@ -42,7 +48,7 @@ class GratulationController extends Controller
             PDF::SetTopMargin(50);
 
             PDF::AddPage();
-            PDF::MultiCell(0, 10, $data, 0, 'C');
+            PDF::MultiCell(0, 10, $text, 0, 'C');
         }
 
         return response(PDF::Output(), 200)->header('Content-Type', 'application/pdf');

@@ -20,8 +20,8 @@ class FieldsController extends Controller
             $search_string = $request->input('search');
 
             $fields = DB::table('field')
-                ->where('name', 'LIKE', "%$search_string%")
-                ->orWhere('description', 'LIKE', "%$search_string%")->get();
+                ->where('field_name', 'LIKE', "%$search_string%")
+                ->orWhere('field_description', 'LIKE', "%$search_string%")->get();
         }
 
         return view('fields.fields', ['fields' => $fields]);
