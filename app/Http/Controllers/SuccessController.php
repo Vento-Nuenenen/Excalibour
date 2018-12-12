@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Illuminate\Http\Request;
+
 class SuccessController extends Controller
 {
     /**
@@ -28,21 +31,21 @@ class SuccessController extends Controller
         $fields_number = count($fields);
 
         if ($request->input('search') == null) {
-            $first = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields,
-       									GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name,
+            $first = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields, 
+       									GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name, 
        									GROUP_CONCAT(points.reached_points) as points from `participations`
-  										left join `exer` on `exer`.`id` = `participations`.`FK_EXER`
-  										left join `group` on `group`.`id` = `participations`.`FK_GRP`
-  										left join `points` on `points`.`FK_PCP` = `participations`.`id`
+  										left join `exer` on `exer`.`id` = `participations`.`FK_EXER` 
+  										left join `group` on `group`.`id` = `participations`.`FK_GRP` 
+  										left join `points` on `points`.`FK_PCP` = `participations`.`id` 
   										left join `field` on `field`.`id` = `points`.`FK_FLD`
   										where `exer`.`id` = 1;');
 
-            $second = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields,
-       									GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name,
+            $second = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields, 
+       									GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name, 
        									GROUP_CONCAT(points.reached_points) as points from `participations`
-  										left join `exer` on `exer`.`id` = `participations`.`FK_EXER`
-  										left join `group` on `group`.`id` = `participations`.`FK_GRP`
-  										left join `points` on `points`.`FK_PCP` = `participations`.`id`
+  										left join `exer` on `exer`.`id` = `participations`.`FK_EXER` 
+  										left join `group` on `group`.`id` = `participations`.`FK_GRP` 
+  										left join `points` on `points`.`FK_PCP` = `participations`.`id` 
   										left join `field` on `field`.`id` = `points`.`FK_FLD`
   										where `exer`.`id` = 2;');
         } else {

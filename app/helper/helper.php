@@ -18,12 +18,12 @@
  *  * along with Qitsune.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * Created by PhpStorm.
- * User: caspa
- * Date: 23.11.2018
- * Time: 22:20.
- */
+    /**
+     * Created by PhpStorm.
+     * User: caspa
+     * Date: 23.11.2018
+     * Time: 22:20.
+     */
 
 namespace App\helper;
 

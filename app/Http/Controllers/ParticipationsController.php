@@ -20,19 +20,19 @@ class ParticipationsController extends Controller
             $participations = DB::table('participations')
                 ->leftJoin('group', 'group.id', '=', 'participations.FK_GRP')
                 ->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')
-                ->select('participations.*', 'exer.exer_name', 'group.name')->get();
+                ->select('participations.*', 'exer.exer_name', 'group.group_name')->get();
         } else {
             $search_string = $request->input('search');
 
             $participations = DB::table('participations')
                 ->leftJoin('group', 'group.id', '=', 'participations.FK_GRP')
                 ->leftJoin('exer', 'exer.id', '=', 'participations.FK_EXER')
-                ->select('participations.*', 'exer.exer_name', 'group.name')
+                ->select('participations.*', 'exer.exer_name', 'group.group_name')
                 ->where('scout_name', 'LIKE', "%$search_string%")
                 ->orWhere('last_name', 'LIKE', "%$search_string%")
                 ->orWhere('first_name', 'LIKE', "%$search_string%")
                 ->orWhere('exer_name', 'LIKE', "%$search_string%")
-                ->orWhere('name', 'LIKE', "%$search_string%")->get();
+                ->orWhere('group_name', 'LIKE', "%$search_string%")->get();
         }
 
         return view('participations.participations', ['participations' => $participations]);
@@ -45,7 +45,7 @@ class ParticipationsController extends Controller
      */
     public function create()
     {
-        $groups = DB::table('group')->select('id', 'name')->get();
+        $groups = DB::table('group')->select('id', 'group_name')->get();
         $exer = DB::table('exer')->select('id', 'exer_name')->get();
 
         return view('participations.add', ['groups' => $groups, 'exer' => $exer]);
@@ -137,7 +137,7 @@ class ParticipationsController extends Controller
         $group = $request->input('group');
         $exer = $request->input('exer');
 
-        DB::table('participations')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group, 'FK_EXER' => $exer]);
+        DB::table('participations')->where('id', '=', $pid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'FK_GRP' => $group, 'FK_EXER' => $exer]);
 
         return redirect()->back()->with('message', 'Teilnehmer wurde aktualisiert.');
     }

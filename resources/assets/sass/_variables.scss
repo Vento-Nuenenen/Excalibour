@@ -1,71 +1,39 @@
-// Colors
-$white: #ffffff;
-
 // Body
-$body-bg: #f5f8fa;
-
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
-
-// Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+$body-bg: #f8fafc;
 
 // Typography
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 14px;
+$font-family-sans-serif: "Nunito", sans-serif;
+$font-size-base: 0.9rem;
 $line-height-base: 1.6;
-$text-color: #636b6f;
 
-// Navbar
-$navbar-default-bg: $white;
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66D9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
 
-// Buttons
-$btn-default-color: $text-color;
+//Variables for Bootstrap-Select
 
-// Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
+$color-red-error: #e3342f;
+$color-green-success: #38c172;
+$color-grey-arrow: rgba(204, 204, 204, 0.2);
 
-// Panels
-$panel-default-heading-bg: $white;
+$width-default: 220px !default; // 3 960px-grid columns
 
-// Transitions
-$transitionSpeed: 0.35s;
+$zindex-select-dropdown: 1060 !default; // must be higher than a modal background (1050)
 
-// Social Media
-$facebook: #4863ae;
-$twitter: #46c0fb;
-$google: #DD4B39;
-$github: #4183C4;
+//** Placeholder text color
+$input-color-placeholder: #f8fafc;
+$input-alt-color-placeholder: #f8fafc;
 
-// MQ's
-$mq-tiny: 320px;
-$phone: 480px;
-$tablet: 767px;
-$desktop: 992px;
-$lg-desktop: 1200px;
+$input-padding-y-sm: .25rem !default;
+$input-padding-x-sm: .5rem !default;
 
-// Radius'
-$standard-radius: 3px;
-
-// Margins and Padding
-$num-of-classes: 5;
-$directions: ('top', 'bottom', 'left', 'right');
-$types: ('margin', 'padding');
-$queries: (
-  $mq-tiny: 'xxs',
-  $phone: 'xs',
-  $tablet: 'sm',
-  $desktop: 'md',
-  $lg-desktop: 'lg'
-);
+$input-padding-y-lg: 0.5rem !default;
+$input-padding-x-lg: 1rem !default;

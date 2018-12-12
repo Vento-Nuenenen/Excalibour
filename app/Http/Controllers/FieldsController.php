@@ -83,8 +83,7 @@ class FieldsController extends Controller
         $field_description = $request->input('field_description');
         $field_points = $request->input('field_points');
 
-        DB::table('field')->where('id', '=', $fid)
-            ->update(['name' => $field_name, 'description' => $field_description, 'MAX_POINTS' => $field_points]);
+        DB::table('field')->where('id', '=', $fid)->update(['name' => $field_name, 'description' => $field_description, 'MAX_POINTS' => $field_points]);
 
         return redirect()->back()->with('message', 'Posten wurde aktualisiert.');
     }

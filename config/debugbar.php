@@ -13,9 +13,9 @@ return [
      | You can provide an array of URI's that must be ignored (eg. 'api/*')
      |
      */
-    'enabled_environment' => env('DEBUG_BAR_ENVIRONMENT'),
-    'enabled'             => env('DEBUGBAR_ENABLED', null),
-    'except'              => [
+
+    'enabled' => env('DEBUGBAR_ENABLED', null),
+    'except'  => [
         //
     ],
 

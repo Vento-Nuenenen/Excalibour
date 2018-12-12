@@ -1,57 +1,19 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 // Variables
-@import "variables";
+@import 'variables';
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 // Bootstrap select-search
 @import 'bootstrap-select';
 
 // Font Awesome
-@import "node_modules/font-awesome/scss/font-awesome";
+@import '~font-awesome/scss/font-awesome';
 
-// Dropzone
-@import "node_modules/dropzone/dist/basic";
-@import "node_modules/dropzone/dist/dropzone";
-
-// Mixins
-@import "mixins";
-
-// Mixins
-@import "margins";
-
-// Components
-@import "helpers";
-
-// Typography
-@import "typography";
-
-// Buttons
-@import "buttons";
-
-// Badges
-@import "badges";
-
-// Panels
-@import "panels";
-
-// Wells
-@import "wells";
-
-// Components
-@import "modals";
-
-// Forms
-@import "forms";
-
-// Lists
-@import "lists";
-
-// Avatars
-@import "avatar";
-
-// Password Strength Meter
-@import "password";
-
-// Hide Show Password
-@import "hideShowPassword";
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}

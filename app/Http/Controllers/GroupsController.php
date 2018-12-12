@@ -56,21 +56,9 @@ class GroupsController extends Controller
         $group_name = $request->input('group_name');
         $field = $request->input('field');
 
-        DB::table('group')->insert(['name' => $group_name, 'FK_FLD' => $field]);
+        DB::table('group')->insert(['group_name' => $group_name, 'FK_FLD' => $field]);
 
         return redirect()->back()->with('message', 'Gruppe wurde erstellt.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     *
-     * @return void
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -101,7 +89,7 @@ class GroupsController extends Controller
         $group_name = $request->input('group_name');
         $field = $request->input('field');
 
-        DB::table('group')->where('id', '=', $gid)->update(['name' => $group_name, 'FK_FLD' => $field]);
+        DB::table('group')->where('id', '=', $gid)->update(['group_name' => $group_name, 'FK_FLD' => $field]);
 
         return redirect()->back()->with('message', 'Gruppe wurde aktualisiert.');
     }

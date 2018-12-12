@@ -43,7 +43,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $groups = DB::table('group')->select('id', 'name')->get();
+        $groups = DB::table('group')->select('id', 'group_name')->get();
 
         return view('users.add', ['groups' => $groups]);
     }
