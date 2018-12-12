@@ -18,6 +18,7 @@ class CreateParticipationsTable extends Migration
             $table->string('scout_name')->nullable();
             $table->string('first_name');
             $table->string('last_name');
+            $table->boolean('passed')->nullable();
             $table->integer('FK_GRP')->unsigned()->index();
             $table->integer('FK_EXER')->unsigned()->index();
         });

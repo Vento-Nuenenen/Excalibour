@@ -143,8 +143,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/users', 'UsersController@index')->name('users');
     Route::get('/users/add', 'UsersController@create')->name('add-users');
     Route::post('/users/store', 'UsersController@store')->name('store-users');
-    Route::get('/users/edit', 'UsersController@edit')->name('edit-users');
-    Route::get('/users/destroy', 'UsersController@destroy')->name('destroy-users');
+    Route::get('/users/edit/{uid}', 'UsersController@edit')->name('edit-users');
+    Route::post('/users/update/{uid}', 'UsersController@update')->name('update-users');
+    Route::get('/users/destroy/{uid}', 'UsersController@destroy')->name('destroy-users');
 
     Route::get('/groups', 'GroupsController@index')->name('groups');
     Route::get('/groups/add', 'GroupsController@create')->name('add-groups');
@@ -160,10 +161,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/fields/update/{fid}', 'FieldsController@update')->name('update-fields');
     Route::get('/fields/destroy/{gid}', 'FieldsController@destroy')->name('destroy-fields');
 
-    Route::get('/info', 'InfoController@index')->name('info');
-    Route::get('/info/add', 'InfoController@create')->name('add-info');
-    Route::get('/info/edit', 'InfoController@edit')->name('edit-info');
-    Route::get('/info/destroy', 'InfoController@destroy')->name('destroy-info');
+    Route::any('/points', 'PointsController@index')->name('points');
+    Route::get('/points/add', 'PointsController@create')->name('add-points');
+    Route::post('/points/store', 'PointsController@store')->name('store-points');
+    Route::get('/points/edit/{poid}', 'PointsController@edit')->name('edit-points');
+    Route::post('/points/update/{poid}', 'PointsController@update')->name('update-points');
+    Route::get('/points/destroy/{poid}', 'PointsController@destroy')->name('destroy-points');
 
     Route::get('/gratulation', 'InfoController@index')->name('gratulation');
     Route::get('/gratulation/create', 'InfoController@create')->name('create-gratulation');

@@ -17,7 +17,21 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        $users = DB::table('users')->leftJoin('group', 'group.id', '=', 'users.FK_GRP')->select('users.*', 'group.name')->get();
+        if ($request->input('search') == null) {
+            $users = DB::table('users')
+                ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
+                ->select('users.*', 'group.group_name')->get();
+        } else {
+            $search_string = $request->input('search');
+
+            $users = DB::table('users')
+                ->leftJoin('group', 'group.id', '=', 'users.FK_GRP')
+                ->select('users.*', 'group.group_name')
+                ->where('scout_name', 'LIKE', "%$search_string%")
+                ->orWhere('last_name', 'LIKE', "%$search_string%")
+                ->orWhere('first_name', 'LIKE', "%$search_string%")
+                ->orWhere('group.group_name', 'LIKE', "%$search_string%")->get();
+        }
 
         return view('users.users', ['users' => $users]);
     }
@@ -67,11 +81,11 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
+     * @param $uid
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($uid)
     {
         $users = DB::table('users')->where('id', '=', $uid)->first();
         $groups = DB::table('group')->select('group.id', 'group.group_name')->get();
@@ -83,11 +97,11 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param                          $uid
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $uid)
     {
         $scout_name = $request->input('scout_name');
         $first_name = $request->input('first_name');
@@ -102,11 +116,11 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param $uid
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($uid)
     {
         DB::table('users')->where('id', '=', $uid)->delete();
 

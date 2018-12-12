@@ -176,17 +176,9 @@ return [
         App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
-        Illuminate\Notifications\NotificationServiceProvider::class,
-        App\Providers\MacroServiceProvider::class,
-        jeremykenedy\LaravelRoles\RolesServiceProvider::class,
-        App\Providers\ComposerServiceProvider::class,
-        Creativeorange\Gravatar\GravatarServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        App\Providers\LocalEnvironmentServiceProvider::class,
-        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
-        jeremykenedy\laravelexceptionnotifier\LaravelExceptionNotifier::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        Codedge\Fpdf\FpdfServiceProvider::class,
 
     ],
 
@@ -236,13 +228,6 @@ return [
         'URL'          => Illuminate\Support\Facades\URL::class,
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
-        'Form'         => \Collective\Html\FormFacade::class,
-        'HTML'         => \Collective\Html\HtmlFacade::class,
-        'Input'        => Illuminate\Support\Facades\Input::class,
-        'Gravatar'     => Creativeorange\Gravatar\Facades\Gravatar::class,
-        'Image'        => Intervention\Image\Facades\Image::class,
-        'Uuid'         => Webpatser\Uuid\Uuid::class,
-        'PDF'          => Barryvdh\DomPDF\Facade::class,
-
+        'PDF'          => Codedge\Fpdf\Facades\Fpdf::class,
     ],
 ];

@@ -14,7 +14,15 @@ class FieldsController extends Controller
      */
     public function index(Request $request)
     {
-        $fields = DB::table('field')->get();
+        if ($request->input('search') == null) {
+            $fields = DB::table('field')->get();
+        } else {
+            $search_string = $request->input('search');
+
+            $fields = DB::table('field')
+                ->where('name', 'LIKE', "%$search_string%")
+                ->orWhere('description', 'LIKE', "%$search_string%")->get();
+        }
 
         return view('fields.fields', ['fields' => $fields]);
     }
@@ -62,15 +70,14 @@ class FieldsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update the specified resource in storage.
      *
-     * @param $fid
      * @param \Illuminate\Http\Request $request
-     * @param int                      $id
+     * @param                          $fid
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($fid)
+    public function update(Request $request, $fid)
     {
         $field_name = $request->input('field_name');
         $field_description = $request->input('field_description');
