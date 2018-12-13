@@ -116,18 +116,16 @@ class UsersController extends Controller
             $password = Hash::make($password);
             $password_repeat = null;
 
-            DB::table('users')->where('id','=',$uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password, 'FK_GRP' => $group]);
+            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'password' => $password, 'FK_GRP' => $group]);
 
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert.');
-        } else if ($password == null) {
-            DB::table('users')->where('id','=',$uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'FK_GRP' => $group]);
+        } elseif ($password == null) {
+            DB::table('users')->where('id', '=', $uid)->update(['scout_name' => $scout_name, 'first_name' => $first_name, 'last_name' => $last_name, 'email' => $email, 'FK_GRP' => $group]);
 
             return redirect()->back()->with('message', 'Benutzer wurde aktualisiert. Das Passwort wurde beibehalten!');
-        }else {
+        } else {
             return redirect()->back()->with('error', 'Passwort wurde nicht korrekt wiederholt!');
         }
-
-
     }
 
     /**
