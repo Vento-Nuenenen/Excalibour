@@ -44,11 +44,11 @@
                                     {{ $participation->group_name }}
                                 </td>
                                 <td>
-                                    @if($participation->fields)
+                                    @if($participation->fields[0] != "")
                                         @for($i = 0; $i < count($participation->fields); $i++)
-                                            @if((int) $participation->points[$i] > floor((int) $participation->maxpoints[$i] / 2))
+                                            @if((int) $participation->points[$i] >= floor((int) $participation->maxpoints[$i] / 2))
                                                 <span class="badge badge-success"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
-                                            @elseif((int) $participation->points[$i] < floor((int) $participation->maxpoints[$i] / 2))
+                                            @elseif(isset($participation->points[$i]) && (int) $participation->points[$i] < floor((int) $participation->maxpoints[$i] / 2))
                                                 <span class="badge badge-danger"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
                                             @endif
                                         @endfor
@@ -138,7 +138,7 @@
                                 {{ $participation->group_name }}
                             </td>
                             <td>
-                                @if($participation->fields)
+                                @if($participation->fields[0] != "")
                                     @for($i = 0; $i < count($participation->fields); $i++)
                                         @if((int) $participation->points[$i] > floor((int) $participation->maxpoints[$i] / 2))
                                             <span class="badge badge-success"> {{ $participation->fields[$i] }} ({{ $participation->points[$i] }} / {{ $participation->maxpoints[$i] }}) </span>
