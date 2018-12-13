@@ -1,4 +1,7 @@
 ### PHPSTORM BOOGERS ###
+.DS_Store
+
+### PHPSTORM BOOGERS ###
 .idea/*
 /.idea/*
 
