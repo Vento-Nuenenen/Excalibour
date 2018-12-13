@@ -21,6 +21,6 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "bootstrap-select": "^1.13.3"
+        "bootstrap-select": "^1.13.5"
     }
 }
