@@ -35,8 +35,8 @@
                                         <option value="">Teilnehmer wählen</option>
                                         @if ($participations)
                                             @foreach($participations as $participation)
-                                                <option value="{{ $participation->id }}">{{ empty($participation->scout_name) ? $participation->scout_name." / "
-                                                .$participation->scout_name." ".$participation->scout_name : $participation->scout_name." ".$participation->scout_name }}</option>
+                                                <option value="{{ $participation->id }}">{{ !empty($participation->scout_name) ? $participation->scout_name." / "
+                                                .$participation->first_name." ".$participation->last_name : $participation->first_name." ".$participation->last_name }}</option>
                                             @endforeach
                                         @endif
                                     </select>

@@ -14,7 +14,7 @@
             </div>
         @endif
 
-        <div class="card ExerOne mb-3">
+        <div class="card AddUser mb-3">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -97,8 +97,8 @@
                                 </div>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
