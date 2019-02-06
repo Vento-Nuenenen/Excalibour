@@ -18,7 +18,7 @@
         "laravel-mix": "^4.0",
         "lodash": "^4.17.11",
         "popper.js": "^1.14",
-        "vue": "^2.6.1"
+        "vue": "^2.6.2"
     },
     "dependencies": {
         "bootstrap-select": "^1.13.5"
