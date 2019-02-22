@@ -21,8 +21,8 @@
         "resolve-url-loader": "3.0.1",
         "sass": "^1.17.1",
         "sass-loader": "7.*",
-        "vue": "^2.6.6",
-        "vue-template-compiler": "^2.6.6"
+        "vue": "^2.6.7",
+        "vue-template-compiler": "^2.6.7"
     },
     "dependencies": {
         "bootstrap-select": "^1.13.5"
