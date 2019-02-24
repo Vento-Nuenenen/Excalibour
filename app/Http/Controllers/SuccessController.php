@@ -30,27 +30,25 @@ class SuccessController extends Controller
         $fields = DB::table('field')->select('field_name')->get();
         $fields_number = count($fields);
 
-        if ($request->input('search') == null) {
-            $first = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields, 
-       									GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name, 
-       									GROUP_CONCAT(points.reached_points) as points from `participations`
-  										left join `exer` on `exer`.`id` = `participations`.`FK_EXER` 
-  										left join `group` on `group`.`id` = `participations`.`FK_GRP` 
-  										left join `points` on `points`.`FK_PCP` = `participations`.`id` 
-  										left join `field` on `field`.`id` = `points`.`FK_FLD`
-  										where `exer`.`id` = 1
-  										GROUP BY participations.id;');
+        $first = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields, 
+       								GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name, 
+       								GROUP_CONCAT(points.reached_points) as points from `participations`
+  									left join `exer` on `exer`.`id` = `participations`.`FK_EXER` 
+  									left join `group` on `group`.`id` = `participations`.`FK_GRP` 
+  									left join `points` on `points`.`FK_PCP` = `participations`.`id` 
+  									left join `field` on `field`.`id` = `points`.`FK_FLD`
+  									where `exer`.`id` = 1
+  									GROUP BY participations.id;');
 
-            $second = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields, 
-       									GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name, 
-       									GROUP_CONCAT(points.reached_points) as points from `participations`
-  										left join `exer` on `exer`.`id` = `participations`.`FK_EXER` 
-  										left join `group` on `group`.`id` = `participations`.`FK_GRP` 
-  										left join `points` on `points`.`FK_PCP` = `participations`.`id` 
-  										left join `field` on `field`.`id` = `points`.`FK_FLD`
-  										where `exer`.`id` = 2
-  										GROUP BY points.reached_points, field.field_name, field.MAX_POINTS, points.reached_points, participations.id;');
-        }
+        $second = DB::select('select participations.*, exer.id as exerid, GROUP_CONCAT(field.field_name) as fields, 
+       								GROUP_CONCAT(field.MAX_POINTS) as maxpoints, group.group_name, 
+       								GROUP_CONCAT(points.reached_points) as points from `participations`
+  									left join `exer` on `exer`.`id` = `participations`.`FK_EXER` 
+  									left join `group` on `group`.`id` = `participations`.`FK_GRP` 
+  									left join `points` on `points`.`FK_PCP` = `participations`.`id` 
+  									left join `field` on `field`.`id` = `points`.`FK_FLD`
+  									where `exer`.`id` = 2
+  									GROUP BY points.reached_points, field.field_name, field.MAX_POINTS, points.reached_points, participations.id;');
 
         foreach ($first as $value) {
             $value->fields = explode(',', $value->fields);
