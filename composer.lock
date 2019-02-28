@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64061b1a48fd5199effe99ff27a80ced",
+    "content-hash": "03655347a123df60d41db62c8b8f505b",
     "packages": [
         {
             "name": "codedge/laravel-fpdf",
@@ -5841,20 +5841,20 @@
         },
         {
             "name": "sven/artisan-view",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/svenluijten/artisan-view.git",
-                "reference": "c355f6db5d5317558f90fe274cd5b3504316d35f"
+                "reference": "701aaa0d1a14a0c5ef673b310ce37340f3f10d2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/c355f6db5d5317558f90fe274cd5b3504316d35f",
-                "reference": "c355f6db5d5317558f90fe274cd5b3504316d35f",
+                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/701aaa0d1a14a0c5ef673b310ce37340f3f10d2b",
+                "reference": "701aaa0d1a14a0c5ef673b310ce37340f3f10d2b",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "5.4.* || 5.5.* || 5.6.* || 5.7.*",
+                "laravel/framework": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.*",
                 "php": "^7.1"
             },
             "require-dev": {
@@ -5894,7 +5894,7 @@
                 "templates",
                 "views"
             ],
-            "time": "2018-10-02T19:40:46+00:00"
+            "time": "2019-02-27T08:21:48+00:00"
         },
         {
             "name": "symfony/filesystem",
