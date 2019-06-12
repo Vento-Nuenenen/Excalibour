@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Chronyms/Excalibour.svg?branch=release)](https://travis-ci.org/Chronyms/Excalibour)
 [![StyleCI](https://github.styleci.io/repos/116980577/shield?branch=release)](https://github.styleci.io/repos/116980577)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Chronyms/Excalibour/badges/quality-score.png?b=V3)](https://scrutinizer-ci.com/g/Chronyms/Excalibour/?branch=V3)
-[![Build Status](https://scrutinizer-ci.com/g/Chronyms/Excalibour/badges/build.png?b=V3)](https://scrutinizer-ci.com/g/Chronyms/Excalibour/build-status/V3)
+[![Build Status](https://scrutinizer-ci.com/g/Chronyms/Excalibour/badges/build.png?b=V3)](https://scrutinizer-ci.com/g/Chronyms/Excalibour/build-status/V3) [![Greenkeeper badge](https://badges.greenkeeper.io/Vento-Nuenenen/Excalibour.svg)](https://greenkeeper.io/)
 
 ### Installation Instructions
 1. `git clone https://github.com/Chronyms/Excalibour.git` ausführen
