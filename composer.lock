@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "466c1520a5b0595b0d51ae7e76798146",
+    "content-hash": "d9fd1750c942c7b7f9e7c3c51431690b",
     "packages": [
         {
             "name": "codedge/laravel-fpdf",
@@ -1454,9 +1454,9 @@
             "authors": [
                 {
                     "name": "Tim Lytle",
-                    "role": "Developer",
                     "email": "tim@nexmo.com",
-                    "homepage": "http://twitter.com/tjlytle"
+                    "homepage": "http://twitter.com/tjlytle",
+                    "role": "Developer"
                 }
             ],
             "description": "PHP Client for using Nexmo's API.",
@@ -5093,18 +5093,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Library for handling version information and constraints",
@@ -5375,8 +5375,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
@@ -5426,8 +5426,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
@@ -5468,8 +5468,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Simple template engine.",
@@ -5517,8 +5517,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
@@ -5647,8 +5647,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "The PHP Unit Testing framework.",
@@ -6224,8 +6224,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
@@ -6267,8 +6267,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
@@ -6370,26 +6370,26 @@
         },
         {
             "name": "sven/artisan-view",
-            "version": "v3.2.0",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/svenluijten/artisan-view.git",
-                "reference": "701aaa0d1a14a0c5ef673b310ce37340f3f10d2b"
+                "reference": "749379444b46cc8865f3c3fe3d9d704b75f202d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/701aaa0d1a14a0c5ef673b310ce37340f3f10d2b",
-                "reference": "701aaa0d1a14a0c5ef673b310ce37340f3f10d2b",
+                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/749379444b46cc8865f3c3fe3d9d704b75f202d7",
+                "reference": "749379444b46cc8865f3c3fe3d9d704b75f202d7",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "5.4.* || 5.5.* || 5.6.* || 5.7.* || 5.8.*",
+                "laravel/framework": "^5.4 || ^6.0",
                 "php": "^7.1"
             },
             "require-dev": {
-                "graham-campbell/testbench": "^5.0",
+                "graham-campbell/testbench": "^4.0 || ^5.0",
                 "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "~7.0"
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "type": "library",
             "extra": {
@@ -6423,7 +6423,7 @@
                 "templates",
                 "views"
             ],
-            "time": "2019-02-27T08:21:48+00:00"
+            "time": "2019-09-03T16:04:52+00:00"
         },
         {
             "name": "symfony/filesystem",
