@@ -8,14 +8,14 @@ use Illuminate\Notifications\Notifiable;
 /**
  * App\User.
  *
- * @property int $id
- * @property string $scout_name
- * @property string $first_name
- * @property string $last_name
- * @property string $email
- * @property string $password
- * @property int $FK_GRP
- * @property string|null $remember_token
+ * @property int                 $id
+ * @property string              $scout_name
+ * @property string              $first_name
+ * @property string              $last_name
+ * @property string              $email
+ * @property string              $password
+ * @property int                 $FK_GRP
+ * @property string|null         $remember_token
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
