@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupTable extends Migration
+class CreateFieldTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateGroupTable extends Migration
      */
     public function up()
     {
-        Schema::create('group', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('group_name');
-            $table->integer('FK_FLD')->unsigned()->index()->nullable();
+        Schema::create('field', function (Blueprint $table) {
+            $table->id();
+            $table->string('field_name');
+            $table->string('field_description');
+            $table->integer('MAX_POINTS');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class CreateGroupTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group');
+        Schema::dropIfExists('field');
     }
 }

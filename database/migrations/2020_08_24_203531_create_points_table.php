@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFieldTable extends Migration
+class CreatePointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateFieldTable extends Migration
      */
     public function up()
     {
-        Schema::create('field', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('field_name');
-            $table->string('field_description');
-            $table->integer('MAX_POINTS');
+        Schema::create('points', function (Blueprint $table) {
+            $table->id();
+            $table->integer('reached_points');
+            $table->foreignId('FK_PCP');
+            $table->foreignId('FK_FLD');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateFieldTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('field');
+        Schema::dropIfExists('points');
     }
 }

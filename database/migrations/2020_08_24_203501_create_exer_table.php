@@ -14,9 +14,10 @@ class CreateExerTable extends Migration
     public function up()
     {
         Schema::create('exer', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('exer_name');
             $table->string('escaped_exer_name');
+            $table->timestamps();
         });
     }
 

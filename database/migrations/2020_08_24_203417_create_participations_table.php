@@ -14,13 +14,14 @@ class CreateParticipationsTable extends Migration
     public function up()
     {
         Schema::create('participations', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('scout_name')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->boolean('passed')->nullable();
-            $table->integer('FK_GRP')->unsigned()->index();
-            $table->integer('FK_EXER')->unsigned()->index();
+            $table->foreignId('FK_GRP');
+            $table->foreignId('FK_EXER');
+            $table->timestamps();
         });
     }
 
