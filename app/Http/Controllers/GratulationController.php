@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\helper\helper;
+use App\Helper\Helper;
 use DB;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 use PDF;
+use Illuminate\Http\Request;
 
 class GratulationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function index()
     {
@@ -22,7 +26,9 @@ class GratulationController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     *
+     * @return Response
      */
     public function create(Request $request)
     {
@@ -39,7 +45,7 @@ class GratulationController extends Controller
 
             $text = str_replace('@exer', $user->exer_name, $text);
 
-            $text = helper::br2nl($text);
+            $text = Helper::br2nl($text);
 
             PDF::SetTitle(config('app.name'));
             PDF::SetFont('Arial', 'B', 18);

@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use DB;
 use Hash;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class UsersController extends Controller
 {
@@ -13,7 +18,7 @@ class UsersController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function index(Request $request)
     {
@@ -39,7 +44,7 @@ class UsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function create()
     {
@@ -51,9 +56,9 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -83,7 +88,7 @@ class UsersController extends Controller
      *
      * @param $uid
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function edit($uid)
     {
@@ -96,10 +101,10 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param                          $uid
      *
-     * @return void
+     * @return RedirectResponse
      */
     public function update(Request $request, $uid)
     {
@@ -133,7 +138,7 @@ class UsersController extends Controller
      *
      * @param $uid
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy($uid)
     {

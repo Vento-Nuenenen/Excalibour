@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class PointsController extends Controller
 {
@@ -12,14 +17,14 @@ class PointsController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function index(Request $request)
     {
         $points = DB::table('points')->select('points.id', 'participations.scout_name', 'participations.first_name', 'participations.last_name', 'field.field_name', 'points.reached_points', 'group.group_name', 'MAX_POINTS')
-                ->join('participations', 'points.FK_PCP', '=', 'participations.id')
-                ->join('field', 'points.FK_FLD', '=', 'field.id')
-                ->join('group', 'participations.FK_GRP', '=', 'group.id')->get();
+            ->join('participations', 'points.FK_PCP', '=', 'participations.id')
+            ->join('field', 'points.FK_FLD', '=', 'field.id')
+            ->join('group', 'participations.FK_GRP', '=', 'group.id')->get();
 
         return view('points.points', ['points' => $points]);
     }
@@ -27,7 +32,7 @@ class PointsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return void
+     * @return Application|Factory|View|void
      */
     public function create()
     {
@@ -40,9 +45,9 @@ class PointsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return void
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -60,7 +65,7 @@ class PointsController extends Controller
      *
      * @param $poid
      *
-     * @return void
+     * @return Application|Factory|View|void
      */
     public function edit($poid)
     {
@@ -74,10 +79,10 @@ class PointsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param                          $poid
+     * @param Request $request
+     * @param $poid
      *
-     * @return void
+     * @return RedirectResponse
      */
     public function update(Request $request, $poid)
     {
@@ -101,7 +106,7 @@ class PointsController extends Controller
      *
      * @param $poid
      *
-     * @return void
+     * @return RedirectResponse
      */
     public function destroy($poid)
     {

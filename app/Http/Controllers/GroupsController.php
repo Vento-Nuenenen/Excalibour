@@ -3,14 +3,21 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class GroupsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     *
+     * @return Application|Factory|Response|View
      */
     public function index(Request $request)
     {
@@ -35,7 +42,7 @@ class GroupsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function create()
     {
@@ -47,9 +54,9 @@ class GroupsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
-     * @return void
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -66,7 +73,7 @@ class GroupsController extends Controller
      *
      * @param $gid
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|Response|View
      */
     public function edit($gid)
     {
@@ -79,10 +86,10 @@ class GroupsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      * @param $gid
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $gid)
     {
@@ -99,7 +106,7 @@ class GroupsController extends Controller
      *
      * @param $gid
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
     public function destroy($gid)
     {
