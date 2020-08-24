@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'SuccessController@index')->name('index');
+Route::redirect('/', '/home', 301);
 
 Auth::routes();
 
