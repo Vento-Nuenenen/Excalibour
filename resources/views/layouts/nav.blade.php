@@ -9,25 +9,21 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            @if(!Auth::guest())
-                <!-- Left Side Of Navbar -->
+        @if(!Auth::guest())
+            <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link {{ Request::is('success/')}}" href="{{ url('/success') }}">
-                            Success
+                            Übersicht
                         </a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Konfig
+                            Konfiguration
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ Request::is('participations/')}}" href="{{ url('/participations') }}">
-                                Teilnehmer
-                            </a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item {{ Request::is('users/')}}" href="{{ url('/users') }}">
                                 Benutzer
                             </a>
@@ -36,6 +32,9 @@
                                 Gruppen
                             </a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item {{ Request::is('participations/')}}" href="{{ url('/participations') }}">
+                                Teilnehmer
+                            </a>
                             <a class="dropdown-item {{ Request::is('fields/')}}" href="{{ url('/fields') }}">
                                 Posten
                             </a>
@@ -45,9 +44,10 @@
                             </a>
                         </div>
                     </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Info
+                            Druckerei
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -57,9 +57,9 @@
                         </div>
                     </li>
                 </ul>
-            @endif
+        @endif
 
-            <!-- Right Side Of Navbar -->
+        <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
