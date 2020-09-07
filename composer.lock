@@ -8281,20 +8281,20 @@
         },
         {
             "name": "sven/artisan-view",
-            "version": "v3.3.1",
+            "version": "v3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/svenluijten/artisan-view.git",
-                "reference": "42cfe1f443a56af4bb3c92316632e485292abc09"
+                "reference": "2c2cdbebf033ef068ae9bb719ba66e103c81e53c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/42cfe1f443a56af4bb3c92316632e485292abc09",
-                "reference": "42cfe1f443a56af4bb3c92316632e485292abc09",
+                "url": "https://api.github.com/repos/svenluijten/artisan-view/zipball/2c2cdbebf033ef068ae9bb719ba66e103c81e53c",
+                "reference": "2c2cdbebf033ef068ae9bb719ba66e103c81e53c",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.4 || ^6.0 || ^7.0",
+                "laravel/framework": "^5.4 || ^6.0 || ^7.0 || ^8.0",
                 "php": "^7.1"
             },
             "require-dev": {
@@ -8334,7 +8334,7 @@
                 "templates",
                 "views"
             ],
-            "time": "2020-03-04T12:00:10+00:00"
+            "time": "2020-09-07T07:19:03+00:00"
         },
         {
             "name": "symfony/debug",
