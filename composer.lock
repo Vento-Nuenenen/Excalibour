@@ -264,16 +264,16 @@
         },
         {
             "name": "codedge/laravel-fpdf",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/codedge/laravel-fpdf.git",
-                "reference": "3e14a913cd00652334c3870f380f1aa834a30a0f"
+                "reference": "ca825a75eecfab9e1e348d7643e4d46630b4d3c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/3e14a913cd00652334c3870f380f1aa834a30a0f",
-                "reference": "3e14a913cd00652334c3870f380f1aa834a30a0f",
+                "url": "https://api.github.com/repos/codedge/laravel-fpdf/zipball/ca825a75eecfab9e1e348d7643e4d46630b4d3c9",
+                "reference": "ca825a75eecfab9e1e348d7643e4d46630b4d3c9",
                 "shasum": ""
             },
             "require": {
@@ -281,8 +281,8 @@
                 "php": ">=7.3|^8.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0",
-                "phpunit/phpunit": "^8.0|^9.0"
+                "orchestra/testbench": "^6.7.2",
+                "phpunit/phpunit": "^9.5.0"
             },
             "type": "library",
             "extra": {
@@ -322,7 +322,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-24T11:00:42+00:00"
+            "time": "2020-12-31T14:56:56+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
