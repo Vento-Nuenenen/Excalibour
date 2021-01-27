@@ -10,16 +10,16 @@
         "pfadi"
     ],
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.3.0",
         "appstract/laravel-opcache": "^4.0",
         "codedge/laravel-fpdf": "^1.7",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "kouz/laravel-airbrake": "^0.7",
-        "laravel/framework": "^7.30",
+        "laravel/framework": "^8.0",
         "laravel/tinker": "^2.6",
-        "laravel/ui": "^2.5",
+        "laravel/ui": "^3.0",
         "laravelcollective/html": "^6.2"
     },
     "require-dev": {
