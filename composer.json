@@ -14,7 +14,7 @@
         "appstract/laravel-opcache": "4.0.2",
         "codedge/laravel-fpdf": "1.7.2",
         "fideloper/proxy": "4.4.1",
-        "fruitcake/laravel-cors": "2.0.3",
+        "fruitcake/laravel-cors": "2.0.4",
         "guzzlehttp/guzzle": "7.3.0",
         "kouz/laravel-airbrake": "0.7.0",
         "laravel/framework": "8.38.0",
